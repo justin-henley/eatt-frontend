@@ -8,7 +8,7 @@ function App() {
 
   const getData = async () => {
     const result = await fetch(
-      'https://menu-translation-mern.herokuapp.com/dishes',
+      'https://menu-translation-backend.herokuapp.com/dishes',
       {
         method: 'GET',
       }
