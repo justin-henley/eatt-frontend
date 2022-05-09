@@ -16,6 +16,7 @@ export default DishDisplay;
 const Display = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 90vw;
   margin: 2em auto 2em auto;
 
