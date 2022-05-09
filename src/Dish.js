@@ -16,25 +16,25 @@ const Dish = ({ item }) => {
 
   // Choose the meat icon
   switch (item.meat) {
-    case 'Beef':
+    case 'beef':
       meatIcon = <BeefIcon />;
       break;
-    case 'Pork':
+    case 'pork':
       meatIcon = <PorkIcon />;
       break;
-    case 'Bird':
+    case 'bird':
       meatIcon = <BirdIcon />;
       break;
-    case 'Fish':
+    case 'fish':
       meatIcon = <FishIcon />;
       break;
-    case 'Veg':
+    case 'veg':
       meatIcon = <VegIcon />;
       break;
-    case 'Other':
+    case 'other':
       categoryIcon = <OtherIcon />;
       break;
-    case 'Unknown':
+    case 'unknown':
       categoryIcon = <UnknownIcon />;
       break;
     default:
