@@ -42,25 +42,25 @@ const Dish = ({ item }) => {
 
   // Choose the category icon
   switch (item.category) {
-    case 'Rice':
+    case 'rice':
       categoryIcon = <RiceIcon />;
       break;
-    case 'Noodle':
+    case 'noodle':
       categoryIcon = <NoodleIcon />;
       break;
-    case 'Bread':
+    case 'bread':
       categoryIcon = <BreadIcon />;
       break;
-    case 'Soup':
+    case 'soup':
       categoryIcon = <SoupIcon />;
       break;
-    case 'Drink':
+    case 'drink':
       categoryIcon = <DrinkIcon />;
       break;
-    case 'Other':
+    case 'other':
       categoryIcon = <OtherIcon />;
       break;
-    case 'Unknown':
+    case 'unknown':
       categoryIcon = <UnknownIcon />;
       break;
     default:
