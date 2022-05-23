@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 //import styled from 'styled-components';
 import DishAll from './DishAll';
 import DishSearch from './DishSearch';
+import Welcome from './Welcome';
 
 function App() {
   /*return (
@@ -34,7 +35,7 @@ function App() {
         {/* A <Routes> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
         <Routes>
-          <Route path="/welcome" element={<p>welcome</p>} />
+          <Route path="/welcome" element={<Welcome />} />
           <Route path="/dishes" element={<DishAll />} />
           <Route path="/search" element={<DishSearch />} />
           <Route path="/" element={<h1>index</h1>} />
