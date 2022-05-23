@@ -6,7 +6,7 @@ import DishDisplay from './DishDisplay';
 // Also its a bit flaky
 // Maybe change to a submit button, OR cache all results locally and search the cache
 
-function App() {
+function DishSearch() {
   // Search results
   const [data, setData] = useState();
 
@@ -55,4 +55,4 @@ function App() {
   );
 }
 
-export default App;
+export default DishSearch;
