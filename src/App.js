@@ -21,13 +21,10 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/welcome">Welcome</Link>
-            </li>
-            <li>
               <Link to="/dishes">Show All Dishes</Link>
             </li>
             <li>
-              <Link to="/search">Search by English Name</Link>
+              <Link to="/search">Search Dishes</Link>
             </li>
           </ul>
         </nav>
@@ -35,10 +32,9 @@ function App() {
         {/* A <Routes> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
         <Routes>
-          <Route path="/welcome" element={<Welcome />} />
           <Route path="/dishes" element={<DishAll />} />
           <Route path="/search" element={<DishSearch />} />
-          <Route path="/" element={<h1>index</h1>} />
+          <Route path="/" element={<Welcome />} />
         </Routes>
       </div>
     </Router>
