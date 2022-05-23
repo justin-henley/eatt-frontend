@@ -81,17 +81,17 @@ function DishSearch() {
           <div>
             <input
               type="radio"
-              id="other"
+              id="zh-pinyin"
               name="search-by"
-              value="other"
+              value="pinyinNoDiacritics"
               onClick={handleClick}
             />
-            <label htmlFor="other">Unused</label>
+            <label htmlFor="pinyin">Hanyu Pinyin</label>
           </div>
         </fieldset>
         <input
           type="text"
-          placeholder="English Name"
+          placeholder="Search"
           value={searchTerm}
           onInput={handleInput}
         />
