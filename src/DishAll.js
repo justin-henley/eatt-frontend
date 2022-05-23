@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 //import styled from 'styled-components';
 import DishDisplay from './DishDisplay';
 
-function App() {
+function DishAll() {
   const [data, setData] = useState();
 
   const getData = async () => {
@@ -22,7 +22,12 @@ function App() {
     getData();
   }, []);
 
-  return <DishDisplay dishes={data} />;
+  return (
+    <div>
+      <header className="App-header">All Dishes</header>
+      <DishDisplay dishes={data} />
+    </div>
+  );
 }
 
-export default App;
+export default DishAll;
