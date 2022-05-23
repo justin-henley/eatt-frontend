@@ -17,7 +17,7 @@ const Welcome = () => {
       <h1>Welcome to the Menu Translation website!</h1>
       <p>
         This website is the interactive front-end for the Menu Translation
-        database, a repository of Taiwanese dishes with their English names
+        database, a repository of Taiwanese dishes with their English names.
       </p>
 
       <Dish item={demoDish} />
