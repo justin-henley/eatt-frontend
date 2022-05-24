@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 //import styled from 'styled-components';
 import DishDisplay from './DishDisplay';
+import styles from './DishSearch.module.css';
 
 // TODO onChange seems like it generates a crazy number of db requests
 // Also its a bit flaky
@@ -49,51 +50,29 @@ function DishSearch() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">Search Dishes</header>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <fieldset>
-          <legend>Search by:</legend>
+    <div>
+      <h1 className={styles.title}>Search Dishes</h1>
+      <form className={styles.searchForm} onSubmit={(e) => e.preventDefault()}>
+        {/* <label htmlFor="selectType" className={styles.typeLabel}>
+          Search By:
+        </label> */}
+        <select
+          id="selectType"
+          className={styles.selectOptions}
+          value={searchType}
+          onChange={handleClick}
+        >
+          <option value="en">English</option>
+          <option value="zhtw">Chinese</option>
+          <option value="pinyinNoDiacritics">Hanyu Pinyin</option>
+        </select>
 
-          <div>
-            <input
-              type="radio"
-              id="en-name"
-              name="search-by"
-              value="en"
-              onClick={handleClick}
-              defaultChecked
-            />
-            <label htmlFor="en-name">English name</label>
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              id="zh-name"
-              name="search-by"
-              value="zhtw"
-              onClick={handleClick}
-            />
-            <label htmlFor="zh-name">Chinese Name</label>
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              id="zh-pinyin"
-              name="search-by"
-              value="pinyinNoDiacritics"
-              onClick={handleClick}
-            />
-            <label htmlFor="pinyin">Hanyu Pinyin</label>
-          </div>
-        </fieldset>
         <input
           type="text"
           placeholder="Search"
           value={searchTerm}
           onInput={handleInput}
+          className={styles.search}
         />
       </form>
 
