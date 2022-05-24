@@ -21,7 +21,7 @@ li {
   background-color: teal;
   color: #fff;
 }
-.nav-links a {
+.navLinks a {
   color: #fff;
 }
 /* LOGO */
@@ -80,4 +80,9 @@ input[type='checkbox'] {
   .hamburger {
     display: block;
   }
+}
+
+.bodyArea {
+  width: 90%;
+  margin: 1em;
 }
