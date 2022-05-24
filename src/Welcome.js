@@ -6,7 +6,7 @@ const Welcome = () => {
   const demoDish = {
     meat: 'unknown',
     category: 'unknown',
-    zhtw: 'Traditional Chinese name',
+    zhtw: 'Chinese',
     pinyin: 'Hanyu Pinyin',
     en: 'English translation',
   };
