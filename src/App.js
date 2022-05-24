@@ -1,4 +1,4 @@
-import './App.css';
+import styles from './App.module.css'; // Import css modules stylesheet as styles
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 //import { useState, useEffect } from 'react';
 //import styled from 'styled-components';
@@ -10,18 +10,18 @@ function App() {
   return (
     <Router>
       <div>
-        <nav class="navbar">
-          <div class="logo">
+        <nav className={styles.navbar}>
+          <div className={styles.logo}>
             <Link to="/">Menu Translation</Link>
           </div>
 
-          <ul class="nav-links">
+          <ul className={styles.navLinks}>
             <input type="checkbox" id="checkbox_toggle" />
-            <label for="checkbox_toggle" class="hamburger">
+            <label for="checkbox_toggle" className={styles.hamburger}>
               &#9776;
             </label>
 
-            <div class="menu">
+            <div className={styles.menu}>
               <li>
                 <Link to="/">Home</Link>
               </li>
@@ -34,12 +34,13 @@ function App() {
             </div>
           </ul>
         </nav>
-
-        <Routes>
-          <Route path="/dishes" element={<DishAll />} />
-          <Route path="/search" element={<DishSearch />} />
-          <Route path="/" element={<Welcome />} />
-        </Routes>
+        <div className={styles.bodyArea}>
+          <Routes>
+            <Route path="/dishes" element={<DishAll />} />
+            <Route path="/search" element={<DishSearch />} />
+            <Route path="/" element={<Welcome />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );
