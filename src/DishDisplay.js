@@ -17,11 +17,11 @@ const Display = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 90vw;
+  width: 100%;
   margin: 2em auto 2em auto;
 
   @media only screen and (min-width: 768px) {
-    width: 100vw;
+    width: 95%;
     max-width: 1200px;
   }
 `;
