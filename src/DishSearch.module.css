@@ -1,0 +1,36 @@
+.title {
+  color: black;
+  text-align: center;
+  margin: 1em;
+}
+
+.search {
+  /* color: green; */
+  font-size: 2em;
+  width: 100%;
+  border-radius: 0px 10px 10px 0px;
+  padding-left: 0.5em;
+}
+
+.selectOptions {
+  color: black;
+  background-color: white;
+  font-size: 2em;
+  width: 7em;
+  appearance: menulist-button;
+  border: 2px solid gray;
+  border-radius: 10px 0 0 10px;
+  padding: 0 0 0 0em;
+  text-align: center;
+}
+
+/* .typeLabel {
+  font-size: 1em;
+} */
+
+.searchForm {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin: auto;
+}
