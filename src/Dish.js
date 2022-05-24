@@ -15,65 +15,50 @@ const Dish = ({ item }) => {
   let meatIcon, categoryIcon;
 
   // Choose the meat icon
-  switch (item.meat) {
-    case 'beef':
-      meatIcon = <BeefIcon />;
-      break;
-    case 'pork':
-      meatIcon = <PorkIcon />;
-      break;
-    case 'bird':
-      meatIcon = <BirdIcon />;
-      break;
-    case 'fish':
-      meatIcon = <FishIcon />;
-      break;
-    case 'veg':
-      meatIcon = <VegIcon />;
-      break;
-    case 'other':
-      categoryIcon = <OtherIcon />;
-      break;
-    case 'unknown':
-      categoryIcon = <UnknownIcon />;
-      break;
-    default:
-  }
+  meatIcon =
+    item.meat === 'beef' ? (
+      <BeefIcon />
+    ) : item.meat === 'pork' ? (
+      <PorkIcon />
+    ) : item.meat === 'bird' ? (
+      <BirdIcon />
+    ) : item.meat === 'fish' ? (
+      <FishIcon />
+    ) : item.meat === 'veg' ? (
+      <VegIcon />
+    ) : item.meat === 'other' ? (
+      <OtherIcon />
+    ) : item.meat === 'unknown' ? (
+      <UnknownIcon />
+    ) : null;
 
   // Choose the category icon
-  switch (item.category) {
-    case 'rice':
-      categoryIcon = <RiceIcon />;
-      break;
-    case 'noodle':
-      categoryIcon = <NoodleIcon />;
-      break;
-    case 'bread':
-      categoryIcon = <BreadIcon />;
-      break;
-    case 'soup':
-      categoryIcon = <SoupIcon />;
-      break;
-    case 'drink':
-      categoryIcon = <DrinkIcon />;
-      break;
-    case 'other':
-      categoryIcon = <OtherIcon />;
-      break;
-    case 'unknown':
-      categoryIcon = <UnknownIcon />;
-      break;
-    default:
-  }
+  categoryIcon =
+    item.category === 'rice' ? (
+      <RiceIcon />
+    ) : item.category === 'noodle' ? (
+      <NoodleIcon />
+    ) : item.category === 'bread' ? (
+      <BreadIcon />
+    ) : item.category === 'soup' ? (
+      <SoupIcon />
+    ) : item.category === 'drink' ? (
+      <DrinkIcon />
+    ) : item.category === 'other' ? (
+      <OtherIcon />
+    ) : item.category === 'unknown' ? (
+      <UnknownIcon />
+    ) : null;
 
   return (
     <Tile>
       <h1>{item.zhtw}</h1>
       <h3>{item.pinyin}</h3>
       <p>{item.en}</p>
-
-      {meatIcon}
-      {categoryIcon}
+      <div>
+        {meatIcon}
+        {categoryIcon}
+      </div>
     </Tile>
   );
 };
@@ -82,8 +67,13 @@ export default Dish;
 
 // Dish tile style
 const Tile = styled.div`
-  width: 300px;
+  width: 50%;
+  max-width: 200px;
+  padding: 1em;
   border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 // Styling for Meat and Category Icons
