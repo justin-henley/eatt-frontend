@@ -19,9 +19,10 @@ const Display = styled.div`
   flex-wrap: wrap;
   width: 100%;
   margin: 2em auto 2em auto;
+  justify-content: center;
 
   @media only screen and (min-width: 768px) {
-    width: 95%;
+    width: 100%;
     max-width: 1200px;
   }
 `;
