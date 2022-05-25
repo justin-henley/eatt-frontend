@@ -24,7 +24,7 @@ function DishAll() {
 
   return (
     <div>
-      <h1 className="App-header">All Dishes</h1>
+      <h1 className="App-header">Dishes</h1>
       <DishDisplay dishes={data} />
     </div>
   );
