@@ -4,8 +4,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  background-color: teal;
+  background-color: #ee5a02;
   color: #fff;
+  /* TODO Hacky stcky navbar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .navLinks a {
   color: #fff;
@@ -69,6 +74,7 @@ input[type='checkbox'] {
 }
 
 .bodyArea {
-  width: 90%;
-  margin: 1em auto;
+  width: 100%;
+  /* TODO Hacky sticky navbar */
+  margin: 72px auto;
 }
