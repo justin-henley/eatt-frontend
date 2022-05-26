@@ -10,6 +10,7 @@ import {
   GiBowlOfRice,
   GiBubblingBowl,
   GiNoodles,
+  GiRawEgg,
 } from 'react-icons/gi';
 import { FaFish, FaBreadSlice, FaQuestionCircle } from 'react-icons/fa';
 
@@ -43,6 +44,7 @@ const icons = {
     bird: <GiChicken />,
     fish: <FaFish />,
     veg: <GiBroccoli />,
+    egg: <GiRawEgg />,
     other: <FaQuestionCircle />,
     unknown: <FaQuestionCircle />,
   },
