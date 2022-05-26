@@ -1,0 +1,54 @@
+.block1 {
+  background-color: white;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+}
+.block2 {
+  background-color: white;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+}
+img {
+  width: 100%;
+}
+.block1 p,
+.block2 p {
+  font-family: 'Permanent Marker', cursive;
+  font-family: 'Kaushan Script', cursive;
+
+  /* color: black; */
+  font-size: 48px;
+  width: 100%;
+  padding: 0 0.5em 0 0.5em;
+}
+
+.call {
+  color: #ee5a02;
+  text-align: left;
+}
+.response {
+  text-align: right;
+}
+.block1 div,
+.block2 div {
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  .block1 {
+    flex-direction: row-reverse;
+  }
+  .block2 {
+    flex-direction: row;
+  }
+
+  img {
+    width: 50%;
+  }
+  .block1 p,
+  .block2 p {
+    font-size: 72px;
+  }
+}
