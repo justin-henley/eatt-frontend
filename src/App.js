@@ -28,7 +28,7 @@ function App() {
       <div>
         <nav className={styles.navbar}>
           <div className={styles.logo}>
-            <Link to={PageRecords.home.link}>Menu Translation</Link>
+            <Link to={PageRecords.home.link}>streat</Link>
           </div>
 
           <ul className={styles.navLinks}>
@@ -78,6 +78,13 @@ function App() {
           </Routes>
         </div>
       </div>
+      <footer>
+        Favicon by <a href="https://icons8.com/">icons8</a>
+        <a href="https://www.freepik.com/photos/pearl-tea">
+          <br />
+          Pearl tea photo created by tawatchai07 - www.freepik.com
+        </a>
+      </footer>
     </Router>
   );
 }
