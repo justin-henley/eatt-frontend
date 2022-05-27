@@ -1,11 +1,11 @@
 .block1 {
-  background-color: white;
+  background-color: var(--page-background);
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
 }
 .block2 {
-  background-color: white;
+  background-color: var(--page-background);
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
@@ -25,7 +25,7 @@ img {
 }
 
 .call {
-  color: #ee5a02;
+  color: var(--text-flash);
   text-align: left;
 }
 .response {

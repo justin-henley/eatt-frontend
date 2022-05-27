@@ -1,5 +1,5 @@
 .title {
-  color: black;
+  color: var(--text-regular);
   text-align: center;
   margin: 1em;
 }
@@ -13,12 +13,12 @@
 }
 
 .selectOptions {
-  color: black;
-  background-color: white;
+  color: var(--text-regular);
+  background-color: var(--page-background);
   font-size: 2em;
   width: 7em;
   appearance: menulist-button;
-  border: 2px solid gray;
+  border: 2px solid var(--dish-border-color);
   border-radius: 10px 0 0 10px;
   padding: 0 0 0 0em;
   text-align: center;
