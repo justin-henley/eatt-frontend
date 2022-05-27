@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Permanent+Marker&display=swap');
 
+/* Theme */
+:root {
+  --navbar-color: #ee5a02;
+  --navbar-dropdown: #ee5a02;
+  --navbar-hover: blue;
+  --icon-color: white;
+  --icon-background: #ee5a02;
+  --text-regular: black;
+  --text-light: gray;
+  --text-flash: #ee5a02;
+  --text-navbar: white;
+  --text-logo: white;
+  --page-background: white;
+  --dish-border-color: gray;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
