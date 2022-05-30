@@ -42,7 +42,7 @@ const Welcome = () => {
           alt="Milk Tea"
           height="auto"
         />
-        <Dish item={drinkTile} />
+        <Dish item={drinkTile} className={styles.dish} />
       </div>
       {/* <h1>Welcome to the Menu Translation website!</h1>
       <p>
