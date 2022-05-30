@@ -11,12 +11,12 @@ const Welcome = () => {
     en: 'Pork Belly Bun',
   };
 
-  const drinkTile = {
+  /* const drinkTile = {
     category: 'drink',
     zhtw: '珍珠奶茶',
     pinyin: 'zhēnzhū nǎichá',
     en: 'Bubble Milk Tea',
-  };
+  }; */
 
   // The welcome page
   return (
