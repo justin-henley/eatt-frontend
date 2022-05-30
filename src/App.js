@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import DishAll from './DishAll';
 import DishSearch from './DishSearch';
 import Welcome from './Welcome';
+import { Container, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
+import LinkContainer from 'react-router-bootstrap/LinkContainer';
 
 class PageRecord extends Object {
   constructor(name, link, element) {
@@ -25,59 +27,52 @@ const PageRecords = {
 function App() {
   return (
     <Router>
-      <div>
-        <nav className={styles.navbar}>
-          <div className={styles.logo}>
-            <Link to={PageRecords.home.link}>parakeat</Link>
-          </div>
+      <Navbar bg="light" expand="lg" sticky="top" collapseOnSelect>
+        <Container>
+          <LinkContainer to={PageRecords.home.link}>
+            <Navbar.Brand>Parakeat</Navbar.Brand>
+          </LinkContainer>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <LinkContainer to="/">
+                <Nav.Link>Home</Nav.Link>
+              </LinkContainer>
 
-          <ul className={styles.navLinks}>
-            <input type="checkbox" id="checkbox_toggle" />
-            <label htmlFor="checkbox_toggle" className={styles.hamburger}>
-              &#9776;
-            </label>
+              {/* Contains the links to all dish-related pages */}
+              <NavDropdown title="Dishes" id="nav-dropdown">
+                <LinkContainer to={PageRecords.dishes.link}>
+                  <NavDropdown.Item>{PageRecords.dishes.name}</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to={PageRecords.search.link}>
+                  <NavDropdown.Item>{PageRecords.search.name}</NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Divider />
+                <LinkContainer to={PageRecords.adv.link}>
+                  <NavDropdown.Item>{PageRecords.adv.name}</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
-            <div className={styles.menu}>
-              <li>
-                <Link to={PageRecords.home.link}>{PageRecords.home.name}</Link>
-              </li>
-              <li>
-                <Link to={PageRecords.dishes.link}>
-                  {PageRecords.dishes.name}
-                </Link>
-              </li>
-              <li>
-                <Link to={PageRecords.search.link}>
-                  {PageRecords.search.name}
-                </Link>
-              </li>
-              <li>
-                <Link to={PageRecords.adv.link}>{PageRecords.adv.name}</Link>
-              </li>
-            </div>
-          </ul>
-        </nav>
-        <div className={styles.bodyArea}>
-          <Routes>
-            <Route
-              path={PageRecords.adv.link}
-              element={PageRecords.adv.element}
-            />
-            <Route
-              path={PageRecords.dishes.link}
-              element={PageRecords.dishes.element}
-            />
-            <Route
-              path={PageRecords.search.link}
-              element={PageRecords.search.element}
-            />
-            <Route
-              path={PageRecords.home.link}
-              element={PageRecords.home.element}
-            />
-          </Routes>
-        </div>
-      </div>
+      <Routes className={styles.bodyArea}>
+        <Route path={PageRecords.adv.link} element={PageRecords.adv.element} />
+        <Route
+          path={PageRecords.dishes.link}
+          element={PageRecords.dishes.element}
+        />
+        <Route
+          path={PageRecords.search.link}
+          element={PageRecords.search.element}
+        />
+        <Route
+          path={PageRecords.home.link}
+          element={PageRecords.home.element}
+        />
+      </Routes>
+
       <footer>
         Favicon by <a href="https://icons8.com/">icons8</a>
         <a href="https://www.freepik.com/photos/pearl-tea">
