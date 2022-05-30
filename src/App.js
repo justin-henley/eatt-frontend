@@ -1,11 +1,11 @@
 import styles from './App.module.css'; // Import css modules stylesheet as styles
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //import { useState, useEffect } from 'react';
 //import styled from 'styled-components';
 import DishAll from './DishAll';
 import DishSearch from './DishSearch';
 import Welcome from './Welcome';
-import { Container, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import LinkContainer from 'react-router-bootstrap/LinkContainer';
 
 class PageRecord extends Object {
