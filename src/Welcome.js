@@ -30,7 +30,9 @@ const Welcome = () => {
           src="./img/pexels-adrian-dorobantu-2089712.jpg"
           height="auto"
         />
-        <Dish item={eatTile} />
+        <div className={styles.dish}>
+          <Dish item={eatTile} />{' '}
+        </div>
       </div>
       <div className={styles.block2}>
         <h1 className={styles.shout}>
@@ -42,7 +44,9 @@ const Welcome = () => {
           alt="Milk Tea"
           height="auto"
         />
-        <Dish item={drinkTile} className={styles.dish} />
+        <div className={styles.dish}>
+          <Dish item={drinkTile} />{' '}
+        </div>
       </div>
       {/* <h1>Welcome to the Menu Translation website!</h1>
       <p>
