@@ -1,35 +1,29 @@
 .block1 {
   background-color: var(--page-background);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   width: 100%;
 }
 .block2 {
   background-color: var(--page-background);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   width: 100%;
 }
 img {
   width: 100%;
 }
-.block1 p,
-.block2 p {
+
+.flash {
+  color: var(--text-flash);
+  text-transform: uppercase;
+}
+.shout,
+.flash {
+  text-align: center;
   font-family: 'Permanent Marker', cursive;
   font-family: 'Kaushan Script', cursive;
-
-  /* color: black; */
-  font-size: 48px;
-  width: 100%;
-  padding: 0 0.5em 0 0.5em;
-}
-
-.call {
-  color: var(--text-flash);
-  text-align: left;
-}
-.response {
-  text-align: right;
+  font-size: 36px;
 }
 .block1 div,
 .block2 div {
@@ -37,18 +31,11 @@ img {
 }
 
 @media (min-width: 768px) {
-  .block1 {
-    flex-direction: row-reverse;
-  }
-  .block2 {
-    flex-direction: row;
-  }
-
   img {
     width: 50%;
   }
-  .block1 p,
-  .block2 p {
+  .shout,
+  .flash {
     font-size: 72px;
   }
 }

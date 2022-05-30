@@ -22,28 +22,27 @@ const Welcome = () => {
   return (
     <div>
       <div className={styles.block1}>
+        <h1 className={styles.shout}>
+          <span className={styles.flash}>Eat</span> your heart out
+        </h1>
         <img
           alt="Gua Bao"
           src="./img/pexels-adrian-dorobantu-2089712.jpg"
           height="auto"
         />
-        <div>
-          <p className={styles.call}>EAT</p>
-          <p className={styles.response}>your heart out</p>
-          <Dish item={eatTile} />
-        </div>
+        <Dish item={eatTile} />
       </div>
       <div className={styles.block2}>
+        <h1 className={styles.shout}>
+          <span className={styles.flash}>Drink</span> and be merry.
+        </h1>
+
         <img
           src="./img/taiwan-pearl-milk-tea-with-bubble-ximending-taipei-taiwan.jpg"
           alt="Milk Tea"
           height="auto"
         />
-        <div>
-          <p className={styles.call}>DRINK</p>
-          <p className={styles.response}>and be merry.</p>
-          <Dish item={drinkTile} />
-        </div>
+        <Dish item={drinkTile} />
       </div>
       {/* <h1>Welcome to the Menu Translation website!</h1>
       <p>
