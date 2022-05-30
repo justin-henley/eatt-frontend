@@ -16,3 +16,12 @@
 .navDropdown {
   background-color: var(--navbar-color) !important;
 }
+
+footer,
+footer a {
+  color: white;
+  background-color: black;
+  font-family: sans-serif;
+  font-size: 12px;
+  text-align: center;
+}

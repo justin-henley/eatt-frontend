@@ -43,7 +43,7 @@ function App() {
       >
         <Container>
           <LinkContainer to={PageRecords.home.link} className={styles.navLogo}>
-            <Navbar.Brand>eatttttt</Navbar.Brand>
+            <Navbar.Brand>eatt</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -123,11 +123,13 @@ function App() {
       </Routes>
 
       <footer>
-        Favicon by <a href="https://icons8.com/">icons8</a>
-        <a href="https://www.freepik.com/photos/pearl-tea">
+        Favicon courtesy of <a href="https://icons8.com/">icons8</a>
+        {/* <a href="https://www.freepik.com/photos/pearl-tea">
           <br />
           Pearl tea photo created by tawatchai07 - www.freepik.com
-        </a>
+        </a> */}
+        <br />
+        Eatt &copy;2022 Justin Henley
       </footer>
     </Router>
   );
