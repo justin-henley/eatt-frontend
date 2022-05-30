@@ -31,10 +31,10 @@ const Welcome = () => {
           height="auto"
         />
         <div className={styles.dish}>
-          <Dish item={eatTile} />{' '}
+          <Dish item={eatTile} className={styles.food} />{' '}
         </div>
       </div>
-      <div className={styles.block2}>
+      {/* <div className={styles.block2}>
         <h1 className={styles.shout}>
           <span className={styles.flash}>Drink</span> and be merry.
         </h1>
@@ -47,7 +47,7 @@ const Welcome = () => {
         <div className={styles.dish}>
           <Dish item={drinkTile} />{' '}
         </div>
-      </div>
+      </div> */}
       {/* <h1>Welcome to the Menu Translation website!</h1>
       <p>
         This website is the interactive front-end for the Menu Translation
