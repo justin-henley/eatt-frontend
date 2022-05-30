@@ -19,37 +19,76 @@ class PageRecord extends Object {
 
 const PageRecords = {
   home: new PageRecord('Home', '/', <Welcome />),
-  dishes: new PageRecord('Show All Dishes', '/dishes', <DishAll />),
-  search: new PageRecord('Search Dishes', '/search', <DishSearch />),
-  adv: new PageRecord('Advanced Search', '/adv-search', <Welcome />),
+  dishes: {
+    all: new PageRecord('Show All Dishes', '/dishes', <DishAll />),
+    search: new PageRecord('Search Dishes', '/search-dishes', <DishSearch />),
+    adv: new PageRecord('Advanced Search', '/adv-search', <Welcome />),
+  },
+
+  menus: {
+    all: new PageRecord('Show All Menus', '/menus', <DishAll />),
+    search: new PageRecord('Search Menus', '/search-dishes', <DishSearch />),
+    adv: new PageRecord('Advanced Search', '/adv-search', <Welcome />),
+  },
 };
 
 function App() {
   return (
     <Router>
-      <Navbar bg="light" expand="lg" sticky="top" collapseOnSelect>
+      <Navbar
+        expand="lg"
+        sticky="top"
+        collapseOnSelect
+        className={styles.navbar}
+      >
         <Container>
-          <LinkContainer to={PageRecords.home.link}>
-            <Navbar.Brand>Parakeat</Navbar.Brand>
+          <LinkContainer to={PageRecords.home.link} className={styles.navLogo}>
+            <Navbar.Brand>eatttttt</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <LinkContainer to="/">
+            <Nav>
+              <LinkContainer to="/" className={styles.navText}>
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
 
               {/* Contains the links to all dish-related pages */}
-              <NavDropdown title="Dishes" id="nav-dropdown">
-                <LinkContainer to={PageRecords.dishes.link}>
-                  <NavDropdown.Item>{PageRecords.dishes.name}</NavDropdown.Item>
+              <NavDropdown title="Dishes">
+                <LinkContainer to={PageRecords.dishes.all.link}>
+                  <NavDropdown.Item>
+                    {PageRecords.dishes.all.name}
+                  </NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to={PageRecords.search.link}>
-                  <NavDropdown.Item>{PageRecords.search.name}</NavDropdown.Item>
+                <LinkContainer to={PageRecords.dishes.search.link}>
+                  <NavDropdown.Item>
+                    {PageRecords.dishes.search.name}
+                  </NavDropdown.Item>
                 </LinkContainer>
                 <NavDropdown.Divider />
-                <LinkContainer to={PageRecords.adv.link}>
-                  <NavDropdown.Item>{PageRecords.adv.name}</NavDropdown.Item>
+                <LinkContainer to={PageRecords.dishes.adv.link}>
+                  <NavDropdown.Item>
+                    {PageRecords.dishes.adv.name}
+                  </NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
+
+              {/* Contains the links to all menu-related pages */}
+              <NavDropdown title="Menus" id="nav-dropdown">
+                <LinkContainer to={PageRecords.menus.all.link}>
+                  <NavDropdown.Item>
+                    {PageRecords.menus.all.name}
+                  </NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to={PageRecords.menus.search.link}>
+                  <NavDropdown.Item>
+                    {PageRecords.menus.search.name}
+                  </NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Divider />
+                <LinkContainer to={PageRecords.menus.adv.link}>
+                  <NavDropdown.Item>
+                    {PageRecords.menus.adv.name}
+                  </NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
             </Nav>
@@ -58,19 +97,29 @@ function App() {
       </Navbar>
 
       <Routes className={styles.bodyArea}>
-        <Route path={PageRecords.adv.link} element={PageRecords.adv.element} />
         <Route
-          path={PageRecords.dishes.link}
-          element={PageRecords.dishes.element}
+          path={PageRecords.dishes.adv.link}
+          element={PageRecords.dishes.adv.element}
         />
         <Route
-          path={PageRecords.search.link}
-          element={PageRecords.search.element}
+          path={PageRecords.dishes.all.link}
+          element={PageRecords.dishes.all.element}
         />
         <Route
-          path={PageRecords.home.link}
-          element={PageRecords.home.element}
+          path={PageRecords.dishes.search.link}
+          element={PageRecords.dishes.search.element}
         />
+        <Route
+          path={PageRecords.dishes.adv.link}
+          element={PageRecords.dishes.adv.element}
+        />
+
+        <Route
+          path={PageRecords.dishes.search.link}
+          element={PageRecords.dishes.search.element}
+        />
+        <Route index element={PageRecords.home.element} />
+        <Route path="*" element={<p>Page Not Found</p>} />
       </Routes>
 
       <footer>
