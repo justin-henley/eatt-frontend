@@ -33,7 +33,7 @@ const Welcome = () => {
           <Dish item={eatTile} />
         </div>
       </div>
-      <div class={styles.block2}>
+      <div className={styles.block2}>
         <img
           src="./img/taiwan-pearl-milk-tea-with-bubble-ximending-taipei-taiwan.jpg"
           alt="Milk Tea"
