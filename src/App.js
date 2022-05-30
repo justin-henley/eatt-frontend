@@ -28,7 +28,7 @@ function App() {
       <div>
         <nav className={styles.navbar}>
           <div className={styles.logo}>
-            <Link to={PageRecords.home.link}>streat</Link>
+            <Link to={PageRecords.home.link}>parakeat</Link>
           </div>
 
           <ul className={styles.navLinks}>
