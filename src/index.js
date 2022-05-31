@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import Home from './Home';
 import Dishes from './Dishes/Dishes';
-import Dish from './Dishes/DishTile';
+import Dish from './Dishes/Dish';
 import SearchDishes from './Dishes/SearchDishes';
 import NewDishForm from './Dishes/NewDishForm';
 import AllDishes from './Dishes/AllDishes';
