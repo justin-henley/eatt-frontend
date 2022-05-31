@@ -1,4 +1,4 @@
-import styles from './Dish.module.css'; // Import css modules stylesheet as styles
+import styles from './DishTile.module.css'; // Import css modules stylesheet as styles
 
 //import styled from 'styled-components';
 import { SiHappycow } from 'react-icons/si';

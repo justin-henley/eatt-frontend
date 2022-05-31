@@ -1,0 +1,16 @@
+.navbar {
+  background-color: var(--navbar-color);
+}
+.navText {
+  color: var(--text-navbar) !important;
+}
+
+.navLogo {
+  font-size: 32px;
+  color: var(--text-logo) !important;
+  font-family: 'Permanent Marker';
+}
+
+.navDropdown {
+  background-color: var(--navbar-color) !important;
+}

@@ -1,4 +1,4 @@
-import Dish from './Dish';
+import DishTile from './Dishes/DishTile';
 // import styled from 'styled-components';
 import styles from './Welcome.module.css';
 
@@ -31,7 +31,7 @@ const Welcome = () => {
           height="auto"
         />
         <div className={styles.dish}>
-          <Dish item={eatTile} className={styles.food} />{' '}
+          <DishTile item={eatTile} className={styles.food} />{' '}
         </div>
       </div>
       {/* <div className={styles.block2}>
@@ -48,13 +48,6 @@ const Welcome = () => {
           <Dish item={drinkTile} />{' '}
         </div>
       </div> */}
-      {/* <h1>Welcome to the Menu Translation website!</h1>
-      <p>
-        This website is the interactive front-end for the Menu Translation
-        database, a repository of Taiwanese dishes with their English names.
-      </p>
-
-      <Dish item={demoDish} /> */}
     </div>
   );
 };

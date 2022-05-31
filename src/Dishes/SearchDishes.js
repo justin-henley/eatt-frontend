@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 //import styled from 'styled-components';
 import DishDisplay from './DishDisplay';
-import styles from './DishSearch.module.css';
+import styles from './SearchDishes.module.css';
 
 // TODO onChange seems like it generates a crazy number of db requests
 // Also its a bit flaky

@@ -1,11 +1,11 @@
-import Dish from './Dish';
+import DishTile from './DishTile';
 import styled from 'styled-components';
 
 const DishDisplay = ({ dishes }) => {
   return (
     <Display>
       {dishes?.map((dish) => (
-        <Dish key={dish._id} item={dish} />
+        <DishTile key={dish._id} item={dish} />
       ))}
     </Display>
   );

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-//import styled from 'styled-components';
 import DishDisplay from './DishDisplay';
 
 function DishAll() {
