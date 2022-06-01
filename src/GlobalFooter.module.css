@@ -1,8 +1,23 @@
-footer,
-footer a {
+/*TODO 
+This 'sticky' footer is always visible. 
+How to make sure its at the bottom of the page? 
+I think I just need to make the nav, footer, and app take up 100vh together
+*/
+footer {
   color: white;
-  background-color: black;
+  /* background-color: black; */
   font-family: sans-serif;
   font-size: 12px;
   text-align: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer a {
+  font-family: sans-serif;
+  font-size: 12px;
 }
