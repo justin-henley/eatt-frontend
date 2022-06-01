@@ -14,7 +14,7 @@ import {
 } from 'react-icons/gi';
 import { FaFish, FaBreadSlice, FaQuestionCircle } from 'react-icons/fa';
 
-const Dish = ({ item }) => {
+const DishTile = ({ item }) => {
   // Select the meat and category icons for this dish
   const meatIcon = icons.meat[item.meat];
   const categoryIcon = icons.category[item.category];
@@ -59,4 +59,4 @@ const icons = {
   },
 };
 
-export default Dish;
+export default DishTile;
