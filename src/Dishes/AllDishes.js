@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import DishDisplay from './DishDisplay';
 
-function DishAll() {
+function AllDishes() {
   const [data, setData] = useState();
 
   const getData = async () => {
@@ -29,4 +29,4 @@ function DishAll() {
   );
 }
 
-export default DishAll;
+export default AllDishes;
