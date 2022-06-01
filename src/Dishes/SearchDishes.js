@@ -1,6 +1,8 @@
+// Outside Components
 import { useState, useEffect } from 'react';
-//import styled from 'styled-components';
+// Custom Components
 import DishDisplay from './DishDisplay';
+// CSS
 import styles from './SearchDishes.module.css';
 
 // TODO onChange seems like it generates a crazy number of db requests
@@ -19,7 +21,7 @@ function DishSearch() {
   };
 
   // Handles selection of the radio buttons
-  const handleClick = (event) => {
+  const handleChange = (event) => {
     setSearchType(event.target.value);
   };
 
@@ -60,7 +62,7 @@ function DishSearch() {
           id="selectType"
           className={styles.selectOptions}
           value={searchType}
-          onChange={handleClick}
+          onChange={handleChange}
         >
           <option value="en">English</option>
           <option value="zhtw">Chinese</option>
