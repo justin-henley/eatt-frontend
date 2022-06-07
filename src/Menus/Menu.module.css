@@ -3,30 +3,6 @@
 .menu {
   margin: 0.5em 0 0 0.5em;
 }
-.restaurantName {
-  padding: 1em;
-  margin: 0.5em;
-  border-radius: 5px;
-  box-shadow: 0px 5px 20px -5px gray;
-}
-
-.restaurantZHTW {
-  font-weight: 300;
-  margin: 0;
-}
-
-.restaurantPinyin {
-  color: var(--text-light);
-  font-weight: 100;
-  font-style: italic;
-  font-size: 1.5em;
-  margin: 0;
-}
-
-.restaurantEN {
-  text-transform: capitalize;
-  margin: 0;
-}
 
 /* Menu Category Areas */
 
@@ -40,7 +16,6 @@
 
   margin: 0;
   padding: 0.5em 2em;
-  border: 1px solid var(--navbar-color);
 
   justify-content: space-between;
   background-color: var(--navbar-color);
@@ -52,13 +27,13 @@
 }
 .categoryName__zhtw {
   font-weight: 200;
-  color: white;
+  color: black;
 }
 .categoryName__pinyin {
   font-style: italic;
   color: var(--text-light);
   font-weight: 100;
-  color: white;
+  color: black;
 }
 .categoryName__en {
   text-transform: capitalize;

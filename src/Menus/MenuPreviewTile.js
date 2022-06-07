@@ -5,11 +5,9 @@ const MenuPreviewTile = ({ item }) => {
   console.log('tile');
   return (
     <div className={styles.tile}>
-      <h1 className={styles.chinese}>{item.restaurant.zhtw}</h1>
-      <div className={styles.translation}>
-        <h2 className={styles.pinyin}>{item.restaurant.pinyin}</h2>
-        <h3 className={styles.english}>{item.restaurant.en}</h3>
-      </div>
+      <h2 className={styles.restaurantZHTW}>{item?.restaurant?.zhtw}</h2>
+      <h3 className={styles.restaurantPinyin}>{item?.restaurant?.pinyin}</h3>
+      <h3 className={styles.restaurantEN}>{item?.restaurant?.en}</h3>
     </div>
   );
 };
