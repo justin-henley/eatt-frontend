@@ -23,7 +23,7 @@ function AllMenus() {
 
   return (
     <div>
-      <h1>AllMenus Component</h1>
+      <h1>All Menus</h1>
       <MenuDisplay menus={data} />
     </div>
   );
