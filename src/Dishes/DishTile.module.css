@@ -1,7 +1,5 @@
 /* MOBILE FIRST */
-* {
-  font-size: 20px;
-}
+
 .tile {
   width: 100%;
   height: 8em;
@@ -38,7 +36,7 @@
   border-radius: 5px 0 0 5px;
 }
 /* Selects the children, which should only be icons */
-.icons > * {
+.icons * {
   color: white;
   font-size: 3em;
   padding: 0 0.1em;
@@ -65,7 +63,7 @@
 }
 .chinese:hover {
   /* color: red; */
-  text-shadow: 3px 3px #ddd;
+  /* text-shadow: 3px 3px #ddd; */
   /* font-size: 3em; */
 }
 
@@ -73,7 +71,7 @@
   width: 100%;
   /* border: 1px solid red; */
   padding-left: 0.1em;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: sans-serif;
 }
 /* .translation:hover {
   width: 150%;
@@ -82,45 +80,25 @@
 
 .pinyin {
   /* color: blue; */
-  font-size: 1em;
+  font-size: 1.5em;
   font-style: italic;
   color: gray;
   font-weight: 100;
+  margin: 0;
 }
 
 .english {
-  /* color: green; */
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: 100;
+  margin: 0;
 }
 
 /* FOR LARGER SCREENS */
-@media (min-width: 768px) {
-  * {
-    font-size: 16px;
-  }
+@media (min-width: 1024px) {
   .tile {
-    height: 4em;
     max-width: 500px;
   }
   .icons {
     width: 3em;
-  }
-  /* Selects the children, which should only be icons */
-  .icons > * {
-    font-size: 2em;
-  }
-  .text {
-    /* background-color: gray; */
-    flex-direction: row;
-  }
-  .translation {
-    width: 50%;
-  }
-
-  .chinese {
-    text-align: end;
-    width: 50%;
-    padding-right: 0.1em;
   }
 }
