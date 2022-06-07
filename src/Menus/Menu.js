@@ -1,8 +1,12 @@
+// Outside components
 import { useState, useEffect } from 'react';
-import { Placeholder } from 'react-bootstrap';
+// import { Placeholder } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+// Custom Components
 import DishTile from '../Dishes/DishTile';
 import NotFound from '../NotFound';
+// CSS
+import styles from './Menu.module.css';
 
 function Menu() {
   // Access the params to get the menu ID to display
@@ -43,18 +47,26 @@ function Menu() {
     <NotFound />
   ) : (
     <div>
-      <h1>Restaurant</h1>
-      <h3>{data?.restaurant?.zhtw}</h3>
-      <h3>{data?.restaurant?.pinyin}</h3>
-      <h3>{data?.restaurant?.en}</h3>
+      <h1 className={styles.restaurant}>Restaurant</h1>
+      <div className={styles.restaurantName}>
+        <h2 className={styles.restaurantZHTW}>{data?.restaurant?.zhtw}</h2>
+        <h3 className={styles.restaurantPinyin}>{data?.restaurant?.pinyin}</h3>
+        <h3 className={styles.restaurantEN}>{data?.restaurant?.en}</h3>
+      </div>
       <div>
-        <h1>Menu</h1>
+        <h1 className={styles.menu}>Menu</h1>
         {data?.menu?.map((category) => (
-          <div key={category._id}>
-            <h3>{`${category.zhtw} (${category.pinyin}) - ${category.en}`}</h3>
-            {category.items?.map((item) => (
-              <DishTile key={item._id} item={item} />
-            ))}
+          <div key={category._id} className={styles.category}>
+            <div className={styles.categoryName}>
+              <h3 className={styles.categoryName__zhtw}>{category.zhtw}</h3>
+              <h3 className={styles.categoryName__pinyin}>{category.pinyin}</h3>
+              <h3 className={styles.categoryName__en}>{category.en}</h3>
+            </div>
+            <div className={styles.dishArea}>
+              {category.items?.map((item) => (
+                <DishTile key={item._id} item={item} />
+              ))}
+            </div>
           </div>
         ))}
       </div>
