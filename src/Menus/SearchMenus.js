@@ -51,8 +51,7 @@ function SearchMenus() {
 
   return (
     <div>
-      <h1>The SearchMenus component</h1>
-      <h1 className={styles.title}>Search Dishes</h1>
+      <h1 className={styles.title}>Search Menus</h1>
       <form className={styles.searchForm} onSubmit={(e) => e.preventDefault()}>
         {/* <label htmlFor="selectType" className={styles.typeLabel}>
           Search By:
