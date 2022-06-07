@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 // import { Placeholder } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 // Custom Components
+import MenuPreviewTile from './MenuPreviewTile';
 import DishTile from '../Dishes/DishTile';
 import NotFound from '../NotFound';
 // CSS
@@ -41,6 +42,7 @@ function Menu() {
   // If a menu is not found, a 'message' is returned
   // If no data is available yet, show placeholders
   // TODO the placeholder doesn't change size or animate when told
+  // TODO Forward the restaurant info through the Link state if coming from search of all menus
   return !data ? (
     <p>Loading...{/* <Placeholder xs={6} bg="secondary" /> */}</p>
   ) : data?.message ? (
@@ -48,11 +50,7 @@ function Menu() {
   ) : (
     <div>
       <h1 className={styles.restaurant}>Restaurant</h1>
-      <div className={styles.restaurantName}>
-        <h2 className={styles.restaurantZHTW}>{data?.restaurant?.zhtw}</h2>
-        <h3 className={styles.restaurantPinyin}>{data?.restaurant?.pinyin}</h3>
-        <h3 className={styles.restaurantEN}>{data?.restaurant?.en}</h3>
-      </div>
+      <MenuPreviewTile item={data} />
       <div>
         <h1 className={styles.menu}>Menu</h1>
         {data?.menu?.map((category) => (
