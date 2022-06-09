@@ -17,8 +17,7 @@ img {
 .shout,
 .flash {
   text-align: center;
-  font-family: 'Permanent Marker', cursive;
-  font-family: 'Kaushan Script', cursive;
+  font-family: var(--font-cursive);
   font-size: 36px;
 }
 .block1 div,
