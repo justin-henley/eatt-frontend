@@ -1,6 +1,6 @@
 import DishTile from './Dishes/DishTile';
 // import styled from 'styled-components';
-import styles from './Welcome.module.css';
+import styles from './Home.module.css';
 
 const Welcome = () => {
   // A demo dish to label the parts for new users
