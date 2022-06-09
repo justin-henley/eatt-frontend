@@ -8,7 +8,7 @@
 .navLogo {
   font-size: 32px;
   color: var(--text-logo) !important;
-  font-family: 'Permanent Marker';
+  font-family: var(--font-banner);
 }
 
 .navDropdown {

@@ -71,7 +71,7 @@
   width: 100%;
   /* border: 1px solid red; */
   padding-left: 0.1em;
-  font-family: sans-serif;
+  font-family: var(--font-english);
 }
 /* .translation:hover {
   width: 150%;
