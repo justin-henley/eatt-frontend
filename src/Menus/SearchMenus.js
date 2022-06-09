@@ -43,8 +43,6 @@ function SearchMenus() {
     );
 
     const json = await result.json();
-    // TODO delete
-    console.log(json);
 
     setSearchResults(json);
   };

@@ -1,4 +1,6 @@
+// Outside components
 import { Link } from 'react-router-dom';
+// Custom components
 import MenuPreviewTile from './MenuPreviewTile';
 
 const MenuDisplay = ({ menus }) => {

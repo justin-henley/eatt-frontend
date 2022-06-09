@@ -5,7 +5,6 @@
 }
 
 .search {
-  /* color: green; */
   font-size: 2em;
   width: 100%;
   border-radius: 0px 10px 10px 0px;
@@ -23,10 +22,6 @@
   padding: 0 0 0 0em;
   text-align: center;
 }
-
-/* .typeLabel {
-  font-size: 1em;
-} */
 
 .searchForm {
   display: flex;

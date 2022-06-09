@@ -1,7 +1,10 @@
+// Outside components
 import { useState, useEffect } from 'react';
+// Custom components
 import MenuDisplay from './MenuDisplay';
 
 function AllMenus() {
+  // Menu data is set in state and updated upon fetching
   const [data, setData] = useState();
 
   const getData = async () => {

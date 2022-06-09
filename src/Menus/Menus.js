@@ -1,3 +1,4 @@
+// Outside components
 import { Outlet } from 'react-router-dom';
 
 function Menus() {
