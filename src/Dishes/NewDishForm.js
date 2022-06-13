@@ -25,6 +25,11 @@ function NewDishForm() {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  // Query the databases for exact matches on traditional chinese name
+  const isUnique = () => {
+    // TODO
+  };
+
   const handleSubmit = async (e) => {
     // TODO input validation
     e.preventDefault();
