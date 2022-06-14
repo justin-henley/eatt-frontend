@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 // import { Placeholder } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 // Custom Components
-import MenuPreviewTile from './MenuPreviewTile';
+import MenuName from './MenuName';
+import MenuContent from './MenuContent';
 import DishTile from '../Dishes/DishTile';
 import NotFound from '../NotFound';
 // CSS
@@ -20,12 +21,9 @@ function Menu() {
   // TODO what if no menu found?
   const getData = async () => {
     try {
-      const result = await fetch(
-        `https://menu-translation-backend.herokuapp.com/menus/${params.menuId}`,
-        {
-          method: 'GET',
-        }
-      );
+      const result = await fetch(`https://menu-translation-backend.herokuapp.com/menus/${params.menuId}`, {
+        method: 'GET',
+      });
 
       const json = await result.json();
 
@@ -50,24 +48,8 @@ function Menu() {
   ) : (
     <div>
       <h1 className={styles.restaurant}>Restaurant</h1>
-      <MenuPreviewTile item={data} />
-      <div>
-        <h1 className={styles.menu}>Menu</h1>
-        {data?.menu?.map((category) => (
-          <div key={category._id} className={styles.category}>
-            <div className={styles.categoryName}>
-              <h3 className={styles.categoryName__zhtw}>{category.zhtw}</h3>
-              <h3 className={styles.categoryName__pinyin}>{category.pinyin}</h3>
-              <h3 className={styles.categoryName__en}>{category.en}</h3>
-            </div>
-            <div className={styles.dishArea}>
-              {category.items?.map((item) => (
-                <DishTile key={item._id} item={item} />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      <MenuName restaurant={data.restaurant} />
+      <MenuContent menu={data.menu} />
     </div>
   );
 }

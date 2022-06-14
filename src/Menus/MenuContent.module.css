@@ -1,0 +1,42 @@
+/* Menu Category Areas */
+
+.category {
+  /* border-radius: 5px;
+  margin: 0.5em 0.1em;
+  box-shadow: 0px 5px 20px -5px gray; */
+}
+.categoryName {
+  display: flex;
+
+  margin: 0;
+  padding: 0.5em 2em;
+
+  justify-content: space-between;
+  background-color: var(--navbar-color);
+  color: white;
+  /* border-radius: 5px 5px 0 0; */
+}
+.categoryName * {
+  margin: 0;
+}
+.categoryName__zhtw {
+  font-weight: 200;
+  color: black;
+}
+.categoryName__pinyin {
+  font-style: italic;
+  color: var(--text-light);
+  font-weight: 100;
+  color: black;
+}
+.categoryName__en {
+  text-transform: capitalize;
+  font-weight: 100;
+}
+
+/* Dish area for each category */
+.dishArea {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.25em;
+}
