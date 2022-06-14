@@ -30,7 +30,6 @@ function NewDishForm() {
     e.preventDefault();
 
     // Submit the new dish and await a response
-    alert(`You entered: ${inputs.zhtw} / ${inputs.pinyin} / ${inputs.en} / ${inputs.category} / ${inputs.meat}`);
     const dish = await fetch('https://menu-translation-backend.herokuapp.com/dishes', {
       method: 'POST',
       headers: {
@@ -38,15 +37,12 @@ function NewDishForm() {
       },
       body: JSON.stringify(inputs),
     });
-    console.log(dish);
-    console.log(inputs);
+
     // Await for the json version of the results
     const json = await dish.json();
 
     // Set the dish data
     setDish(json);
-    console.log(json);
-    console.log(dish);
   };
 
   return (
