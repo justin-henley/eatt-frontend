@@ -8,7 +8,7 @@ const MenuDisplay = ({ menus }) => {
     <div>
       {menus?.map((menu) => (
         <Link to={`/menus/${menu._id}`}>
-          <MenuName key={menu._id} item={menu} />
+          <MenuName key={menu._id} restaurant={menu.restaurant} />
         </Link>
       ))}
     </div>
