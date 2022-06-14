@@ -1,5 +1,5 @@
 // Outside components
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 // Custom Components
 import DishTile from './DishTile';
 // CSS
@@ -11,9 +11,9 @@ function NewDishForm() {
   const [inputs, setInputs] = useState({ category: 'rice', meat: 'beef' });
   const [dish, setDish] = useState({
     // The placeholder values
-    zhtw: '....',
-    pinyin: '....',
-    en: '....',
+    zhtw: '<Chinese>',
+    pinyin: '<Pinyin>',
+    en: '<English>',
     category: 'unknown',
     meat: 'unknown',
   });
