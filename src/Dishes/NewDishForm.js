@@ -1,4 +1,4 @@
-// Outside components
+// Outside Components
 import { useState } from 'react';
 // Custom Components
 import DishTile from './DishTile';
