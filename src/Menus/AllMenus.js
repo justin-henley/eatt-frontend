@@ -8,12 +8,9 @@ function AllMenus() {
   const [data, setData] = useState();
 
   const getData = async () => {
-    const result = await fetch(
-      'https://menu-translation-backend.herokuapp.com/menus',
-      {
-        method: 'GET',
-      }
-    );
+    const result = await fetch('https://menu-translation-backend.herokuapp.com/menus', {
+      method: 'GET',
+    });
 
     const json = await result.json();
 
