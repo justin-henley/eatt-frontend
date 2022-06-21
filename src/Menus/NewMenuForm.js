@@ -20,8 +20,9 @@ function NewMenuForm() {
   });
 
   const [menu, setMenu] = useState([]);
-  const [catCount, setCatCount] = useState(0);
-  const [category, setCategory] = useState({ zhtw: '', pinyin: '', en: '', items: [] });
+
+  const [category, setCategory] = useState({ zhtw: '', pinyin: '', en: '', items: [{ zhtw: 'fake' }, {}] });
+  const [items, setItems] = useState([]);
   const [flags, setFlags] = useState({
     showRestaurantForm: true,
     showCategoryForm: false,
@@ -42,14 +43,24 @@ function NewMenuForm() {
 
     // Push the new category onto the menu
     setMenu((values) => [...values, category]);
-    // Reset the category fields
-    setCategory({ zhtw: '', pinyin: '', en: '' });
+    /* // Reset the category fields
+    setCategory({ zhtw: '', pinyin: '', en: '' }); */
     // Switch to the items form
     setFlags((values) => ({ ...values, showCategoryForm: false, showItemsForm: true }));
   };
 
   const handleMenuSubmit = () => {
     alert('Submitting');
+  };
+
+  const handleItemsSubmit = () => {
+    setCategory((values) => ({ ...values, items: items }));
+    setMenu((values) => [...values, category]);
+    // Reset the category fields
+    setCategory({ zhtw: '', pinyin: '', en: '' });
+    setItems([]);
+    // Switch to the categories form
+    setFlags((values) => ({ ...values, showCategoryForm: true, showItemsForm: false }));
   };
 
   // CHANGE HANDLERS
@@ -85,14 +96,15 @@ function NewMenuForm() {
   return (
     <div>
       <button onClick={handleMenuSubmit}>Submit Menu</button>
-      <h1>The NewMenuForm component</h1>
+
       {flags.showRestaurantForm ? forms.restaurant : null}
-      {flags.showCategoryForm ? forms.category : null}
-      {flags.showItemsForm ? forms.items : null}
+
       <div>
         <MenuName restaurant={restaurant} />
         <MenuContent menu={menu} />
       </div>
+      {flags.showCategoryForm ? forms.category : null}
+      {flags.showItemsForm ? forms.items : null}
     </div>
   );
 }
