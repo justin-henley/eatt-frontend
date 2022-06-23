@@ -1,5 +1,6 @@
 // Custom Components
-import DishTile from '../Dishes/DishTile';
+import DishDisplay from '../Dishes/DishDisplay';
+
 // CSS
 import styles from './MenuCategory.module.css';
 
@@ -11,11 +12,7 @@ function MenuCategory({ category }) {
         <h3 className={styles.categoryName__pinyin}>{category.pinyin}</h3>
         <h3 className={styles.categoryName__en}>{category.en}</h3>
       </div>
-      <div className={styles.dishArea}>
-        {category.items?.map((item) => (
-          <DishTile key={item._id} item={item} />
-        ))}
-      </div>
+      <DishDisplay dishes={category?.items} />
     </div>
   );
 }
