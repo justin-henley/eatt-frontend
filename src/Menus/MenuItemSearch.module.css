@@ -1,0 +1,32 @@
+/* .title {
+  color: var(--text-regular);
+  text-align: center;
+  margin: 1em;
+}
+
+.search {
+  font-size: 2em;
+  width: 100%;
+  border-radius: 0px 10px 10px 0px;
+  padding-left: 0.5em;
+}
+
+.selectOptions {
+  color: var(--text-regular);
+  background-color: var(--page-background);
+  font-size: 2em;
+  width: 7em;
+  appearance: menulist-button;
+  border: 2px solid var(--dish-border-color);
+  border-radius: 10px 0 0 10px;
+  padding: 0 0 0 0em;
+  text-align: center;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin: auto;
+}
+ */
