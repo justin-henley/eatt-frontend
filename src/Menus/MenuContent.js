@@ -1,7 +1,6 @@
 // Outside components
 
 // Custom Components
-import DishTile from '../Dishes/DishTile';
 import MenuCategory from './MenuCategory';
 
 // CSS
