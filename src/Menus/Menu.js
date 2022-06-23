@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 // Custom Components
 import MenuName from './MenuName';
 import MenuContent from './MenuContent';
-import DishTile from '../Dishes/DishTile';
 import NotFound from '../NotFound';
 // CSS
 import styles from './Menu.module.css';
