@@ -1,6 +1,6 @@
 // CSS
 import styles from './GlobalFooter.module.css';
-
+// TODO This footer is actively blocking content access
 function GlobalFooter() {
   return (
     <footer>
