@@ -14,7 +14,7 @@ import AllDishes from './Dishes/AllDishes';
 import Menus from './Menus/Menus';
 import Menu from './Menus/Menu';
 import SearchMenus from './Menus/SearchMenus';
-import NewMenuForm from './Menus/NewMenuForm';
+import NewMenu from './Menus/NewMenu';
 import AllMenus from './Menus/AllMenus';
 import NotFound from './NotFound';
 // CSS
@@ -36,7 +36,7 @@ root.render(
           <Route path="menus" element={<Menus />}>
             <Route path=":menuId" element={<Menu />} />
             <Route path="search" element={<SearchMenus />} />
-            <Route path="new" element={<NewMenuForm />} />
+            <Route path="new" element={<NewMenu />} />
             <Route index element={<AllMenus />} />
           </Route>
           <Route path="*" element={<NotFound />} />
