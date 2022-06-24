@@ -39,7 +39,7 @@ root.render(
             <Route path="new" element={<NewMenu />} />
             <Route index element={<AllMenus />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound message={'404 Error'} />} />
         </Route>
       </Routes>
     </BrowserRouter>

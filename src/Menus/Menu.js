@@ -29,6 +29,7 @@ function Menu() {
       setData(json);
     } catch (error) {
       console.log('Fetch failed in Menu.js');
+      setData({ message: 'This menu does not exist.' });
     }
   };
 
@@ -43,7 +44,7 @@ function Menu() {
   return !data ? (
     <p>Loading...{/* <Placeholder xs={6} bg="secondary" /> */}</p>
   ) : data?.message ? (
-    <NotFound />
+    <NotFound message={data.message} />
   ) : (
     <div>
       <h1 className={styles.restaurant}>Restaurant</h1>
