@@ -27,6 +27,7 @@ function Dish(props) {
       setData(json);
     } catch (error) {
       console.log('Fetch failed in Dish.js');
+      setData({ message: 'This dish does not exist.' });
     }
   };
 
@@ -41,7 +42,7 @@ function Dish(props) {
   return !data ? (
     <p>Loading...{/* <Placeholder xs={6} bg="secondary" /> */}</p>
   ) : data?.message ? (
-    <NotFound />
+    <NotFound message={data.message} />
   ) : (
     <div>
       <h1 className={styles.dishH1}>Dish</h1>
