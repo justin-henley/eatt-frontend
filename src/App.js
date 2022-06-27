@@ -4,13 +4,15 @@ import { Outlet } from 'react-router-dom';
 import GlobalNav from './GlobalNav';
 import GlobalFooter from './GlobalFooter';
 // CSS
-//import styles from './App.module.css';
+import styles from './App.module.css';
 
 function App() {
   return (
     <div>
       <GlobalNav />
-      <Outlet />
+      <div className={styles.bodyDiv}>
+        <Outlet />
+      </div>
       <GlobalFooter />
     </div>
   );

@@ -1,0 +1,7 @@
+.bodyDiv {
+  /* border: 5px solid red; */
+  min-height: calc(100vh - 160px);
+}
+* {
+  /* border: 1px solid green; */
+}
