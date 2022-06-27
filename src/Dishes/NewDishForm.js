@@ -1,5 +1,6 @@
 // Outside Components
 import { useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
 // Custom Components
 import DishTile from './DishTile';
 // CSS
@@ -43,15 +44,22 @@ function NewDishForm() {
 
     // Set the dish data
     setDish(json);
+    console.log(json);
   };
 
   return (
     <div>
       <div className={styles.result}>
         {dish.hasOwnProperty('message') ? (
-          <div className={styles.failure}>Operation Failed: {dish.message}</div>
+          <Alert variant="danger">
+            <Alert.Heading>Dish Creation Failed</Alert.Heading> <p>Error: {dish.message}</p>
+            <p>Please check your inputs and try again.</p>
+          </Alert>
         ) : (
-          <DishTile item={dish} />
+          <div>
+            {dish._id && <Alert variant="success">Dish created successfully.</Alert>}
+            <DishTile item={dish} />
+          </div>
         )}
       </div>
 
