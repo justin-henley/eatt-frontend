@@ -1,7 +1,8 @@
 /* MOBILE FIRST */
 
 .tile {
-  width: 100%;
+  width: calc(100% - 0.4em);
+  margin: 0.2em;
   max-width: 600px;
   min-height: 8em;
   border: 1px solid #ddd;
@@ -10,8 +11,10 @@
   box-shadow: 5px 5px 7px -5px gray;
 
   border-radius: 5px;
-  margin: 0.1em;
+
   background-color: white;
+
+  flex-grow: 1;
 }
 
 /* .boxyTile {
@@ -83,8 +86,5 @@
   .tile {
     max-width: 500px;
     margin: 0.2em;
-  }
-  .icons {
-    width: 3em;
   }
 }
