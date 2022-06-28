@@ -1,8 +1,9 @@
 // Outside Components
-import { Dropdown, FormControl } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import { DropdownButton, InputGroup, Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 // Custom Components
 import DishDisplay from './DishDisplay';
 // CSS
