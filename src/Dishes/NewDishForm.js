@@ -1,5 +1,6 @@
 // Outside Components
 import { useState } from 'react';
+import { Form, InputGroup } from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert';
 // Custom Components
 import DishTile from './DishTile';
@@ -63,59 +64,75 @@ function NewDishForm() {
         )}
       </div>
 
-      <form action="post" onSubmit={handleSubmit} className={styles.form}>
+      <Form action="post" onSubmit={handleSubmit} className={styles.form}>
         <h1>Create a new dish:</h1>
 
         <hr />
-        <fieldset>
-          <legend>Dish Name</legend>
-          <label>
-            Traditional Chinese:
-            <input type="text" required name="zhtw" value={inputs.zhtw || ''} onChange={handleChange} />
-          </label>
-          <label>
-            Hanyu Pinyin:
-            <input type="text" required name="pinyin" value={inputs.pinyin || ''} onChange={handleChange} />
-          </label>
-          <label>
-            English Translation:
-            <input type="text" required name="en" value={inputs.en || ''} onChange={handleChange} />
-          </label>
-        </fieldset>
-        <hr />
-        <fieldset>
-          <legend>Details</legend>
-          <label>
-            Dish Category:
-            <select name="category" required value={inputs.category || ''} onChange={handleChange}>
-              <option value="rice">Rice</option>
-              <option value="noodle">Noodle</option>
-              <option value="bread">Bread, Crepe, Sandwich, etc.</option>
-              <option value="soup">Soup, Stew, or Curry</option>
-              <option value="drink">Beverage</option>
-              <option value="unknown">Unknown</option>
-              <option value="other">Other</option>
-            </select>
-          </label>
-          <label>
-            Protein Type:
-            <select name="meat" required value={inputs.meat || ''} onChange={handleChange}>
-              <option value="beef">Beef </option>
-              <option value="pork">Pork</option>
-              <option value="bird">Poultry</option>
-              <option value="fish">Seafood</option>
-              <option value="egg">Egg</option>
-              <option value="veg">Vegetarian</option>
-              <option value="unknown">Unknown</option>
-              <option value="other">Other</option>
-            </select>
-          </label>
-        </fieldset>
-        <hr />
+        <Form.Group>
+          {' '}
+          <Form.Group className="dishName" controlId="formNameChinese">
+            <Form.Label aria-label="Chinese name for new dish">Chinese</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="牛肉麵"
+              required
+              name="zhtw"
+              value={inputs.zhtw || ''}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className="dishName" controlId="formNamePinyin">
+            <Form.Label aria-label="Hanyu Pinyin name for new dish">Hanyu Pinyin</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="niú ròu miàn"
+              required
+              name="pinyin"
+              value={inputs.pinyin || ''}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className="dishName" controlId="formNameEnglish">
+            <Form.Label aria-label="English name for new dish">English</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Beef Noodles"
+              required
+              name="en"
+              value={inputs.en || ''}
+              onChange={handleChange}
+            />
+          </Form.Group>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label aria-label="Category for dish">Dish Category</Form.Label>
+          <Form.Select name="category" required value={inputs.category || ''} onChange={handleChange}>
+            <option value="rice">Rice</option>
+            <option value="noodle">Noodle</option>
+            <option value="bread">Bread, Crepe, Sandwich, etc.</option>
+            <option value="soup">Soup, Stew, or Curry</option>
+            <option value="drink">Beverage</option>
+            <option value="unknown">Unknown</option>
+            <option value="other">Other</option>
+          </Form.Select>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label aria-label="Protein type for dish">Protein Type</Form.Label>
+          <Form.Select name="meat" required value={inputs.meat || ''} onChange={handleChange}>
+            <option value="beef">Beef </option>
+            <option value="pork">Pork</option>
+            <option value="bird">Poultry</option>
+            <option value="fish">Seafood</option>
+            <option value="egg">Egg</option>
+            <option value="veg">Vegetarian</option>
+            <option value="unknown">Unknown</option>
+            <option value="other">Other</option>
+          </Form.Select>
+        </Form.Group>
         <button type="submit" className={styles.submit}>
           Create
         </button>
-      </form>
+      </Form>
     </div>
   );
 }
