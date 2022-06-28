@@ -1,17 +1,37 @@
 .result {
   width: 95vw;
+
   margin: 2em auto;
 }
 
 .form {
-  width: 95vw;
-  max-width: 500px;
-  margin: auto;
+  margin-bottom: 2em;
 }
+@media screen and (min-width: 768px) {
+  .form fieldset {
+    width: 95vw;
+    max-width: 600px;
+    margin: auto;
+  }
 
-.form label {
-  display: flex;
-  justify-content: space-between;
+  .form label {
+    display: flex;
+    justify-content: space-between;
 
-  margin-left: 1em;
+    margin-left: 1em;
+    align-items: center;
+    margin-bottom: 0.5em;
+  }
+
+  .form label:focus-within {
+    font-weight: bold;
+  }
+
+  .form select {
+    width: 250px;
+  }
+
+  .form input {
+    height: 1.5em;
+  }
 }
