@@ -19,7 +19,9 @@ function MenuNewRestaurant({ showRestaurantForm, setShowRestaurantForm, restaura
       ) : (
         <MenuName restaurant={restaurant} />
       )}
-      <button onClick={handleClick}>{showRestaurantForm ? 'Save' : 'Edit'}</button>
+      <button type="button" onClick={handleClick}>
+        {showRestaurantForm ? 'Save' : 'Edit'}
+      </button>
       <hr />
     </div>
   );

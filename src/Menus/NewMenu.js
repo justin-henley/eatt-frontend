@@ -6,8 +6,6 @@ import MenuNewCategory from './MenuNewCategory';
 import MenuNewRestaurant from './MenuNewRestaurant';
 
 function NewMenu() {
-  // TODO all these preventDefaults are getting weird, what am I doing wrong?
-
   // DATA
   const emptyRestaurant = {
     zhtw: '',
@@ -100,7 +98,7 @@ function NewMenu() {
   };
 
   const handleAddCategory = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
 
     setCategories((values) => [
       ...values,
@@ -115,13 +113,13 @@ function NewMenu() {
   };
 
   const handleRemoveCategory = (e) => {
-    e.preventDefault();
+    /* e.preventDefault(); */
 
     setCategories((values) => values.filter((category) => category.id !== e.target.dataset.categoryId));
   };
 
   const handleAddItem = (e) => {
-    e.preventDefault();
+    /* e.preventDefault(); */
     const vals = e.target.dataset;
 
     // Index of relevant category
@@ -143,7 +141,7 @@ function NewMenu() {
 
   const handleRemoveItem = (e) => {
     // TODO doesn't rerender on clicking the delete, only when doing something else on the page
-    e.preventDefault();
+    /* e.preventDefault(); */
     // Get values from html element dataset
     const categoryId = e.target.dataset.categoryId;
     const dishId = e.target.dataset.dishId;
@@ -174,7 +172,9 @@ function NewMenu() {
             handleRemoveCategory={handleRemoveCategory}
           />
         ))}
-        <button onClick={handleAddCategory}>Add Category</button>
+        <button type="button" onClick={handleAddCategory}>
+          Add Category
+        </button>
         <button type="submit" onClick={handleSubmit}>
           Submit Menu
         </button>

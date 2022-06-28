@@ -73,6 +73,7 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
               {result.en}
             </span>
             <button
+              type="button"
               onClick={handleAddItem}
               data-category-id={categoryId}
               data-dish-id={result._id}
@@ -99,7 +100,7 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
               {item.en}
             </span>
 
-            <button data-category-id={categoryId} data-dish-id={item.id} onClick={handleRemoveItem}>
+            <button type="button" data-category-id={categoryId} data-dish-id={item.id} onClick={handleRemoveItem}>
               -
             </button>
           </li>

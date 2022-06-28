@@ -29,8 +29,10 @@ function MenuNewCategory({ category, handleChange, handleAddItem, handleRemoveIt
       ) : (
         <MenuCategory category={category} />
       )}
-      <button onClick={handleClick}>{showForm ? 'Save' : 'Edit'}</button>
-      <button data-category-id={category.id} onClick={handleRemoveCategory}>
+      <button type="button" onClick={handleClick}>
+        {showForm ? 'Save' : 'Edit'}
+      </button>
+      <button type="button" data-category-id={category.id} onClick={handleRemoveCategory}>
         Delete Category
       </button>
     </div>
