@@ -48,10 +48,10 @@ function NewDishForm() {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className={styles.result}>
         {dish.hasOwnProperty('message') ? (
-          <Alert variant="danger">
+          <Alert variant="danger" className={styles.alert}>
             <Alert.Heading>Dish Creation Failed</Alert.Heading> <p>Error: {dish.message}</p>
             <p>Please check your inputs and try again.</p>
           </Alert>
@@ -64,27 +64,30 @@ function NewDishForm() {
       </div>
 
       <form action="post" onSubmit={handleSubmit} className={styles.form}>
-        <h1>Please carefully create a new dish</h1>
+        <h1>Create a new dish:</h1>
+
+        <hr />
         <fieldset>
           <legend>Dish Name</legend>
           <label>
             Traditional Chinese:
-            <input type="text" name="zhtw" value={inputs.zhtw || ''} onChange={handleChange} />
+            <input type="text" required name="zhtw" value={inputs.zhtw || ''} onChange={handleChange} />
           </label>
           <label>
             Hanyu Pinyin:
-            <input type="text" name="pinyin" value={inputs.pinyin || ''} onChange={handleChange} />
+            <input type="text" required name="pinyin" value={inputs.pinyin || ''} onChange={handleChange} />
           </label>
           <label>
             English Translation:
-            <input type="text" name="en" value={inputs.en || ''} onChange={handleChange} />
+            <input type="text" required name="en" value={inputs.en || ''} onChange={handleChange} />
           </label>
         </fieldset>
+        <hr />
         <fieldset>
           <legend>Details</legend>
           <label>
             Dish Category:
-            <select name="category" value={inputs.category || ''} onChange={handleChange}>
+            <select name="category" required value={inputs.category || ''} onChange={handleChange}>
               <option value="rice">Rice</option>
               <option value="noodle">Noodle</option>
               <option value="bread">Bread, Crepe, Sandwich, etc.</option>
@@ -96,7 +99,7 @@ function NewDishForm() {
           </label>
           <label>
             Protein Type:
-            <select required name="meat" value={inputs.meat || ''} onChange={handleChange}>
+            <select name="meat" required value={inputs.meat || ''} onChange={handleChange}>
               <option value="beef">Beef </option>
               <option value="pork">Pork</option>
               <option value="bird">Poultry</option>
@@ -108,8 +111,10 @@ function NewDishForm() {
             </select>
           </label>
         </fieldset>
-
-        <input type="submit" />
+        <hr />
+        <button type="submit" className={styles.submit}>
+          Create
+        </button>
       </form>
     </div>
   );
