@@ -7,8 +7,8 @@ const MenuDisplay = ({ menus }) => {
   return (
     <div>
       {menus?.map((menu) => (
-        <Link to={`/menus/${menu._id}`}>
-          <MenuName key={menu._id} restaurant={menu.restaurant} />
+        <Link to={`/menus/${menu._id}`} key={menu._id}>
+          <MenuName restaurant={menu.restaurant} />
         </Link>
       ))}
     </div>
