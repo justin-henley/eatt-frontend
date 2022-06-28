@@ -39,12 +39,9 @@ function DishSearch() {
     }
 
     // Search by search type and text
-    const result = await fetch(
-      `https://menu-translation-backend.herokuapp.com/dishes?${searchType}=${searchTerm}`,
-      {
-        method: 'GET',
-      }
-    );
+    const result = await fetch(`https://menu-translation-backend.herokuapp.com/dishes?${searchType}=${searchTerm}`, {
+      method: 'GET',
+    });
 
     const json = await result.json();
 
@@ -58,24 +55,13 @@ function DishSearch() {
         {/* <label htmlFor="selectType" className={styles.typeLabel}>
           Search By:
         </label> */}
-        <select
-          id="selectType"
-          className={styles.selectOptions}
-          value={searchType}
-          onChange={handleChange}
-        >
+        <select id="selectType" className={styles.select} value={searchType} onChange={handleChange}>
           <option value="en">English</option>
           <option value="zhtw">Chinese</option>
           <option value="pinyinNoDiacritics">Hanyu Pinyin</option>
         </select>
 
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchTerm}
-          onInput={handleInput}
-          className={styles.search}
-        />
+        <input type="text" placeholder="Search" value={searchTerm} onInput={handleInput} className={styles.search} />
       </form>
 
       <DishDisplay dishes={searchResults} />
