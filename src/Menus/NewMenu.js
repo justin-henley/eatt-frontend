@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 /* import { Toast } from 'react-bootstrap'; */
-
+// Custom Components
 import MenuNewCategory from './MenuNewCategory';
 import MenuNewRestaurant from './MenuNewRestaurant';
+// CSS
+import styles from './NewMenu.module.css';
+import { Form } from 'react-bootstrap';
 
 function NewMenu() {
   // DATA
@@ -153,33 +156,30 @@ function NewMenu() {
   };
 
   return (
-    <div className="NewMenu">
-      <h1>New Menu Form</h1>
-      <form onSubmit={handleSubmit}>
-        <MenuNewRestaurant
-          showRestaurantForm={showRestaurantForm}
-          setShowRestaurantForm={setShowRestaurantForm}
-          restaurant={restaurant}
-          handleChange={handleRestaurantChange}
+    <Form className={styles.newMenu} onSubmit={handleSubmit}>
+      <MenuNewRestaurant
+        showRestaurantForm={showRestaurantForm}
+        setShowRestaurantForm={setShowRestaurantForm}
+        restaurant={restaurant}
+        handleChange={handleRestaurantChange}
+      />
+      {categories.map((category) => (
+        <MenuNewCategory
+          category={category}
+          handleAddItem={handleAddItem}
+          handleRemoveItem={handleRemoveItem}
+          key={`category${category.id}`}
+          handleChange={handleCategoryChange}
+          handleRemoveCategory={handleRemoveCategory}
         />
-        {categories.map((category) => (
-          <MenuNewCategory
-            category={category}
-            handleAddItem={handleAddItem}
-            handleRemoveItem={handleRemoveItem}
-            key={`category${category.id}`}
-            handleChange={handleCategoryChange}
-            handleRemoveCategory={handleRemoveCategory}
-          />
-        ))}
-        <button type="button" onClick={handleAddCategory}>
-          Add Category
-        </button>
-        <button type="submit" onClick={handleSubmit}>
-          Submit Menu
-        </button>
-      </form>
-    </div>
+      ))}
+      <button type="button" onClick={handleAddCategory}>
+        Add Category
+      </button>
+      <button type="submit" onClick={handleSubmit}>
+        Submit Menu
+      </button>
+    </Form>
   );
 }
 

@@ -12,8 +12,6 @@ function MenuNewRestaurant({ showRestaurantForm, setShowRestaurantForm, restaura
 
   return (
     <div className="restaurantSection">
-      <hr />
-      <h2>Restaurant Section</h2>
       {showRestaurantForm ? (
         <MenuNewRestaurantForm restaurant={restaurant} handleChange={handleChange} />
       ) : (
