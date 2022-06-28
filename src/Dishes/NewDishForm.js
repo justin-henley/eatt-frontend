@@ -1,6 +1,6 @@
 // Outside Components
 import { useState } from 'react';
-import { Form, InputGroup } from 'react-bootstrap';
+import { FloatingLabel, Form, InputGroup } from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert';
 // Custom Components
 import DishTile from './DishTile';
@@ -68,10 +68,15 @@ function NewDishForm() {
         <h1>Create a new dish:</h1>
 
         <hr />
-        <Form.Group>
-          {' '}
-          <Form.Group className="dishName" controlId="formNameChinese">
-            <Form.Label aria-label="Chinese name for new dish">Chinese</Form.Label>
+        <Form.Group
+          as="fieldset"
+          className={styles.nameGroup}
+          aria-label="Please enter the Chinese, Pinyin, and English names of the new dish."
+        >
+          <Form.Label as="legend" aria-hidden>
+            Dish Name
+          </Form.Label>
+          <FloatingLabel controlId="floatingChinese" label="Chinese Name">
             <Form.Control
               type="text"
               placeholder="牛肉麵"
@@ -80,9 +85,9 @@ function NewDishForm() {
               value={inputs.zhtw || ''}
               onChange={handleChange}
             />
-          </Form.Group>
-          <Form.Group className="dishName" controlId="formNamePinyin">
-            <Form.Label aria-label="Hanyu Pinyin name for new dish">Hanyu Pinyin</Form.Label>
+          </FloatingLabel>
+
+          <FloatingLabel controlId="floatingPinyin" label="Hanyu Pinyin Name">
             <Form.Control
               type="text"
               placeholder="niú ròu miàn"
@@ -91,9 +96,8 @@ function NewDishForm() {
               value={inputs.pinyin || ''}
               onChange={handleChange}
             />
-          </Form.Group>
-          <Form.Group className="dishName" controlId="formNameEnglish">
-            <Form.Label aria-label="English name for new dish">English</Form.Label>
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingEnglish" label="English Name">
             <Form.Control
               type="text"
               placeholder="Beef Noodles"
@@ -102,34 +106,54 @@ function NewDishForm() {
               value={inputs.en || ''}
               onChange={handleChange}
             />
-          </Form.Group>
+          </FloatingLabel>
         </Form.Group>
-        <Form.Group>
-          <Form.Label aria-label="Category for dish">Dish Category</Form.Label>
-          <Form.Select name="category" required value={inputs.category || ''} onChange={handleChange}>
-            <option value="rice">Rice</option>
-            <option value="noodle">Noodle</option>
-            <option value="bread">Bread, Crepe, Sandwich, etc.</option>
-            <option value="soup">Soup, Stew, or Curry</option>
-            <option value="drink">Beverage</option>
-            <option value="unknown">Unknown</option>
-            <option value="other">Other</option>
-          </Form.Select>
+        <hr />
+        <Form.Group
+          as="fieldset"
+          className={styles.detailsGroup}
+          aria-label="Please choose the relevant category and protein type for the dish"
+        >
+          <Form.Label as="legend">Dish Details</Form.Label>
+          <FloatingLabel controlId="floatingCategory" label="Dish Category">
+            <Form.Select
+              aria-label="Category of the dish"
+              name="category"
+              required
+              value={inputs.category || ''}
+              onChange={handleChange}
+              placeholder="wat"
+            >
+              <option value="rice">Rice</option>
+              <option value="noodle">Noodle</option>
+              <option value="bread">Bread, Crepe, Sandwich, etc.</option>
+              <option value="soup">Soup, Stew, or Curry</option>
+              <option value="drink">Beverage</option>
+              <option value="unknown">Unknown</option>
+              <option value="other">Other</option>
+            </Form.Select>
+          </FloatingLabel>
+
+          <FloatingLabel controlId="floatingMeat" label="Protein Type">
+            <Form.Select
+              aria-label="Protein type of the dish"
+              name="meat"
+              required
+              value={inputs.meat || ''}
+              onChange={handleChange}
+            >
+              <option value="beef">Beef </option>
+              <option value="pork">Pork</option>
+              <option value="bird">Poultry</option>
+              <option value="fish">Seafood</option>
+              <option value="egg">Egg</option>
+              <option value="veg">Vegetarian</option>
+              <option value="unknown">Unknown</option>
+              <option value="other">Other</option>
+            </Form.Select>
+          </FloatingLabel>
         </Form.Group>
-        <Form.Group>
-          <Form.Label aria-label="Protein type for dish">Protein Type</Form.Label>
-          <Form.Select name="meat" required value={inputs.meat || ''} onChange={handleChange}>
-            <option value="beef">Beef </option>
-            <option value="pork">Pork</option>
-            <option value="bird">Poultry</option>
-            <option value="fish">Seafood</option>
-            <option value="egg">Egg</option>
-            <option value="veg">Vegetarian</option>
-            <option value="unknown">Unknown</option>
-            <option value="other">Other</option>
-          </Form.Select>
-        </Form.Group>
-        <button type="submit" className={styles.submit}>
+        <button type="submit" className={styles.submit} aria-label="Create this dish">
           Create
         </button>
       </Form>

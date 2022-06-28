@@ -9,9 +9,6 @@
   margin: auto;
 }
 
-.form {
-  margin: 0 0.5em 2em 0.5em;
-}
 .form h1 {
   /* text-decoration: underline; */
   font-size: 2em;
@@ -29,6 +26,12 @@
   align-items: center;
   margin-bottom: 0.5em;
 }
+.nameGroup {
+  border: 1px solid red;
+}
+.detailsGroup {
+  border: 1px solid purple;
+}
 
 .form label:focus-within {
   font-weight: 600;
@@ -43,7 +46,7 @@
   border-radius: 5px;
   padding: 0.5em;
   font-size: 24px;
-  margin: auto 0 auto calc(100% - 100px);
+  margin: 1em 0 auto calc(100% - 100px);
   transition: background-color 0.5s, color 0.5s;
 }
 
