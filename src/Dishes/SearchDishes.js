@@ -1,5 +1,8 @@
 // Outside Components
+import { Dropdown, FormControl } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import { DropdownButton, InputGroup, Row, Col } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 // Custom Components
 import DishDisplay from './DishDisplay';
 // CSS
@@ -51,19 +54,29 @@ function DishSearch() {
   return (
     <div>
       <h1 className={styles.title}>Search Dishes</h1>
-      <form className={styles.searchForm} onSubmit={(e) => e.preventDefault()}>
-        {/* <label htmlFor="selectType" className={styles.typeLabel}>
-          Search By:
-        </label> */}
-        <select id="selectType" className={styles.select} value={searchType} onChange={handleChange}>
-          <option value="en">English</option>
-          <option value="zhtw">Chinese</option>
-          <option value="pinyinNoDiacritics">Hanyu Pinyin</option>
-        </select>
-
-        <input type="text" placeholder="Search" value={searchTerm} onInput={handleInput} className={styles.search} />
-      </form>
-
+      <Form onSubmit={(e) => e.preventDefault()}>
+        <Form.Group className="" controlId="formSearch">
+          <Row className={styles.row1}>
+            <Col xs="auto" className={styles.col1}>
+              <Form.Select className={styles.searchLanguage} size="sm" value={searchType} onChange={handleChange}>
+                <option value="en">English</option>
+                <option value="zhtw">Chinese</option>
+                <option value="pinyinNoDiacritics">Hanyu Pinyin</option>
+              </Form.Select>
+            </Col>
+            <Col xs="auto" className={styles.col2}>
+              <FormControl
+                size="sm"
+                type="text"
+                placeholder="Search"
+                value={searchTerm}
+                onInput={handleInput}
+                className={styles.searchText}
+              />
+            </Col>
+          </Row>
+        </Form.Group>
+      </Form>
       <DishDisplay dishes={searchResults} />
     </div>
   );
