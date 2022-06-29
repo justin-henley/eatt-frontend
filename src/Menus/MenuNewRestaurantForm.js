@@ -1,6 +1,7 @@
 import { FloatingLabel, Form, FormControl, FormGroup } from 'react-bootstrap';
 
 function MenuNewRestaurantForm({ restaurant, handleChange }) {
+  // TODO test with screen reader and add aria labels where needed
   return (
     <FormGroup
       as="fieldset"

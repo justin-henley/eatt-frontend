@@ -1,28 +1,45 @@
+import { FloatingLabel, FormControl, FormGroup, FormLabel } from 'react-bootstrap';
 import MenuItemSearch from './MenuItemSearch';
 
 function MenuCategoryForm({ category, handleChange, handleAddItem, handleRemoveItem }) {
   return (
-    <fieldset data-category-id={category.id}>
-      <legend>Category</legend>
-      <label>
-        Traditional Chinese:
-        <input type="text" name="zhtw" value={category.zhtw} onChange={handleChange} />
-      </label>
-      <label>
-        Hanyu Pinyin:
-        <input type="text" name="pinyin" value={category.pinyin} onChange={handleChange} />
-      </label>
-      <label>
-        English:
-        <input type="text" name="en" value={category.en} onChange={handleChange} />
-      </label>
+    <FormGroup
+      as="fieldset"
+      data-category-id={category.id}
+      aria-label="Enter the name of the new menu category in Traditional Chinese, Hanyu Pinyin, and English."
+    >
+      <FormLabel as="legend">Category</FormLabel>
+      <FloatingLabel controlId="floatingCategoryChinese" label="Traditional Chinese">
+        <FormControl
+          type="text"
+          size="sm"
+          name="zhtw"
+          required
+          value={category.zhtw}
+          onChange={handleChange}
+          placeholder="Traditional Chinese"
+        />
+      </FloatingLabel>
+      <FloatingLabel controlId="floatingCategoryPinyin" label="Hanyu Pinyin">
+        <FormControl
+          type="text"
+          name="pinyin"
+          required
+          value={category.pinyin}
+          onChange={handleChange}
+          placeholder="Hanyu Pinyin"
+        />
+      </FloatingLabel>
+      <FloatingLabel controlId="floatingCategoryEnglish" label="English">
+        <FormControl type="text" name="en" required value={category.en} onChange={handleChange} placeholder="English" />
+      </FloatingLabel>
       <MenuItemSearch
         items={category.items}
         handleAddItem={handleAddItem}
         handleRemoveItem={handleRemoveItem}
         categoryId={category.id}
       />
-    </fieldset>
+    </FormGroup>
   );
 }
 
