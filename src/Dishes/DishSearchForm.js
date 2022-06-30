@@ -12,7 +12,7 @@ import styles from './DishSearchForm.module.css';
 // Also its a bit flaky
 // Maybe change to a submit button, OR cache all results locally and search the cache
 
-function DishSearch({ searchTerm, searchType, handleInput, handleChange }) {
+function DishSearchForm({ searchTerm, searchType, handleInput, handleChange }) {
   return (
     <Form onSubmit={(e) => e.preventDefault()}>
       <Form.Group className="" controlId="formSearch">
@@ -40,4 +40,4 @@ function DishSearch({ searchTerm, searchType, handleInput, handleChange }) {
   );
 }
 
-export default DishSearch;
+export default DishSearchForm;
