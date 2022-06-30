@@ -1,5 +1,5 @@
 // CSS
-import styles from './GlobalFooter.module.css';
+// import styles from './GlobalFooter.module.css';
 
 function GlobalFooter() {
   return (
