@@ -1,7 +1,7 @@
 // Outside Components
 import { useState, useEffect } from 'react';
 // Custom Components
-
+import DishSearchForm from '../Dishes/DishSearchForm';
 // CSS
 import styles from './MenuItemSearch.module.css';
 
@@ -49,18 +49,12 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
   return (
     <div>
       <h1 className={styles.title}>Search Dishes</h1>
-      <fieldset className={styles.searchForm} onSubmit={(e) => e.preventDefault()}>
-        {/* <label htmlFor="selectType" className={styles.typeLabel}>
-          Search By:
-        </label> */}
-        <select id="selectType" className={styles.selectOptions} value={searchType} onChange={handleChange}>
-          <option value="en">English</option>
-          <option value="zhtw">Chinese</option>
-          <option value="pinyinNoDiacritics">Hanyu Pinyin</option>
-        </select>
-
-        <input type="text" placeholder="Search" value={searchTerm} onInput={handleInput} className={styles.search} />
-      </fieldset>
+      <DishSearchForm
+        searchTerm={searchTerm}
+        searchType={searchType}
+        handleInput={handleInput}
+        handleChange={handleChange}
+      />
       <ul>
         {console.log(searchResults)}
         {searchResults.map((result) => (
