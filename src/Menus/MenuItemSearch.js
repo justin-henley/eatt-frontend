@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 // Custom Components
 import DishSearchForm from '../Dishes/DishSearchForm';
+import MenuCategoryDishes from './MenuCategoryDishes';
 // CSS
 import styles from './MenuItemSearch.module.css';
 
@@ -48,6 +49,8 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
   // TODO adding and deleting items does not trigger a rerender, making the page seem unresponsive
   return (
     <div>
+      <h1>Added Dishes</h1>
+      <MenuCategoryDishes items={items} categoryId={categoryId} handleRemoveItem={handleRemoveItem} />
       <h1 className={styles.title}>Search Dishes</h1>
       <DishSearchForm
         searchTerm={searchTerm}
@@ -56,7 +59,6 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
         handleChange={handleChange}
       />
       <ul>
-        {console.log(searchResults)}
         {searchResults.map((result) => (
           <li key={result._id}>
             <span>
@@ -78,24 +80,6 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
               data-category={result.category}
             >
               +
-            </button>
-          </li>
-        ))}
-      </ul>
-      <h1>Added Dishes</h1>
-      <ul hidden={false}>
-        {items.map((item) => (
-          <li key={categoryId + item.id}>
-            <span>
-              {item.zhtw}
-              {itemSeparator}
-              {item.pinyin}
-              {itemSeparator}
-              {item.en}
-            </span>
-
-            <button type="button" data-category-id={categoryId} data-dish-id={item.id} onClick={handleRemoveItem}>
-              -
             </button>
           </li>
         ))}
