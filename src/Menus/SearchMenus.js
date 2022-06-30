@@ -1,11 +1,8 @@
 // Outside Components
 import { useState, useEffect } from 'react';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 // Custom Components
 import MenuDisplay from './MenuDisplay';
+import DishSearchForm from '../Dishes/DishSearchForm';
 // CSS
 import styles from './SearchMenus.module.css';
 
@@ -52,29 +49,12 @@ function SearchMenus() {
     <div>
       <h1 className={styles.title}>Search Menus</h1>
 
-      <Form onSubmit={(e) => e.preventDefault()}>
-        <Form.Group className={styles.searchForm} controlId="formSearch">
-          <Row className={styles.row1}>
-            <Col xs="auto" className={styles.col1}>
-              <Form.Select className={styles.searchLanguage} size="sm" value={searchType} onChange={handleChange}>
-                <option value="en">English</option>
-                <option value="zhtw">Chinese</option>
-                <option value="pinyinNoDiacritics">Hanyu Pinyin</option>
-              </Form.Select>
-            </Col>
-            <Col xs="auto" className={styles.col2}>
-              <FormControl
-                size="sm"
-                type="text"
-                placeholder="Search"
-                value={searchTerm}
-                onInput={handleInput}
-                className={styles.searchText}
-              />
-            </Col>
-          </Row>
-        </Form.Group>
-      </Form>
+      <DishSearchForm
+        searchTerm={searchTerm}
+        searchType={searchType}
+        handleInput={handleInput}
+        handleChange={handleChange}
+      />
 
       <MenuDisplay menus={searchResults} />
     </div>
