@@ -7,7 +7,7 @@ import NotFound from '../NotFound';
 // CSS
 import styles from './Dish.module.css';
 
-function Dish(props) {
+function Dish() {
   // Access the params to get the dish ID to display
   let params = useParams();
 
@@ -31,7 +31,7 @@ function Dish(props) {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   // If a dish is not found, a 'message' is returned
   // If no data is available yet, show placeholders
