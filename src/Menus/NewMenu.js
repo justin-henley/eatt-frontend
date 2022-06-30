@@ -131,19 +131,31 @@ function NewMenu() {
     const isAdded = categories[index]?.items?.find((item) => item.id === vals.dishId);
 
     // Add the item if it does not already exist in that category (no duplicates)
-    if (!isAdded)
-      categories[index].items.push({
-        id: vals.dishId,
-        zhtw: vals.zhtw,
-        pinyin: vals.pinyin,
-        en: vals.en,
-        category: vals.category,
-        meat: vals.meat,
-      });
+    if (!isAdded) {
+      setCategories(
+        categories.map((category, i) =>
+          i !== index
+            ? category
+            : {
+                ...category,
+                items: [
+                  ...category.items,
+                  {
+                    id: vals.dishId,
+                    zhtw: vals.zhtw,
+                    pinyin: vals.pinyin,
+                    en: vals.en,
+                    category: vals.category,
+                    meat: vals.meat,
+                  },
+                ],
+              }
+        )
+      );
+    }
   };
 
   const handleRemoveItem = (e) => {
-    // TODO doesn't rerender on clicking the delete, only when doing something else on the page
     /* e.preventDefault(); */
     // Get values from html element dataset
     const categoryId = e.target.dataset.categoryId;
@@ -152,7 +164,12 @@ function NewMenu() {
     // Index of the item's category
     const index = categories.findIndex((category) => category.id === categoryId);
     // Filter that item out of that category
-    categories[index].items = categories[index].items.filter((item) => item.id !== dishId);
+
+    setCategories(
+      categories.map((category, i) =>
+        i !== index ? category : { ...category, items: category.items.filter((item) => item.id !== dishId) }
+      )
+    );
   };
 
   return (
