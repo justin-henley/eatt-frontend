@@ -8,7 +8,7 @@ import App from './App';
 import Home from './Home';
 import Dishes from './Dishes/Dishes';
 import Dish from './Dishes/Dish';
-import SearchDishes from './Dishes/SearchDishes';
+import DishSearch from './Dishes/DishSearch';
 import NewDishForm from './Dishes/NewDishForm';
 import AllDishes from './Dishes/AllDishes';
 import Menus from './Menus/Menus';
@@ -29,7 +29,7 @@ root.render(
           <Route index element={<Home />} />
           <Route path="dishes" element={<Dishes />}>
             <Route path=":dishId" element={<Dish />} />
-            <Route path="search" element={<SearchDishes />} />
+            <Route path="search" element={<DishSearch />} />
             <Route path="new" element={<NewDishForm />} />
             <Route index element={<AllDishes />} />
           </Route>

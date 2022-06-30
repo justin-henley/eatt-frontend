@@ -1,13 +1,10 @@
 // Outside Components
 import { useState, useEffect } from 'react';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 // Custom Components
 import DishDisplay from './DishDisplay';
+import DishSearchForm from './DishSearchForm';
 // CSS
-import styles from './SearchDishes.module.css';
+import styles from './DishSearch.module.css';
 
 // TODO onChange seems like it generates a crazy number of db requests
 // Also its a bit flaky
@@ -24,7 +21,7 @@ function DishSearch() {
     setSearchTerm(event.target.value);
   };
 
-  // Handles selection of the radio buttons
+  // Handles select menu
   const handleChange = (event) => {
     setSearchType(event.target.value);
   };
@@ -55,29 +52,12 @@ function DishSearch() {
   return (
     <div>
       <h1 className={styles.title}>Search Dishes</h1>
-      <Form onSubmit={(e) => e.preventDefault()}>
-        <Form.Group className="" controlId="formSearch">
-          <Row className={styles.row1}>
-            <Col xs="auto" className={styles.col1}>
-              <Form.Select className={styles.searchLanguage} size="sm" value={searchType} onChange={handleChange}>
-                <option value="en">English</option>
-                <option value="zhtw">Chinese</option>
-                <option value="pinyinNoDiacritics">Hanyu Pinyin</option>
-              </Form.Select>
-            </Col>
-            <Col xs="auto" className={styles.col2}>
-              <FormControl
-                size="sm"
-                type="text"
-                placeholder="Search"
-                value={searchTerm}
-                onInput={handleInput}
-                className={styles.searchText}
-              />
-            </Col>
-          </Row>
-        </Form.Group>
-      </Form>
+      <DishSearchForm
+        searchTerm={searchTerm}
+        searchType={searchType}
+        handleInput={handleInput}
+        handleChange={handleChange}
+      />
       <DishDisplay dishes={searchResults} />
     </div>
   );

@@ -1,14 +1,3 @@
-.title {
-  color: var(--text-regular);
-  text-align: center;
-  margin: 1em;
-  font-size: 2em;
-}
-
-.searchText {
-  margin: 1em 0;
-}
-
 .row1 {
   width: 90%;
 
@@ -20,6 +9,10 @@
 .col2 {
   padding: 0;
   width: 100%;
+}
+
+.searchText {
+  margin: 1em 0;
 }
 
 @media screen and (min-width: 400px) {
