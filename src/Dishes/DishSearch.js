@@ -1,8 +1,9 @@
 // Outside Components
 import { useState, useEffect } from 'react';
+import Form from 'react-bootstrap/Form';
 // Custom Components
 import DishDisplay from './DishDisplay';
-import DishSearchForm from './DishSearchForm';
+import DishSearchFormGroup from './DishSearchFormGroup';
 // CSS
 import styles from './DishSearch.module.css';
 
@@ -52,12 +53,14 @@ function DishSearch() {
   return (
     <div>
       <h1 className={styles.title}>Search Dishes</h1>
-      <DishSearchForm
-        searchTerm={searchTerm}
-        searchType={searchType}
-        handleInput={handleInput}
-        handleChange={handleChange}
-      />
+      <Form onSubmit={(e) => e.preventDefault()}>
+        <DishSearchFormGroup
+          searchTerm={searchTerm}
+          searchType={searchType}
+          handleInput={handleInput}
+          handleChange={handleChange}
+        />
+      </Form>
       <DishDisplay dishes={searchResults} />
     </div>
   );

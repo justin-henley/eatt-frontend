@@ -1,7 +1,7 @@
 // Outside Components
 import { useState, useEffect } from 'react';
 // Custom Components
-import DishSearchForm from '../Dishes/DishSearchForm';
+import DishSearchFormGroup from '../Dishes/DishSearchFormGroup';
 import MenuCategoryDishes from './MenuCategoryDishes';
 // CSS
 import styles from './MenuItemSearch.module.css';
@@ -52,7 +52,7 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
       <h1>Added Dishes</h1>
       <MenuCategoryDishes items={items} categoryId={categoryId} handleRemoveItem={handleRemoveItem} />
       <h1 className={styles.title}>Search Dishes</h1>
-      <DishSearchForm
+      <DishSearchFormGroup
         searchTerm={searchTerm}
         searchType={searchType}
         handleInput={handleInput}
