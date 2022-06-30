@@ -45,7 +45,7 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
 
     setSearchResults(json);
   };
-
+  // TODO adding and deleting items does not trigger a rerender, making the page seem unresponsive
   return (
     <div>
       <h1 className={styles.title}>Search Dishes</h1>

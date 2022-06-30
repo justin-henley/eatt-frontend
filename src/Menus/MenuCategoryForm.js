@@ -2,6 +2,7 @@ import { FloatingLabel, FormControl, FormGroup, FormLabel } from 'react-bootstra
 import MenuItemSearch from './MenuItemSearch';
 
 function MenuCategoryForm({ category, handleChange, handleAddItem, handleRemoveItem }) {
+  // TODO test with screen reader and add aria labels where needed
   return (
     <FormGroup
       as="fieldset"
