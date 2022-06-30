@@ -1,7 +1,6 @@
-// Outside Components
+// Libraries
 import { useState } from 'react';
-import { Col, FloatingLabel, Form, InputGroup, Row } from 'react-bootstrap';
-import Alert from 'react-bootstrap/Alert';
+import { Alert, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
 // Custom Components
 import DishTile from './DishTile';
 // CSS

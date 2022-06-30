@@ -1,4 +1,4 @@
-// Outside components
+// Libraries
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // Custom Components
@@ -14,8 +14,7 @@ function Dish(props) {
   // Use state to store the dish returned
   const [data, setData] = useState();
 
-  // Retrieve the menu entry by id
-  // TODO what if no menu found?
+  // Retrieve the dish entry by id
   const getData = async () => {
     try {
       const result = await fetch(`https://menu-translation-backend.herokuapp.com/dishes/${params.dishId}`, {
@@ -26,7 +25,6 @@ function Dish(props) {
 
       setData(json);
     } catch (error) {
-      console.log('Fetch failed in Dish.js');
       setData({ message: 'This dish does not exist.' });
     }
   };
@@ -35,10 +33,9 @@ function Dish(props) {
     getData();
   }, []);
 
-  // If a menu is not found, a 'message' is returned
+  // If a dish is not found, a 'message' is returned
   // If no data is available yet, show placeholders
   // TODO the placeholder doesn't change size or animate when told
-  // TODO Forward the restaurant info through the Link state if coming from search of all menus
   return !data ? (
     <p>Loading...{/* <Placeholder xs={6} bg="secondary" /> */}</p>
   ) : data?.message ? (

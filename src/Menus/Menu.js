@@ -1,6 +1,6 @@
-// Outside components
+// Libraries
 import { useState, useEffect } from 'react';
-// import { Placeholder } from 'react-bootstrap';
+// import Placeholder from 'react-bootstrap/Placeholder';
 import { useParams } from 'react-router-dom';
 // Custom Components
 import MenuName from './MenuName';
@@ -17,7 +17,6 @@ function Menu() {
   const [data, setData] = useState();
 
   // Retrieve the menu entry by id
-  // TODO what if no menu found?
   const getData = async () => {
     try {
       const result = await fetch(`https://menu-translation-backend.herokuapp.com/menus/${params.menuId}`, {
@@ -28,7 +27,6 @@ function Menu() {
 
       setData(json);
     } catch (error) {
-      console.log('Fetch failed in Menu.js');
       setData({ message: 'This menu does not exist.' });
     }
   };
@@ -40,7 +38,6 @@ function Menu() {
   // If a menu is not found, a 'message' is returned
   // If no data is available yet, show placeholders
   // TODO the placeholder doesn't change size or animate when told
-  // TODO Forward the restaurant info through the Link state if coming from search of all menus
   return !data ? (
     <p>Loading...{/* <Placeholder xs={6} bg="secondary" /> */}</p>
   ) : data?.message ? (

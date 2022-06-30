@@ -1,8 +1,5 @@
-// Outside components
-
 // Custom Components
 import MenuCategory from './MenuCategory';
-
 // CSS
 import styles from './MenuContent.module.css';
 

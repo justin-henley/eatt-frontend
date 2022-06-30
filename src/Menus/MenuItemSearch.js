@@ -1,4 +1,4 @@
-// Outside Components
+// Libraries
 import { useState, useEffect } from 'react';
 // Custom Components
 import DishSearchFormGroup from '../Dishes/DishSearchFormGroup';
@@ -46,7 +46,7 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
 
     setSearchResults(json);
   };
-  // TODO adding and deleting items does not trigger a rerender, making the page seem unresponsive
+
   return (
     <div>
       <h1>Added Dishes</h1>

@@ -1,5 +1,6 @@
+// Custom Components
 import DishTile from './Dishes/DishTile';
-// import styled from 'styled-components';
+// CSS
 import styles from './Home.module.css';
 
 const Welcome = () => {
@@ -25,11 +26,7 @@ const Welcome = () => {
         <h1 className={styles.shout}>
           <span className={styles.flash}>Eat</span> your heart out
         </h1>
-        <img
-          alt="Gua Bao"
-          src="./img/pexels-adrian-dorobantu-2089712.jpg"
-          height="auto"
-        />
+        <img alt="Gua Bao" src="./img/pexels-adrian-dorobantu-2089712.jpg" height="auto" />
         <div className={styles.dish}>
           <DishTile item={eatTile} className={styles.food} />{' '}
         </div>

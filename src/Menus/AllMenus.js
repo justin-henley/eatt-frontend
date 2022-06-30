@@ -1,4 +1,4 @@
-// Outside components
+// Libraries
 import { useState, useEffect } from 'react';
 // Custom components
 import MenuDisplay from './MenuDisplay';

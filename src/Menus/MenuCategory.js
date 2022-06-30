@@ -1,6 +1,5 @@
 // Custom Components
 import DishDisplay from '../Dishes/DishDisplay';
-
 // CSS
 import styles from './MenuCategory.module.css';
 

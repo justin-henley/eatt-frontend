@@ -1,12 +1,8 @@
-// Outside components
+// Libraries
 import { Outlet } from 'react-router-dom';
 
 function Dishes() {
-  return (
-    <div>
-      <Outlet />
-    </div>
-  );
+  return <Outlet />;
 }
 
 export default Dishes;

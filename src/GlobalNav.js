@@ -1,4 +1,4 @@
-// Outside Components
+// Libraries
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import LinkContainer from 'react-router-bootstrap/LinkContainer';
 // CSS

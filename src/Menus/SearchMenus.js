@@ -1,4 +1,4 @@
-// Outside Components
+// Libraries
 import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 // Custom Components

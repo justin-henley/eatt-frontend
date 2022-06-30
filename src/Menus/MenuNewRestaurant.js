@@ -1,5 +1,3 @@
-// Outside Components
-import { useState } from 'react';
 // Custom Components
 import MenuNewRestaurantForm from './MenuNewRestaurantForm';
 import MenuName from './MenuName';

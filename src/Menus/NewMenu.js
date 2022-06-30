@@ -1,12 +1,12 @@
+// Libraries
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-/* import { Toast } from 'react-bootstrap'; */
+import Form from 'react-bootstrap/Form';
 // Custom Components
 import MenuNewCategory from './MenuNewCategory';
 import MenuNewRestaurant from './MenuNewRestaurant';
 // CSS
 import styles from './NewMenu.module.css';
-import { Form } from 'react-bootstrap';
 
 function NewMenu() {
   // DATA

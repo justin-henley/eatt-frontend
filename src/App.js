@@ -1,4 +1,4 @@
-// Outside components
+// Libraries
 import { Outlet } from 'react-router-dom';
 // Custom components
 import GlobalNav from './GlobalNav';

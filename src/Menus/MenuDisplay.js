@@ -1,4 +1,4 @@
-// Outside components
+// Libraries
 import { Link } from 'react-router-dom';
 // Custom components
 import MenuName from './MenuName';

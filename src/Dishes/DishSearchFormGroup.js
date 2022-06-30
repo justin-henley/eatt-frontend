@@ -1,4 +1,4 @@
-// Outside Components
+// Libraries
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Row from 'react-bootstrap/Row';
@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 // Custom Components
 
 // CSS
-import styles from './DishSearchForm.module.css';
+import styles from './DishSearchFormGroup.module.css';
 
 // Must be wrapped in a react-bootstrap Form component in the parent
 function DishSearchForm({ searchTerm, searchType, handleInput, handleChange }) {

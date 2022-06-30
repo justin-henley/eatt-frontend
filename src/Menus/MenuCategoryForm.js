@@ -1,4 +1,6 @@
+// Libraries
 import { FloatingLabel, FormControl, FormGroup, FormLabel } from 'react-bootstrap';
+// Custom Components
 import MenuItemSearch from './MenuItemSearch';
 
 function MenuCategoryForm({ category, handleChange, handleAddItem, handleRemoveItem }) {

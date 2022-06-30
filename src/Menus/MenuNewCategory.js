@@ -1,6 +1,5 @@
-// Outside Components
+// Libraries
 import { useState } from 'react';
-
 // Custom Components
 import MenuCategory from './MenuCategory';
 import MenuCategoryForm from './MenuCategoryForm';

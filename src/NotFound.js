@@ -1,7 +1,7 @@
-// Icon
-import { MdNoFood } from 'react-icons/md';
 // CSS
 import styles from './NotFound.module.css';
+// Icon
+import { MdNoFood } from 'react-icons/md';
 
 function NotFound({ message }) {
   return (

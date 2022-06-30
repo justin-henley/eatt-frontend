@@ -1,4 +1,4 @@
-// Custom components
+// Libraries
 import DishTile from './DishTile';
 // CSS
 import styles from './DishDisplay.module.css';
