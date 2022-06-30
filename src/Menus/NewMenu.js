@@ -101,8 +101,6 @@ function NewMenu() {
   };
 
   const handleAddCategory = (e) => {
-    //e.preventDefault();
-
     setCategories((values) => [
       ...values,
       {
@@ -116,13 +114,10 @@ function NewMenu() {
   };
 
   const handleRemoveCategory = (e) => {
-    /* e.preventDefault(); */
-
     setCategories((values) => values.filter((category) => category.id !== e.target.dataset.categoryId));
   };
 
   const handleAddItem = (e) => {
-    /* e.preventDefault(); */
     const vals = e.target.dataset;
 
     // Index of relevant category
@@ -156,7 +151,6 @@ function NewMenu() {
   };
 
   const handleRemoveItem = (e) => {
-    /* e.preventDefault(); */
     // Get values from html element dataset
     const categoryId = e.target.dataset.categoryId;
     const dishId = e.target.dataset.dishId;
