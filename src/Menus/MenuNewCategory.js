@@ -14,8 +14,6 @@ function MenuNewCategory({ category, handleChange, handleAddItem, handleRemoveIt
   const handleClick = (e) => {
     e.preventDefault();
     setShowForm(!showForm);
-    // TODO remove, just for checking
-    console.log('category: ', category);
   };
   return (
     <div className="newCategory">
