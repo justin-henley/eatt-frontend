@@ -55,14 +55,20 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
         buttonHandler={handleRemoveItem}
         title="Added Dishes"
       />
-      <h1 className={styles.title}>Search Dishes</h1>
+
       <DishSearchFormGroup
         searchTerm={searchTerm}
         searchType={searchType}
         handleInput={handleInput}
         handleChange={handleChange}
       />
-      <MenuItemTable items={searchResults} categoryId={categoryId} buttonText="+" buttonHandler={handleAddItem} />
+      <MenuItemTable
+        items={searchResults}
+        categoryId={categoryId}
+        buttonText="+"
+        buttonHandler={handleAddItem}
+        title="Search Results"
+      />
     </div>
   );
 }

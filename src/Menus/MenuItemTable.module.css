@@ -2,13 +2,15 @@
   width: 100%;
   max-width: 800px;
   margin: auto;
+  margin: 1em auto;
 }
-.tHead {
+.tHead th {
 }
 .tHead th {
   text-align: center;
 }
-.tBody {
+.tBody tr {
+  border: 1px solid black;
 }
 .tRow:nth-child(odd) {
   background-color: #eee;
