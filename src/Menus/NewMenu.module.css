@@ -15,3 +15,13 @@
   background-color: var(--navbar-color);
   color: white;
 }
+
+.newMenu {
+  max-width: 1200px;
+  margin: 2em auto;
+  padding: 0 1em;
+}
+
+.formButtons {
+  text-align: right;
+}

@@ -175,21 +175,26 @@ function NewMenu() {
         handleChange={handleRestaurantChange}
       />
       {categories.map((category) => (
-        <MenuNewCategory
-          category={category}
-          handleAddItem={handleAddItem}
-          handleRemoveItem={handleRemoveItem}
-          key={`category${category.id}`}
-          handleChange={handleCategoryChange}
-          handleRemoveCategory={handleRemoveCategory}
-        />
+        <>
+          <MenuNewCategory
+            category={category}
+            handleAddItem={handleAddItem}
+            handleRemoveItem={handleRemoveItem}
+            key={`category${category.id}`}
+            handleChange={handleCategoryChange}
+            handleRemoveCategory={handleRemoveCategory}
+          />
+          <hr />
+        </>
       ))}
-      <button type="button" onClick={handleAddCategory}>
-        Add Category
-      </button>
-      <button type="submit" onClick={handleSubmit}>
-        Submit Menu
-      </button>
+      <div className={styles.formButtons}>
+        <button type="button" className={styles.addCatButton} onClick={handleAddCategory}>
+          Add Category
+        </button>
+        <button type="submit" className={styles.submitButton} onClick={handleSubmit}>
+          Submit Menu
+        </button>
+      </div>
     </Form>
   );
 }
