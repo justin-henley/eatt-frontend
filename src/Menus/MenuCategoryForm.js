@@ -3,7 +3,7 @@ import { FloatingLabel, FormControl, FormGroup, FormLabel } from 'react-bootstra
 // Custom Components
 import MenuItemSearch from './MenuItemSearch';
 
-function MenuCategoryForm({ category, handleChange, handleAddItem, handleRemoveItem }) {
+function MenuCategoryForm({ index, category, handleChange, handleAddItem, handleRemoveItem }) {
   // TODO test with screen reader and add aria labels where needed
   return (
     <FormGroup
@@ -11,7 +11,7 @@ function MenuCategoryForm({ category, handleChange, handleAddItem, handleRemoveI
       data-category-id={category.id}
       aria-label="Enter the name of the new menu category in Traditional Chinese, Hanyu Pinyin, and English."
     >
-      <FormLabel as="legend">Category</FormLabel>
+      <FormLabel as="legend">Category {index + 1}</FormLabel>
       <FloatingLabel controlId="floatingCategoryChinese" label="Traditional Chinese">
         <FormControl
           type="text"

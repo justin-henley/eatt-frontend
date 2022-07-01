@@ -174,9 +174,10 @@ function NewMenu() {
         restaurant={restaurant}
         handleChange={handleRestaurantChange}
       />
-      {categories.map((category) => (
+      {categories.map((category, index) => (
         <>
           <MenuNewCategory
+            index={index}
             category={category}
             handleAddItem={handleAddItem}
             handleRemoveItem={handleRemoveItem}
