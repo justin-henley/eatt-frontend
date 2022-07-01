@@ -2,6 +2,10 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
+import { Link } from 'react-router-dom';
 // Custom Components
 import MenuNewCategory from './MenuNewCategory';
 import MenuNewRestaurant from './MenuNewRestaurant';
@@ -10,6 +14,7 @@ import styles from './NewMenu.module.css';
 
 function NewMenu() {
   // DATA
+  const [menu, setMenu] = useState({});
   const emptyRestaurant = {
     zhtw: '',
     pinyin: '',
@@ -74,7 +79,9 @@ function NewMenu() {
       alert(`Menu submission failed.\n${json.message}`);
     } else {
       // Success
-      alert('Menu submission succeeded.');
+      alert('Menu submission succeeded. ');
+      // Save menu data
+      setMenu(json);
       // Clear data from form
       setRestaurant({ ...emptyRestaurant });
       setCategories([]);
@@ -167,36 +174,58 @@ function NewMenu() {
   };
 
   return (
-    <Form className={styles.newMenu} onSubmit={handleSubmit}>
-      <MenuNewRestaurant
-        showRestaurantForm={showRestaurantForm}
-        setShowRestaurantForm={setShowRestaurantForm}
-        restaurant={restaurant}
-        handleChange={handleRestaurantChange}
-      />
-      {categories.map((category, index) => (
-        <>
-          <MenuNewCategory
-            index={index}
-            category={category}
-            handleAddItem={handleAddItem}
-            handleRemoveItem={handleRemoveItem}
-            key={`category${category.id}`}
-            handleChange={handleCategoryChange}
-            handleRemoveCategory={handleRemoveCategory}
-          />
-          <hr />
-        </>
-      ))}
-      <div className={styles.formButtons}>
-        <button type="button" className={styles.addCatButton} onClick={handleAddCategory}>
-          Add Category
-        </button>
-        <button type="submit" className={styles.submitButton} onClick={handleSubmit}>
-          Submit Menu
-        </button>
+    <div>
+      <div className={styles.result}>
+        {menu.hasOwnProperty('message') ? (
+          <Alert variant="danger" className={styles.alert}>
+            <Alert.Heading>Menu Creation Failed</Alert.Heading> <p>Error: {menu.message}</p>
+            <p>Please check your inputs and try again.</p>
+          </Alert>
+        ) : (
+          <div>
+            {menu._id && (
+              <Alert variant="success">
+                Menu created successfully.
+                <Link to={`/menus/${menu._id}`} target="_blank">
+                  Open menu in new window
+                </Link>
+              </Alert>
+            )}
+            <menuTile item={menu} />
+          </div>
+        )}
       </div>
-    </Form>
+      <Form className={styles.newMenu} onSubmit={handleSubmit}>
+        <MenuNewRestaurant
+          showRestaurantForm={showRestaurantForm}
+          setShowRestaurantForm={setShowRestaurantForm}
+          restaurant={restaurant}
+          handleChange={handleRestaurantChange}
+        />
+        {categories.map((category, index) => (
+          <>
+            <MenuNewCategory
+              index={index}
+              category={category}
+              handleAddItem={handleAddItem}
+              handleRemoveItem={handleRemoveItem}
+              key={`category${category.id}`}
+              handleChange={handleCategoryChange}
+              handleRemoveCategory={handleRemoveCategory}
+            />
+            <hr />
+          </>
+        ))}
+        <div className={styles.formButtons}>
+          <button type="button" className={styles.addCatButton} onClick={handleAddCategory}>
+            Add Category
+          </button>
+          <button type="submit" className={styles.submitButton} onClick={handleSubmit}>
+            Submit Menu
+          </button>
+        </div>
+      </Form>
+    </div>
   );
 }
 

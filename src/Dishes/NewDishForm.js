@@ -1,6 +1,7 @@
 // Libraries
 import { useState } from 'react';
 import { Alert, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 // Custom Components
 import DishTile from './DishTile';
 // CSS
@@ -57,7 +58,14 @@ function NewDishForm() {
           </Alert>
         ) : (
           <div>
-            {dish._id && <Alert variant="success">Dish created successfully.</Alert>}
+            {dish._id && (
+              <Alert variant="success">
+                Dish created successfully.
+                <Link to={`/dishes/${dish._id}`} target="_blank">
+                  Open dish in new window
+                </Link>
+              </Alert>
+            )}
             <DishTile item={dish} />
           </div>
         )}
