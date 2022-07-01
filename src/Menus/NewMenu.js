@@ -187,7 +187,7 @@ function NewMenu() {
               <Alert variant="success">
                 Menu created successfully.
                 <Link to={`/menus/${menu._id}`} target="_blank">
-                  Open menu in new window
+                  &nbsp;Open menu in new window
                 </Link>
               </Alert>
             )}
