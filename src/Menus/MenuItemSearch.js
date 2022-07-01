@@ -2,17 +2,16 @@
 import { useState, useEffect } from 'react';
 // Custom Components
 import DishSearchFormGroup from '../Dishes/DishSearchFormGroup';
-import MenuCategoryDishes from './MenuCategoryDishes';
+
 // CSS
 import styles from './MenuItemSearch.module.css';
+import MenuItemTable from './MenuItemTable';
 
 function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) {
   // Search text, type, and results saved in state with initial values
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('en');
   const [searchResults, setSearchResults] = useState([]);
-
-  const itemSeparator = ' - ';
 
   // Handles changes to the search field
   const handleInput = async (event) => {
@@ -49,8 +48,13 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
 
   return (
     <div>
-      <h1>Added Dishes</h1>
-      <MenuCategoryDishes items={items} categoryId={categoryId} handleRemoveItem={handleRemoveItem} />
+      <MenuItemTable
+        items={items}
+        categoryId={categoryId}
+        buttonText="-"
+        buttonHandler={handleRemoveItem}
+        title="Added Dishes"
+      />
       <h1 className={styles.title}>Search Dishes</h1>
       <DishSearchFormGroup
         searchTerm={searchTerm}
@@ -58,32 +62,7 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
         handleInput={handleInput}
         handleChange={handleChange}
       />
-      <ul>
-        {searchResults.map((result) => (
-          <li key={result._id}>
-            <span>
-              {result.zhtw}
-              {itemSeparator}
-              {result.pinyin}
-              {itemSeparator}
-              {result.en}
-            </span>
-            <button
-              type="button"
-              onClick={handleAddItem}
-              data-category-id={categoryId}
-              data-dish-id={result._id}
-              data-zhtw={result.zhtw}
-              data-pinyin={result.pinyin}
-              data-en={result.en}
-              data-meat={result.meat}
-              data-category={result.category}
-            >
-              +
-            </button>
-          </li>
-        ))}
-      </ul>
+      <MenuItemTable items={searchResults} categoryId={categoryId} buttonText="+" buttonHandler={handleAddItem} />
     </div>
   );
 }

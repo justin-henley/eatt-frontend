@@ -1,0 +1,20 @@
+.table {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+.tHead {
+}
+.tHead th {
+  text-align: center;
+}
+.tBody {
+}
+.tRow:nth-child(odd) {
+  background-color: #eee;
+}
+.tRow {
+}
+.tData {
+  padding: 0 1em;
+}
