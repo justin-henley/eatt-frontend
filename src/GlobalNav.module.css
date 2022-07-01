@@ -1,5 +1,6 @@
 .navbar {
   background-color: var(--navbar-color);
+  border-bottom: 2px solid white;
 }
 .navText {
   color: var(--text-navbar) !important;
