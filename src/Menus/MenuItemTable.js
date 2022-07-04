@@ -11,7 +11,7 @@ function MenuItemTable({ items, categoryId, buttonText = '?', buttonHandler, tit
         (items.length !== 0 || title === 'Added Dishes') && (
           <thead className={styles.tHead}>
             <tr>
-              <th colspan="4">{title}</th>
+              <th colSpan="4">{title}</th>
             </tr>
             <tr>
               <th>Mandarin</th>
@@ -25,7 +25,7 @@ function MenuItemTable({ items, categoryId, buttonText = '?', buttonHandler, tit
       <tbody className={styles.tBody}>
         {title === 'Added Dishes' && items.length === 0 ? (
           <tr>
-            <td colspan="4" style={{ textAlign: 'center', fontStyle: 'italic' }}>
+            <td colSpan="4" style={{ textAlign: 'center', fontStyle: 'italic' }}>
               Please use the search bar below to find and add items
             </td>
           </tr>
