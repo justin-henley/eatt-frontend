@@ -35,7 +35,6 @@ function Dish() {
 
   // If a dish is not found, a 'message' is returned
   // If no data is available yet, show placeholders
-  // TODO the placeholder doesn't change size or animate when told
   return !data ? (
     <p>Loading...{/* <Placeholder xs={6} bg="secondary" /> */}</p>
   ) : data?.message ? (

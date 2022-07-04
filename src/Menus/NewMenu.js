@@ -35,9 +35,6 @@ function NewMenu() {
     // TODO input validation. Make sure all fields have values
     e.preventDefault();
 
-    // Open a preview window and ask for confirmation
-    // TODO
-
     // Create the request body using only the necessaary menu data
     const menuData = {
       restaurant: restaurant,
