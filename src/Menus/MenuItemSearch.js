@@ -30,16 +30,18 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
 
   const getSearchResults = async (searchTerm) => {
     // Ensure the search field has a value
-    // TODO regex to check if it is all spaces (should be treated as empty)
-    if (!searchTerm) {
+    if (!searchTerm.trim()) {
       setSearchResults([]);
       return;
     }
 
     // Search by search type and text
-    const result = await fetch(`https://menu-translation-backend.herokuapp.com/dishes?${searchType}=${searchTerm}`, {
-      method: 'GET',
-    });
+    const result = await fetch(
+      `https://menu-translation-backend.herokuapp.com/dishes?${searchType}=${searchTerm.trim()}`,
+      {
+        method: 'GET',
+      }
+    );
 
     const json = await result.json();
 
