@@ -191,7 +191,6 @@ function NewMenu() {
                 </Link>
               </Alert>
             )}
-            <menuTile item={menu} />
           </div>
         )}
       </div>
@@ -203,18 +202,15 @@ function NewMenu() {
           handleChange={handleRestaurantChange}
         />
         {categories.map((category, index) => (
-          <>
-            <MenuNewCategory
-              index={index}
-              category={category}
-              handleAddItem={handleAddItem}
-              handleRemoveItem={handleRemoveItem}
-              key={`category${category.id}`}
-              handleChange={handleCategoryChange}
-              handleRemoveCategory={handleRemoveCategory}
-            />
-            <hr />
-          </>
+          <MenuNewCategory
+            index={index}
+            category={category}
+            handleAddItem={handleAddItem}
+            handleRemoveItem={handleRemoveItem}
+            key={category.id}
+            handleChange={handleCategoryChange}
+            handleRemoveCategory={handleRemoveCategory}
+          />
         ))}
         <div className={styles.formButtons}>
           <button type="button" className={styles.addCatButton} onClick={handleAddCategory}>

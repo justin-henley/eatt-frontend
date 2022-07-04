@@ -33,6 +33,7 @@ function MenuNewCategory({ index, category, handleChange, handleAddItem, handleR
       <button type="button" data-category-id={category.id} onClick={handleRemoveCategory}>
         Delete Category
       </button>
+      <hr />
     </div>
   );
 }
