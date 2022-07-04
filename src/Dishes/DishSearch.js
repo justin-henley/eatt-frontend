@@ -7,7 +7,7 @@ import DishSearchFormGroup from './DishSearchFormGroup';
 // CSS
 import styles from './DishSearch.module.css';
 
-// TODO onChange seems like it generates a crazy number of db requests
+// TODO onChange generates a crazy number of db requests
 // Also its a bit flaky
 // Maybe change to a submit button, OR cache all results locally and search the cache
 
@@ -34,16 +34,18 @@ function DishSearch() {
 
   const getSearchResults = async (searchTerm) => {
     // Ensure the search field has a value
-    // TODO regex to check if it is all spaces (should be treated as empty)
-    if (!searchTerm) {
+    if (!searchTerm.trim()) {
       setSearchResults([]);
       return;
     }
 
     // Search by search type and text
-    const result = await fetch(`https://menu-translation-backend.herokuapp.com/dishes?${searchType}=${searchTerm}`, {
-      method: 'GET',
-    });
+    const result = await fetch(
+      `https://menu-translation-backend.herokuapp.com/dishes?${searchType}=${searchTerm.trim()}`,
+      {
+        method: 'GET',
+      }
+    );
 
     const json = await result.json();
 
