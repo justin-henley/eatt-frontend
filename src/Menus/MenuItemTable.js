@@ -1,5 +1,5 @@
 // Libraries
-import Placeholder from 'react-bootstrap/Placeholder';
+// import Placeholder from 'react-bootstrap/Placeholder';
 // CSS
 import styles from './MenuItemTable.module.css';
 

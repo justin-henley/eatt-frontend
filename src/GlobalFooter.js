@@ -3,7 +3,7 @@ import styles from './GlobalFooter.module.css';
 
 function GlobalFooter() {
   return (
-    <footer>
+    <footer className={styles.foot}>
       Favicon courtesy of <a href="https://icons8.com/">icons8</a>
       {/* <a href="https://www.freepik.com/photos/pearl-tea">
             <br />

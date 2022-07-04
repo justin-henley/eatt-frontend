@@ -1,4 +1,4 @@
-footer {
+.foot {
   color: white;
   background-color: black;
 
@@ -15,7 +15,7 @@ footer {
   font-weight: bold;
 }
 
-footer a {
+.foot a {
   font-family: var(--font-english);
   font-size: 14px;
 

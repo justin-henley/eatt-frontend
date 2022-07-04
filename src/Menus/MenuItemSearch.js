@@ -2,10 +2,9 @@
 import { useState, useEffect } from 'react';
 // Custom Components
 import DishSearchFormGroup from '../Dishes/DishSearchFormGroup';
-
-// CSS
-import styles from './MenuItemSearch.module.css';
 import MenuItemTable from './MenuItemTable';
+// CSS
+// import styles from './MenuItemSearch.module.css';
 
 function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) {
   // Search text, type, and results saved in state with initial values

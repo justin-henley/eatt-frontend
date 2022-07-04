@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+// import Modal from 'react-bootstrap/Modal';
+// import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import { Link } from 'react-router-dom';
 // Custom Components
