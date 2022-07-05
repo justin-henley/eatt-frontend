@@ -2,7 +2,7 @@
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 // CSS
 import styles from '../styles/GlobalNav.module.css';
-
+// TODO fonts aren't rendering
 function GlobalNav() {
   return (
     <Navbar expand="lg" sticky="top" collapseOnSelect className={styles.navbar}>
