@@ -1,9 +1,11 @@
 // Libraries
-
+import Image from 'next/image';
 // Custom Components
 import DishTile from '../components/Dish/DishTile';
 // CSS
 import styles from '../styles/Home.module.css';
+// Images
+import bannerPic from '../public/img/pexels-adrian-dorobantu-2089712.jpg';
 
 // TODO At larger viewports the image gets thrown outside the page width
 export default function Home() {
@@ -29,7 +31,7 @@ export default function Home() {
         <h1 className={styles.shout}>
           <span className={styles.flash}>Eat</span> your heart out
         </h1>
-        <img alt="Gua Bao" className={styles.image} src="./img/pexels-adrian-dorobantu-2089712.jpg" height="auto" />
+        <Image alt="Gua Bao" src={bannerPic} className={styles.image}></Image>
         <div className={styles.dish}>
           <DishTile item={eatTile} className={styles.food} />{' '}
         </div>
