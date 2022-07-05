@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 // Custom Components
 import MenuDisplay from './MenuDisplay';
-import DishSearchFormGroup from '../Dishes/DishSearchFormGroup';
+import DishSearchFormGroup from '../../components/Dishes/DishSearchFormGroup';
 // CSS
 import styles from './SearchMenus.module.css';
 

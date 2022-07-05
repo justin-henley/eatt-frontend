@@ -1,15 +1,16 @@
 // Libraries
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 // Custom Components
-import DishTile from './DishTile';
-import NotFound from '../NotFound';
+import DishTile from '../../components/Dishes/DishTile';
+import NotFound from '../../src/NotFound';
 // CSS
-import styles from './Dish.module.css';
+import styles from '../../styles/Dish.module.css';
 
 function Dish() {
   // Access the params to get the dish ID to display
-  let params = useParams();
+  const router = useRouter();
+  const { dishId } = router.query;
 
   // Use state to store the dish returned
   const [data, setData] = useState();
@@ -17,7 +18,7 @@ function Dish() {
   // Retrieve the dish entry by id
   const getData = async () => {
     try {
-      const result = await fetch(`https://menu-translation-backend.herokuapp.com/dishes/${params.dishId}`, {
+      const result = await fetch(`https://menu-translation-backend.herokuapp.com/dishes/${dishId}`, {
         method: 'GET',
       });
 

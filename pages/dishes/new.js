@@ -1,15 +1,15 @@
 // Libraries
 import { useState } from 'react';
 import { Alert, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 // Custom Components
-import DishTile from './DishTile';
+import DishTile from '../../components/Dishes/DishTile';
 // CSS
-import styles from './NewDishForm.module.css';
+import styles from '../../styles/NewDishForm.module.css';
 
 // TODO Hardcoding the category and meat types is bad. Find a way to retrieve them.
 
-function NewDishForm() {
+export default function NewDishForm() {
   const [inputs, setInputs] = useState({ category: 'rice', meat: 'beef' });
   const [dish, setDish] = useState({
     // The placeholder values
@@ -171,5 +171,3 @@ function NewDishForm() {
     </div>
   );
 }
-
-export default NewDishForm;

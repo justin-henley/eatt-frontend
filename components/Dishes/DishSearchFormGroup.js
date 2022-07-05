@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 // Custom Components
 
 // CSS
-import styles from './DishSearchFormGroup.module.css';
+import styles from '../../styles/DishSearchFormGroup.module.css';
 
 // Must be wrapped in a react-bootstrap Form component in the parent
 function DishSearchForm({ searchTerm, searchType, handleInput, handleChange }) {

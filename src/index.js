@@ -7,9 +7,9 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import Home from './Home';
 import Dishes from './Dishes/Dishes';
-import Dish from './Dishes/Dish';
-import DishSearch from './Dishes/DishSearch';
-import NewDishForm from './Dishes/NewDishForm';
+import Dish from '../pages/dishes/[dishId]';
+import DishSearch from '../pages/dishes/search';
+import NewDishForm from '../pages/dishes/new';
 import AllDishes from '../pages/dishes';
 import Menus from './Menus/Menus';
 import Menu from './Menus/Menu';
@@ -29,9 +29,9 @@ root.render(
           <Route index element={<Home />} />
           <Route path="dishes" element={<Dishes />}>
             <Route path=":dishId" element={<Dish />} />
-            <Route path="search" element={<DishSearch />} />
-            <Route path="new" element={<NewDishForm />} />
-            <Route index element={<AllDishes />} />
+            {/* <Route path="search" element={<DishSearch />} /> */}
+            {/* <Route path="new" element={<NewDishForm />} /> */}
+            {/* <Route index element={<AllDishes />} /> */}
           </Route>
           <Route path="menus" element={<Menus />}>
             <Route path=":menuId" element={<Menu />} />

@@ -2,16 +2,16 @@
 import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 // Custom Components
-import DishDisplay from './DishDisplay';
-import DishSearchFormGroup from './DishSearchFormGroup';
+import DishDisplay from '../../components/Dishes/DishDisplay';
+import DishSearchFormGroup from '../../components/Dishes/DishSearchFormGroup';
 // CSS
-import styles from './DishSearch.module.css';
+import styles from '../../styles/DishSearch.module.css';
 
 // TODO onChange generates a crazy number of db requests
 // Also its a bit flaky
 // Maybe change to a submit button, OR cache all results locally and search the cache
 
-function DishSearch() {
+export default function DishSearch() {
   // Search text, type, and results saved in state with initial values
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('en');
@@ -67,5 +67,3 @@ function DishSearch() {
     </div>
   );
 }
-
-export default DishSearch;

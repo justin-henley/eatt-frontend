@@ -1,7 +1,7 @@
 // Libraries
 import { useState, useEffect } from 'react';
 // Custom Components
-import DishSearchFormGroup from '../Dishes/DishSearchFormGroup';
+import DishSearchFormGroup from '../../components/Dishes/DishSearchFormGroup';
 import MenuItemTable from './MenuItemTable';
 // CSS
 // import styles from './MenuItemSearch.module.css';
