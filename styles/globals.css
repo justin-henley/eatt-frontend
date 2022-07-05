@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Noto+Sans+TC:wght@100;300;400&family=Permanent+Marker&display=swap');
+/* Theme */
+:root {
+  --navbar-color: #ee5a02;
+  --navbar-dropdown: #ee5a02;
+  --navbar-hover: blue;
+  --icon-color: white;
+  --icon-background: #ee5a02;
+  --text-regular: black;
+  --text-light: gray;
+  --text-flash: #ee5a02;
+  --text-navbar: white;
+  --text-logo: white;
+  --page-background: white;
+  --dish-border-color: gray;
+  --font-chinese: 'Noto Sans TC', sans-serif;
+  --font-banner: 'Permanent Marker', cursive;
+  --font-cursive: 'Kaushan Script', cursive;
+  --font-english: sans-serif;
+  /* Media Breakpoints */
+  --media-medium: 768px;
+  --media-large: 1200px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* UTILITIES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+.bodyDiv {
+  /* border: 5px solid red; */
+  min-height: calc(100vh - 160px);
+}

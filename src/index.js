@@ -7,16 +7,16 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import Home from './Home';
 import Dishes from './Dishes/Dishes';
-import Dish from './Dishes/Dish';
-import DishSearch from './Dishes/DishSearch';
-import NewDishForm from './Dishes/NewDishForm';
-import AllDishes from './Dishes/AllDishes';
+import Dish from '../pages/dishes/[dishId]';
+import DishSearch from '../pages/dishes/search';
+import NewDishForm from '../pages/dishes/new';
+import AllDishes from '../pages/dishes';
 import Menus from './Menus/Menus';
-import Menu from './Menus/Menu';
-import SearchMenus from './Menus/SearchMenus';
-import NewMenu from './Menus/NewMenu';
-import AllMenus from './Menus/AllMenus';
-import NotFound from './NotFound';
+import Menu from '../pages/menus/[menuId]';
+import SearchMenus from '../pages/menus/search';
+import NewMenu from '../pages/menus/new';
+import AllMenus from '../pages/menus';
+import NotFound from '../pages/404';
 // CSS
 import './index.css'; // Global styles, including variables
 
@@ -27,24 +27,15 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
-          <Route path="dishes" element={<Dishes />}>
-            <Route path=":dishId" element={<Dish />} />
-            <Route path="search" element={<DishSearch />} />
-            <Route path="new" element={<NewDishForm />} />
-            <Route index element={<AllDishes />} />
-          </Route>
-          <Route path="menus" element={<Menus />}>
-            <Route path=":menuId" element={<Menu />} />
-            <Route path="search" element={<SearchMenus />} />
-            <Route path="new" element={<NewMenu />} />
-            <Route index element={<AllMenus />} />
-          </Route>
+
           <Route path="*" element={<NotFound message={'404 Error'} />} />
         </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
+
+// TODO delete after rebuilding routes
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
