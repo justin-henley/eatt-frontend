@@ -1,5 +1,5 @@
 // CSS
-import styles from './NotFound.module.css';
+import styles from '../styles/NotFound.module.css';
 // Icon
 import { MdNoFood } from 'react-icons/md';
 

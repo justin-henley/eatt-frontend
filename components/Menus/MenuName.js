@@ -1,5 +1,5 @@
 // CSS
-import styles from './MenuName.module.css';
+import styles from '../../styles/MenuName.module.css';
 
 const MenuName = ({ restaurant }) => {
   return (

@@ -1,9 +1,9 @@
 // Libraries
 import { useState, useEffect } from 'react';
 // Custom components
-import MenuDisplay from './MenuDisplay';
+import MenuDisplay from '../../components/Menus/MenuDisplay';
 
-function AllMenus() {
+export default function AllMenus() {
   // Menu data is set in state and updated upon fetching
   const [data, setData] = useState();
 
@@ -28,5 +28,3 @@ function AllMenus() {
     </div>
   );
 }
-
-export default AllMenus;

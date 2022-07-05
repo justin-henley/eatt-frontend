@@ -5,12 +5,12 @@ import Form from 'react-bootstrap/Form';
 // import Modal from 'react-bootstrap/Modal';
 // import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 // Custom Components
-import MenuNewCategory from './MenuNewCategory';
-import MenuNewRestaurant from './MenuNewRestaurant';
+import MenuNewCategory from '../../components/Menus/MenuNewCategory';
+import MenuNewRestaurant from '../../components/Menus/MenuNewRestaurant';
 // CSS
-import styles from './NewMenu.module.css';
+import styles from '../../styles/NewMenu.module.css';
 
 function NewMenu() {
   // DATA
@@ -183,9 +183,9 @@ function NewMenu() {
             {menu._id && (
               <Alert variant="success">
                 Menu created successfully.
-                <Link to={`/menus/${menu._id}`} target="_blank">
+                <a href={`/menus/${menu._id}`} target="_blank">
                   &nbsp;Open menu in new window
-                </Link>
+                </a>
               </Alert>
             )}
           </div>

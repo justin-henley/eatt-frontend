@@ -1,7 +1,7 @@
 // Custom Components
 import MenuCategory from './MenuCategory';
 // CSS
-import styles from './MenuContent.module.css';
+import styles from '../../styles/MenuContent.module.css';
 
 function MenuContent({ menu }) {
   return (

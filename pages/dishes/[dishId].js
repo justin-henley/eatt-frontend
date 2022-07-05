@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 // Custom Components
 import DishTile from '../../components/Dish/DishTile';
-import NotFound from '../../src/NotFound';
+import NotFound from '../../components/NotFound';
 // CSS
 import styles from '../../styles/Dish.module.css';
 

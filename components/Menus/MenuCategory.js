@@ -1,7 +1,7 @@
 // Custom Components
-import DishDisplay from '../Dishes/DishDisplay';
+import DishDisplay from '../Dish/DishDisplay';
 // CSS
-import styles from './MenuCategory.module.css';
+import styles from '../../styles/MenuCategory.module.css';
 
 function MenuCategory({ category }) {
   return (

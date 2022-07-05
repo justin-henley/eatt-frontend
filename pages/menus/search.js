@@ -1,12 +1,13 @@
 // Libraries
 import { useState, useEffect } from 'react';
+import Form from 'react-bootstrap/Form';
 // Custom Components
+import MenuDisplay from '../../components/Menus/MenuDisplay';
 import DishSearchFormGroup from '../../components/Dish/DishSearchFormGroup';
-import MenuItemTable from './MenuItemTable';
 // CSS
-// import styles from './MenuItemSearch.module.css';
+import styles from '../../styles/SearchMenus.module.css';
 
-function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) {
+export default function SearchMenus() {
   // Search text, type, and results saved in state with initial values
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('en');
@@ -17,7 +18,7 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
     setSearchTerm(event.target.value);
   };
 
-  // Handles selection of the search type
+  // Handles change of the search type
   const handleChange = (event) => {
     setSearchType(event.target.value);
   };
@@ -36,7 +37,7 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
 
     // Search by search type and text
     const result = await fetch(
-      `https://menu-translation-backend.herokuapp.com/dishes?${searchType}=${searchTerm.trim()}`,
+      `https://menu-translation-backend.herokuapp.com/menus?${searchType}=${searchTerm.trim()}`,
       {
         method: 'GET',
       }
@@ -49,29 +50,16 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
 
   return (
     <div>
-      <MenuItemTable
-        items={items}
-        categoryId={categoryId}
-        buttonText="-"
-        buttonHandler={handleRemoveItem}
-        title="Added Dishes"
-      />
-
-      <DishSearchFormGroup
-        searchTerm={searchTerm}
-        searchType={searchType}
-        handleInput={handleInput}
-        handleChange={handleChange}
-      />
-      <MenuItemTable
-        items={searchResults}
-        categoryId={categoryId}
-        buttonText="+"
-        buttonHandler={handleAddItem}
-        title="Search Results"
-      />
+      <h1 className={styles.title}>Search Menus</h1>
+      <Form onSubmit={(e) => e.preventDefault()}>
+        <DishSearchFormGroup
+          searchTerm={searchTerm}
+          searchType={searchType}
+          handleInput={handleInput}
+          handleChange={handleChange}
+        />
+      </Form>
+      <MenuDisplay menus={searchResults} />
     </div>
   );
 }
-
-export default MenuItemSearch;

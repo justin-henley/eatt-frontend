@@ -1,7 +1,7 @@
 // Libraries
 // import Placeholder from 'react-bootstrap/Placeholder';
 // CSS
-import styles from './MenuItemTable.module.css';
+import styles from '../../styles/MenuItemTable.module.css';
 
 function MenuItemTable({ items, categoryId, buttonText = '?', buttonHandler, title }) {
   return (
