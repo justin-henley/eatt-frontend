@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 // Custom Components
 import DishTile from '../../components/Dish/DishTile';
-import NotFound from '../../components/NotFound';
+import NotFound from '../404';
 // CSS
 import styles from '../../styles/Dish.module.css';
 
@@ -18,13 +18,16 @@ function Dish() {
   // Retrieve the dish entry by id
   const getData = async () => {
     try {
-      const result = await fetch(`https://menu-translation-backend.herokuapp.com/dishes/${dishId}`, {
-        method: 'GET',
-      });
+      let result;
+      if (dishId) {
+        result = await fetch(`https://menu-translation-backend.herokuapp.com/dishes/${dishId}`, {
+          method: 'GET',
+        });
 
-      const json = await result.json();
+        const json = await result.json();
 
-      setData(json);
+        setData(json);
+      }
     } catch (error) {
       setData({ message: 'This dish does not exist.' });
     }
@@ -32,7 +35,7 @@ function Dish() {
 
   useEffect(() => {
     getData();
-  });
+  }, [dishId]);
 
   // If a dish is not found, a 'message' is returned
   // If no data is available yet, show placeholders
