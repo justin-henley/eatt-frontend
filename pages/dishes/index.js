@@ -1,9 +1,9 @@
 // Libraries
 import { useState, useEffect } from 'react';
 // Custom components
-import DishDisplay from './DishDisplay';
+import DishDisplay from '../../components/Dishes/DishDisplay';
 // CSS
-import styles from './AllDishes.module.css';
+import styles from '../../styles/AllDishes.module.css';
 
 function AllDishes() {
   // Dish data is set in state and updated upon fetching

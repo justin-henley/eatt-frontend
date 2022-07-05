@@ -10,7 +10,7 @@ import Dishes from './Dishes/Dishes';
 import Dish from './Dishes/Dish';
 import DishSearch from './Dishes/DishSearch';
 import NewDishForm from './Dishes/NewDishForm';
-import AllDishes from './Dishes/AllDishes';
+import AllDishes from '../pages/dishes';
 import Menus from './Menus/Menus';
 import Menu from './Menus/Menu';
 import SearchMenus from './Menus/SearchMenus';
@@ -45,6 +45,8 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+// TODO delete after rebuilding routes
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

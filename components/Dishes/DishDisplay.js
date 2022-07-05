@@ -1,7 +1,7 @@
 // Libraries
 import DishTile from './DishTile';
 // CSS
-import styles from './DishDisplay.module.css';
+import styles from '../../styles/DishDisplay.module.css';
 
 const DishDisplay = ({ dishes }) => {
   // Map iterates over all dishes and creates a tile for each

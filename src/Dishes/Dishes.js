@@ -6,3 +6,5 @@ function Dishes() {
 }
 
 export default Dishes;
+
+// TODO delete unnecessary

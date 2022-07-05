@@ -16,33 +16,21 @@ function GlobalNav() {
               Home
             </Nav.Link>
 
-            {/* {/* Contains the links to all dish-related pages 
+            {/* Contains the links to all dish-related pages */}
             <NavDropdown title="Dishes">
-              <LinkContainer to="/dishes">
-                <NavDropdown.Item>All Dishes</NavDropdown.Item>
-              </LinkContainer>
-              <LinkContainer to="/dishes/search">
-                <NavDropdown.Item>Search Dishes</NavDropdown.Item>
-              </LinkContainer>
+              <NavDropdown.Item href="/dishes">All Dishes</NavDropdown.Item>
+              <NavDropdown.Item href="/dishes/search">Search Dishes</NavDropdown.Item>
               <NavDropdown.Divider />
-              <LinkContainer to="/dishes/new">
-                <NavDropdown.Item>Create New Dish</NavDropdown.Item>
-              </LinkContainer>
+              <NavDropdown.Item href="/dishes/new">Create New Dish</NavDropdown.Item>
             </NavDropdown>
 
-            {/* Contains the links to all menu-related pages 
+            {/* Contains the links to all menu-related pages */}
             <NavDropdown title="Menus" id="nav-dropdown">
-              <LinkContainer to="/menus">
-                <NavDropdown.Item>All Menus</NavDropdown.Item>
-              </LinkContainer>
-              <LinkContainer to="/menus/search">
-                <NavDropdown.Item>Search Menus</NavDropdown.Item>
-              </LinkContainer>
+              <NavDropdown.Item href="/menus">All Menus</NavDropdown.Item>
+              <NavDropdown.Item href="/menus/search">Search Menus</NavDropdown.Item>
               <NavDropdown.Divider />
-              <LinkContainer to="/menus/new">
-                <NavDropdown.Item>Create New Menu</NavDropdown.Item>
-              </LinkContainer> 
-            </NavDropdown>*/}
+              <NavDropdown.Item href="/menus/new">Create New Menu</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

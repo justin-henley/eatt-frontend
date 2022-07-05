@@ -1,5 +1,5 @@
 // CSS
-import styles from './DishTile.module.css';
+import styles from '../../styles/DishTile.module.css';
 
 // Icons
 import { SiHappycow } from 'react-icons/si';
