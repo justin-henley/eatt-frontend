@@ -1,7 +1,7 @@
 // Libraries
 import { useState, useEffect } from 'react';
 // Custom components
-import DishDisplay from '../../components/Dishes/DishDisplay';
+import DishDisplay from '../../components/Dish/DishDisplay';
 // CSS
 import styles from '../../styles/AllDishes.module.css';
 

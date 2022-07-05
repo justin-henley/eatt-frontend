@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 // Custom Components
-import DishDisplay from '../../components/Dishes/DishDisplay';
-import DishSearchFormGroup from '../../components/Dishes/DishSearchFormGroup';
+import DishDisplay from '../../components/Dish/DishDisplay';
+import DishSearchFormGroup from '../../components/Dish/DishSearchFormGroup';
 // CSS
 import styles from '../../styles/DishSearch.module.css';
 

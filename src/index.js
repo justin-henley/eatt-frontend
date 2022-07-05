@@ -27,12 +27,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
-          <Route path="dishes" element={<Dishes />}>
-            <Route path=":dishId" element={<Dish />} />
-            {/* <Route path="search" element={<DishSearch />} /> */}
-            {/* <Route path="new" element={<NewDishForm />} /> */}
-            {/* <Route index element={<AllDishes />} /> */}
-          </Route>
+
           <Route path="menus" element={<Menus />}>
             <Route path=":menuId" element={<Menu />} />
             <Route path="search" element={<SearchMenus />} />
