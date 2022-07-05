@@ -1,10 +1,11 @@
 // Libraries
 
 // Custom Components
-//import DishTile from '../components/Dishes/DishTile';
+import DishTile from '../components/Dish/DishTile';
 // CSS
 import styles from '../styles/Home.module.css';
 
+// TODO At larger viewports the image gets thrown outside the page width
 export default function Home() {
   // A demo dish to label the parts for new users
   const eatTile = {
@@ -29,7 +30,9 @@ export default function Home() {
           <span className={styles.flash}>Eat</span> your heart out
         </h1>
         <img alt="Gua Bao" className={styles.image} src="./img/pexels-adrian-dorobantu-2089712.jpg" height="auto" />
-        <div className={styles.dish}>{/* <DishTile item={eatTile} className={styles.food} />{' '} */}</div>
+        <div className={styles.dish}>
+          <DishTile item={eatTile} className={styles.food} />{' '}
+        </div>
       </div>
       {/* <div className={styles.block2}>
         <h1 className={styles.shout}>
