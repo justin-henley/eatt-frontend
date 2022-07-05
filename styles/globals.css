@@ -48,3 +48,8 @@ a {
 li {
   list-style: none;
 }
+
+.bodyDiv {
+  /* border: 5px solid red; */
+  min-height: calc(100vh - 160px);
+}
