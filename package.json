@@ -19,8 +19,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deptree": "depcruise --exclude \"(^node_modules|module.css)\"  --output-type dot src | dot -T svg > dependencygraph.svg",
-    "deptree-css": "depcruise --exclude \"(^node_modules)\"  --output-type dot src | dot -T svg > dependencygraph_css.svg"
+    "deptree": "depcruise --exclude \"(^node_modules|.css)\"  --output-type dot pages | dot -T svg > dependencygraph.svg",
+    "deptree-css": "depcruise --exclude \"(^node_modules)\"  --output-type dot pages | dot -T svg > dependencygraph_css.svg"
   },
   "eslintConfig": {
     "extends": [
