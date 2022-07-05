@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 // Custom Components
 import MenuName from '../../components/Menus/MenuName';
 import MenuContent from '../../components/Menus/MenuContent';
-import NotFound from '../../components/NotFound';
+import NotFound from '../404';
 // CSS
 import styles from '../../styles/Menu.module.css';
 
@@ -29,7 +29,6 @@ function Menu() {
         const json = await result.json();
 
         setData(json);
-        console.log('getting...');
       }
     } catch (error) {
       setData({ message: 'This menu does not exist.' });

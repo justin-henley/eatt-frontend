@@ -16,7 +16,7 @@ import Menu from '../pages/menus/[menuId]';
 import SearchMenus from '../pages/menus/search';
 import NewMenu from '../pages/menus/new';
 import AllMenus from '../pages/menus';
-import NotFound from '../components/NotFound';
+import NotFound from '../pages/404';
 // CSS
 import './index.css'; // Global styles, including variables
 
@@ -28,12 +28,6 @@ root.render(
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
 
-          <Route path="menus" element={<Menus />}>
-            {/* <Route path=":menuId" element={<Menu />} /> */}
-            {/* <Route path="search" element={<SearchMenus />} /> */}
-            <Route path="new" element={<NewMenu />} />
-            {/* <Route index element={<AllMenus />} /> */}
-          </Route>
           <Route path="*" element={<NotFound message={'404 Error'} />} />
         </Route>
       </Routes>
