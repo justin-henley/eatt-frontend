@@ -1,7 +1,7 @@
 // Libraries
 import Head from 'next/head';
 // Custom Components
-import DishTile from './Dishes/DishTile';
+//import DishTile from '../components/Dishes/DishTile';
 // CSS
 import styles from '../styles/Home.module.css';
 
@@ -31,10 +31,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>We're in business</h1>
-        <p>This is the new index page</p>
-      </main>
+      <div className={styles.block1}>
+        <h1 className={styles.shout}>
+          <span className={styles.flash}>Eat</span> your heart out
+        </h1>
+        <img alt="Gua Bao" className={styles.image} src="./img/pexels-adrian-dorobantu-2089712.jpg" height="auto" />
+        <div className={styles.dish}>{/* <DishTile item={eatTile} className={styles.food} />{' '} */}</div>
+      </div>
+      {/* <div className={styles.block2}>
+        <h1 className={styles.shout}>
+          <span className={styles.flash}>Drink</span> and be merry.
+        </h1>
+
+        <img
+          src="./img/taiwan-pearl-milk-tea-with-bubble-ximending-taipei-taiwan.jpg"
+          alt="Milk Tea"
+          height="auto"
+        />
+        <div className={styles.dish}>
+          <Dish item={drinkTile} />{' '}
+        </div>
+      </div> */}
 
       <footer>I'm a footer!</footer>
     </div>

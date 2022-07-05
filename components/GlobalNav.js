@@ -1,24 +1,22 @@
 // Libraries
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import LinkContainer from 'react-router-bootstrap/LinkContainer';
 // CSS
-import styles from './GlobalNav.module.css';
+import styles from '../styles/GlobalNav.module.css';
 
 function GlobalNav() {
   return (
     <Navbar expand="lg" sticky="top" collapseOnSelect className={styles.navbar}>
       <Container>
-        <LinkContainer to="/" className={styles.navLogo}>
-          <Navbar.Brand>eatt</Navbar.Brand>
-        </LinkContainer>
+        <Navbar.Brand href="/">eatt</Navbar.Brand>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <LinkContainer to="/" className={styles.navText}>
-              <Nav.Link>Home</Nav.Link>
-            </LinkContainer>
+            <Nav.Link href="/" className={styles.navText}>
+              Home
+            </Nav.Link>
 
-            {/* Contains the links to all dish-related pages */}
+            {/* {/* Contains the links to all dish-related pages 
             <NavDropdown title="Dishes">
               <LinkContainer to="/dishes">
                 <NavDropdown.Item>All Dishes</NavDropdown.Item>
@@ -32,7 +30,7 @@ function GlobalNav() {
               </LinkContainer>
             </NavDropdown>
 
-            {/* Contains the links to all menu-related pages */}
+            {/* Contains the links to all menu-related pages 
             <NavDropdown title="Menus" id="nav-dropdown">
               <LinkContainer to="/menus">
                 <NavDropdown.Item>All Menus</NavDropdown.Item>
@@ -43,8 +41,8 @@ function GlobalNav() {
               <NavDropdown.Divider />
               <LinkContainer to="/menus/new">
                 <NavDropdown.Item>Create New Menu</NavDropdown.Item>
-              </LinkContainer>
-            </NavDropdown>
+              </LinkContainer> 
+            </NavDropdown>*/}
           </Nav>
         </Navbar.Collapse>
       </Container>
