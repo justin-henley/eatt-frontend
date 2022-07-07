@@ -31,7 +31,9 @@ export default function Home() {
         <h1 className={styles.shout}>
           <span className={styles.flash}>Eat</span> your heart out
         </h1>
-        <Image alt="Gua Bao" src={bannerPic} className={styles.image}></Image>
+        <div className={styles.imageWrapper}>
+          <Image alt="Gua Bao" src={bannerPic} className={styles.image}></Image>
+        </div>
         <div className={styles.dish}>
           <DishTile item={eatTile} className={styles.food} />{' '}
         </div>
