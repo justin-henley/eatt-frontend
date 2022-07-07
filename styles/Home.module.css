@@ -1,68 +1,60 @@
-.block1,
-.block2 {
+.block {
   background-color: var(--page-background);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr auto;
 }
-
-.image {
-  width: 100%;
+.dish > div {
+  font-size: 10px;
 }
-
-.flash {
+.dish {
+  grid-area: 2 / 1 / 3 / 2;
+  z-index: 2;
+}
+.imageWrapper {
+  grid-area: 1 / 1 / 2 / 2;
+  /* The NextJS Image component adds 8px margin at bottom, no idea why */
+  margin-bottom: -8px;
+}
+.slogan {
+  grid-area: 1 / 1 / 2 / 2;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  margin: 1em auto;
+  font-family: var(--font-cursive);
+  text-shadow: 5px 5px 10px black;
+}
+.sloganFlash {
   color: var(--text-flash);
   text-transform: uppercase;
 }
-.shout,
-.flash {
-  text-align: center;
-  font-family: var(--font-cursive);
-  font-size: 36px;
+.slogan,
+.sloganFlash {
+  font-size: 10vw;
 }
-.block1 div,
-.block2 div {
-  font-size: 20px;
-}
+
 /* TODO fix grid layout */
-@media (min-width: 768px) {
-  .block1,
-  .block2 {
+@media (min-width: 500px) {
+  .block {
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 100%;
-    grid-template-areas: 'image';
-  }
-  .image {
-    /* width: 50%; */
-    /* grid-column: 2, 3;
-    grid-row: 1, 3; */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
   .imageWrapper {
-    grid-area: image;
-    z-index: 0;
-  }
-  .shout,
-  .flash {
-    font-size: 6vw;
-  }
-  .shout {
-    /* grid-column: 1, 2;
-    grid-row: 1, 2; */
-    grid-area: image;
+    grid-area: 1 / 1 / 3 / 3;
     z-index: 1;
-
-    margin: 1em auto auto 1em;
-    color: white;
-    text-shadow: 5px 5px 10px black;
+  }
+  .slogan {
+    grid-area: 1 / 1 / 2 / 3;
+    z-index: 2;
   }
   .dish {
-    /* grid-column: 1, 2;
-    grid-row: 2, 3; */
-    grid-area: image;
-    z-index: 1;
-    width: 400px;
-
-    margin: 15vw 10vw auto auto;
+    grid-area: 2 / 1 / 3 / 3;
+    z-index: 2;
+    margin: auto 5vw 5vw auto;
+  }
+  .dish > div div {
+    font-size: min(2.5vw, 30px);
   }
 }
