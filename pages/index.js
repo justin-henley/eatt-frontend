@@ -8,7 +8,6 @@ import styles from '../styles/Home.module.css';
 import bannerGuabao from '../public/img/pexels-adrian-dorobantu-2089712.jpg';
 import bannerMilkTea from '../public/img/taiwan-pearl-milk-tea-with-bubble-ximending-taipei-taiwan.jpg';
 
-// TODO At larger viewports the image gets thrown outside the page width
 export default function Home() {
   // A demo dish to label the parts for new users
   const eatTile = {

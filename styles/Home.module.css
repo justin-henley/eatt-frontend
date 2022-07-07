@@ -34,7 +34,6 @@
   font-size: 10vw;
 }
 
-/* TODO fix grid layout */
 @media (min-width: 500px) {
   .block {
     display: grid;
