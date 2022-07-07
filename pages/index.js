@@ -5,7 +5,8 @@ import DishTile from '../components/Dish/DishTile';
 // CSS
 import styles from '../styles/Home.module.css';
 // Images
-import bannerPic from '../public/img/pexels-adrian-dorobantu-2089712.jpg';
+import bannerGuabao from '../public/img/pexels-adrian-dorobantu-2089712.jpg';
+import bannerMilkTea from '../public/img/taiwan-pearl-milk-tea-with-bubble-ximending-taipei-taiwan.jpg';
 
 // TODO At larger viewports the image gets thrown outside the page width
 export default function Home() {
@@ -17,41 +18,40 @@ export default function Home() {
     en: 'Pork Belly Bun',
   };
 
-  /* const drinkTile = {
+  const drinkTile = {
     category: 'drink',
     zhtw: '珍珠奶茶',
     pinyin: 'zhēnzhū nǎichá',
     en: 'Bubble Milk Tea',
-  }; */
+  };
 
   // The welcome page
   return (
     <div>
-      <div className={styles.block1}>
-        <h1 className={styles.shout}>
-          <span className={styles.flash}>Eat</span> your heart out
+      <div className={styles.block}>
+        <h1 className={styles.slogan}>
+          <span className={styles.sloganFlash}>Eat</span> your heart out
         </h1>
         <div className={styles.imageWrapper}>
-          <Image alt="Gua Bao" src={bannerPic} className={styles.image}></Image>
+          <Image alt="Gua Bao" src={bannerGuabao} className={styles.image} />
         </div>
         <div className={styles.dish}>
           <DishTile item={eatTile} className={styles.food} />{' '}
         </div>
       </div>
-      {/* <div className={styles.block2}>
-        <h1 className={styles.shout}>
-          <span className={styles.flash}>Drink</span> and be merry.
-        </h1>
-
-        <img
-          src="./img/taiwan-pearl-milk-tea-with-bubble-ximending-taipei-taiwan.jpg"
-          alt="Milk Tea"
-          height="auto"
-        />
-        <div className={styles.dish}>
-          <Dish item={drinkTile} />{' '}
+      {
+        <div className={styles.block}>
+          <h1 className={styles.slogan}>
+            <span className={styles.sloganFlash}>Drink</span> and be merry.
+          </h1>
+          <div className={styles.imageWrapper}>
+            <Image alt="Bubble Milk Tea" src={bannerMilkTea} className={styles.image} />
+          </div>
+          <div className={styles.dish}>
+            <DishTile item={drinkTile} />{' '}
+          </div>
         </div>
-      </div> */}
+      }
     </div>
   );
 }
