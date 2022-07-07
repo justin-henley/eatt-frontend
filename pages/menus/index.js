@@ -8,7 +8,7 @@ export default function AllMenus() {
   const [data, setData] = useState();
 
   const getData = async () => {
-    const result = await fetch('https://menu-translation-backend.herokuapp.com/menus', {
+    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus`, {
       method: 'GET',
     });
 

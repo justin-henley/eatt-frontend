@@ -20,7 +20,7 @@ function Dish() {
     try {
       let result;
       if (dishId) {
-        result = await fetch(`https://menu-translation-backend.herokuapp.com/dishes/${dishId}`, {
+        result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes/${dishId}`, {
           method: 'GET',
         });
 

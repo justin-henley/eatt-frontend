@@ -22,7 +22,7 @@ function Menu() {
     try {
       let result;
       if (menuId) {
-        result = await fetch(`https://menu-translation-backend.herokuapp.com/menus/${menuId}`, {
+        result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus/${menuId}`, {
           method: 'GET',
         });
 

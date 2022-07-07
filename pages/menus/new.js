@@ -58,7 +58,7 @@ function NewMenu() {
     if (!isSubmitted) return;
 
     // Submit the new menu and await a response
-    const menu = await fetch('https://menu-translation-backend.herokuapp.com/menus', {
+    const menu = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

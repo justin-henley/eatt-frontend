@@ -40,12 +40,9 @@ export default function DishSearch() {
     }
 
     // Search by search type and text
-    const result = await fetch(
-      `https://menu-translation-backend.herokuapp.com/dishes?${searchType}=${searchTerm.trim()}`,
-      {
-        method: 'GET',
-      }
-    );
+    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes?${searchType}=${searchTerm.trim()}`, {
+      method: 'GET',
+    });
 
     const json = await result.json();
 

@@ -32,7 +32,7 @@ export default function NewDishForm() {
     e.preventDefault();
 
     // Submit the new dish and await a response
-    const dish = await fetch('https://menu-translation-backend.herokuapp.com/dishes', {
+    const dish = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -36,12 +36,9 @@ export default function SearchMenus() {
     }
 
     // Search by search type and text
-    const result = await fetch(
-      `https://menu-translation-backend.herokuapp.com/menus?${searchType}=${searchTerm.trim()}`,
-      {
-        method: 'GET',
-      }
-    );
+    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus?${searchType}=${searchTerm.trim()}`, {
+      method: 'GET',
+    });
 
     const json = await result.json();
 
