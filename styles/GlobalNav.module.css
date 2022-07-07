@@ -9,9 +9,9 @@
 .navLogo {
   font-size: 32px;
   color: var(--text-logo) !important;
-  font-family: var(--font-banner);
-  /* font-family: var(--font-cursive);
-  text-transform: uppercase; */
+  /* font-family: var(--font-banner); */
+  font-family: var(--font-cursive);
+  text-transform: uppercase;
 }
 
 .navDropdown {

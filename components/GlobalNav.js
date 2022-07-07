@@ -7,14 +7,14 @@ function GlobalNav() {
   return (
     <Navbar expand="lg" sticky="top" collapseOnSelect className={styles.navbar}>
       <Container>
-        <Navbar.Brand href="/">eatt</Navbar.Brand>
+        <Navbar.Brand href="/" className={styles.navLogo}>
+          eatt
+        </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link href="/" className={styles.navText}>
-              Home
-            </Nav.Link>
+            <Nav.Link href="/" /* className={styles.navText} */>Home</Nav.Link>
 
             {/* Contains the links to all dish-related pages */}
             <NavDropdown title="Dishes">
