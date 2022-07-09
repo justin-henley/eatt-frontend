@@ -8,7 +8,7 @@ import DishTile from '../../components/Dish/DishTile';
 import styles from '../../styles/NewDishForm.module.css';
 
 // TODO Hardcoding the category and meat types is bad. Find a way to retrieve them.
-
+// TODO protect with login
 export default function NewDishForm() {
   const [inputs, setInputs] = useState({ category: 'rice', meat: 'beef' });
   const [dish, setDish] = useState({

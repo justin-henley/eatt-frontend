@@ -3,6 +3,7 @@ import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 // CSS
 import styles from '../styles/GlobalNav.module.css';
 
+// TODO add login/out link
 function GlobalNav() {
   return (
     <Navbar expand="lg" sticky="top" collapseOnSelect className={styles.navbar}>

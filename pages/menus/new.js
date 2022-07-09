@@ -12,6 +12,7 @@ import MenuNewRestaurant from '../../components/Menus/MenuNewRestaurant';
 // CSS
 import styles from '../../styles/NewMenu.module.css';
 
+// TODO protect with login
 function NewMenu() {
   // DATA
   const [menu, setMenu] = useState({});
