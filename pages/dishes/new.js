@@ -40,12 +40,21 @@ export default function NewDishForm() {
       body: JSON.stringify(inputs),
     });
 
-    // Await for the json version of the results
-    const json = await dish.json();
+    // If unauthorized, send a message
+    if (dish.status === 401) {
+      // User is not logged in
+      setDish({ message: 'Unauthorized. Please log in.' });
+    } else if (dish.ok === false) {
+      // Catchall for other failures
+      setDish({ message: 'Creation failed for unknown reason.' });
+    } else {
+      // Creation successful
+      // Await for the json version of the results
+      const json = await dish.json();
 
-    // Set the dish data
-    setDish(json);
-    console.log(json);
+      // Set the dish data
+      setDish(json);
+    }
   };
 
   return (
@@ -53,8 +62,9 @@ export default function NewDishForm() {
       <div className={styles.result}>
         {dish.hasOwnProperty('message') ? (
           <Alert variant="danger" className={styles.alert}>
-            <Alert.Heading>Dish Creation Failed</Alert.Heading> <p>Error: {dish.message}</p>
-            <p>Please check your inputs and try again.</p>
+            <Alert.Heading>Dish Creation Failed</Alert.Heading>
+            <p>Error: {dish.message}</p>
+            <p>Please correct the error and try again.</p>
           </Alert>
         ) : (
           <div>
