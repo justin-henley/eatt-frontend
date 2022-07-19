@@ -67,11 +67,21 @@ function NewMenu() {
       body: JSON.stringify(menuData),
     });
 
-    // Await the json version of the results
-    const json = await menu.json();
-    console.log(json);
+    // Check result
+    let json;
+    if (menu.status === 401) {
+      // User is not logged in
+      json = { message: 'Unauthorized. Please log in.' };
+    } else if (menu.ok === false) {
+      // Catchall for other failures
+      json = { message: 'Creation failed for unknown reason.' };
+    } else {
+      // Creation successful
+      // Await the json version of the results
+      json = await menu.json();
+    }
 
-    // Check for success
+    // Check json for success
     if (json.message) {
       // Failure
       alert(`Menu submission failed.\n${json.message}`);
