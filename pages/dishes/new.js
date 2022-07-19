@@ -40,7 +40,7 @@ export default function NewDishForm() {
       body: JSON.stringify(inputs),
     });
 
-    // If unauthorized, send a message
+    // Check result
     if (dish.status === 401) {
       // User is not logged in
       setDish({ message: 'Unauthorized. Please log in.' });
