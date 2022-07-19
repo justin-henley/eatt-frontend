@@ -31,7 +31,8 @@ function MenuItemTable({ items, categoryId, buttonText = '?', buttonHandler, tit
           </tr>
         ) : (
           items.map((item) => (
-            <tr key={item._id} className={styles.tRow}>
+            // The add handler uses _id from the db, the remove handler uses id without the underscore, so both are handled here
+            <tr key={`${categoryId}${item.id || item._id}`} className={styles.tRow}>
               <td className={styles.tData}>{item.zhtw}</td>
 
               <td className={styles.tData}>{item.pinyin}</td>
