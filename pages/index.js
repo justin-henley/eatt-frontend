@@ -1,5 +1,6 @@
 // Libraries
 import Image from 'next/image';
+import Head from 'next/head';
 // Custom Components
 import DishTile from '../components/Dish/DishTile';
 // CSS
@@ -27,6 +28,15 @@ export default function Home() {
   // The welcome page
   return (
     <div>
+      <Head>
+        <title>Eatt</title>
+        <meta name="description" content="Expand your meals with bilingual menus for your favorite local restaurants" />
+        <meta name="keywords" content="translation, menu, chinese, english, mandarin, taiwan" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+      </Head>
       <div className={styles.block}>
         <h1 className={styles.slogan}>
           <span className={styles.sloganFlash}>Eat</span> your heart out

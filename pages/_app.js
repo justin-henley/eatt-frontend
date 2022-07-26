@@ -1,36 +1,51 @@
 // Libraries
 import Head from 'next/head';
 import SSRProvider from 'react-bootstrap/SSRProvider';
+// Authentication
+/*
+  Exposes the session context at the top level of the app. 
+  Instances of useSession will have access to session data and status.
+  SessionProvider also keeps the session updated and synced between browser tabs and windows.
+*/
+import { SessionProvider, useSession } from 'next-auth/react';
 // Custom components
 import GlobalNav from '../components/GlobalNav';
 import GlobalFooter from '../components/GlobalFooter';
 // CSS
 import '../styles/globals.css';
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <SSRProvider>
-      <div>
-        <Head>
-          <title>Eatt</title>
-          <meta
-            name="description"
-            content="Expand your meals with bilingual menus for your favorite local restaurants"
-          />
-          <meta name="keywords" content="translation, menu, chinese, english, mandarin, taiwan" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link rel="icon" href="/favicon.ico" />
-
-          <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-        </Head>
-        <div>
-          <GlobalNav />
-          <div className="bodyDiv">
+      <SessionProvider session={session}>
+        <GlobalNav />
+        <main className="bodyDiv">
+          {/* Check if the page requires authorization. Only contacts /api/auth/session endpoint for pages requiring auth */}
+          {Component.auth ? (
+            <Auth>
+              <Component {...pageProps} />
+            </Auth>
+          ) : (
+            /* Render without auth */
             <Component {...pageProps} />
-          </div>
-          <GlobalFooter />
-        </div>
-      </div>
+          )}
+        </main>
+        <GlobalFooter />
+      </SessionProvider>
     </SSRProvider>
   );
+}
+
+function Auth({ children }) {
+  // TODO roles?
+  // If '{ required: true }' is supplied, 'status' can only be "loading" or "authenticated"
+  const { status } = useSession({ required: true });
+
+  // Return a loading message if waiting on authentication
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  // Display the children
+  return children;
 }
