@@ -38,6 +38,7 @@ export default function NewDishForm() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(inputs),
+      // TODO this request doesn't pass credentials. Try axios or google it
     });
 
     // Check result
@@ -181,3 +182,7 @@ export default function NewDishForm() {
     </div>
   );
 }
+
+// Requires auth to access
+// TODO roles
+NewDishForm.auth = true;

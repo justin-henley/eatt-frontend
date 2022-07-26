@@ -1,9 +1,12 @@
 // Libraries
 import Head from 'next/head';
 import SSRProvider from 'react-bootstrap/SSRProvider';
+// Hooks
+import useAuth from '../hooks/useAuth';
 // Custom components
 import GlobalNav from '../components/GlobalNav';
 import GlobalFooter from '../components/GlobalFooter';
+import Login from '../components/Login';
 // CSS
 import '../styles/globals.css';
 
@@ -25,12 +28,27 @@ export default function MyApp({ Component, pageProps }) {
         </Head>
         <div>
           <GlobalNav />
-          <div className="bodyDiv">
+          {/* Check if the page requires authorization. Only contacts /api/auth/session endpoint for pages requiring auth */}
+          {Component.auth ? (
+            <RequireAuth>
+              <Component {...pageProps} />
+            </RequireAuth>
+          ) : (
+            /* Render without auth */
             <Component {...pageProps} />
-          </div>
+          )}
           <GlobalFooter />
         </div>
       </div>
     </SSRProvider>
   );
 }
+
+const RequireAuth = ({ children }) => {
+  const { auth } = useAuth();
+  // const location = useLocation();  this uses react router, how to do it in next?
+  console.log('auth: ', auth);
+
+  /*   return auth?.user ? children : <Login />; */
+  return children;
+};
