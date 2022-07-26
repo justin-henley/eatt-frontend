@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import Form from 'react-bootstrap/Form';
+import { useSession } from 'next-auth/react';
 // import Modal from 'react-bootstrap/Modal';
 // import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
@@ -9,11 +10,16 @@ import Link from 'next/link';
 // Custom Components
 import MenuNewCategory from '../../components/Menus/MenuNewCategory';
 import MenuNewRestaurant from '../../components/Menus/MenuNewRestaurant';
+import LoginBtn from '../../components/LoginBtn';
 // CSS
 import styles from '../../styles/NewMenu.module.css';
 
 // TODO protect with login
-function NewMenu() {
+export default function NewMenu() {
+  // SESSION
+  // Session is always non-null in this page, all the way down the React tree
+  const { data, session } = useSession();
+
   // DATA
   const [menu, setMenu] = useState({});
   const emptyRestaurant = {
@@ -233,4 +239,6 @@ function NewMenu() {
   );
 }
 
-export default NewMenu;
+// Set auth to true to require login in app
+NewMenu.auth = true;
+// TODO roles
