@@ -41,14 +41,12 @@ const Login = () => {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true,
       });
-      console.log(JSON.stringify(response?.data));
 
       // Store the access token returned from auth
       const accessToken = response?.data?.accessToken;
 
       const roles = response?.data?.roles;
-      setAuth({ user, pwd, roles, accessToken });
-      console.log(auth);
+      setAuth({ user, /* pwd, */ roles, accessToken });
 
       setUser('');
       setPwd('');
