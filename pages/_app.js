@@ -49,6 +49,6 @@ const RequireAuth = ({ children }) => {
   // const location = useLocation();  this uses react router, how to do it in next?
   console.log('auth: ', auth);
 
-  /*   return auth?.user ? children : <Login />; */
-  return children;
+  return auth?.user ? children : <Login />;
+  /* return children; */
 };
