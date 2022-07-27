@@ -8,7 +8,7 @@ import useAuth from '../hooks/useAuth';
 // Custom components
 import GlobalNav from '../components/GlobalNav';
 import GlobalFooter from '../components/GlobalFooter';
-import Login from '../components/Login';
+import Login from './login';
 // CSS
 import '../styles/globals.css';
 
