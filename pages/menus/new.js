@@ -237,4 +237,4 @@ export default NewMenu;
 
 // Requires auth to access
 // TODO roles
-NewDishForm.auth = true;
+NewMenu.auth = true;
