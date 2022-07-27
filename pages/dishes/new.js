@@ -4,11 +4,14 @@ import { Alert, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
 import Link from 'next/link';
 // Custom Components
 import DishTile from '../../components/Dish/DishTile';
+import axios from '../api/axios';
 // CSS
 import styles from '../../styles/NewDishForm.module.css';
+// Constants
+const DISH_URL = '/dishes';
 
 // TODO Hardcoding the category and meat types is bad. Find a way to retrieve them.
-// TODO protect with login
+// TODO login
 export default function NewDishForm() {
   const [inputs, setInputs] = useState({ category: 'rice', meat: 'beef' });
   const [dish, setDish] = useState({
@@ -32,29 +35,33 @@ export default function NewDishForm() {
     e.preventDefault();
 
     // Submit the new dish and await a response
-    const dish = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes`, {
+    /* const dish = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify(inputs),
       // TODO this request doesn't pass credentials. Try axios or google it
+    }); */
+    const response = await axios.post(DISH_URL, JSON.stringify({ ...inputs }), {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
     });
 
     // Check result
-    if (dish.status === 401) {
+    if (response.status === 401) {
       // User is not logged in
       setDish({ message: 'Unauthorized. Please log in.' });
-    } else if (dish.ok === false) {
+    } else if (response.ok === false) {
       // Catchall for other failures
       setDish({ message: 'Creation failed for unknown reason.' });
     } else {
       // Creation successful
       // Await for the json version of the results
-      const json = await dish.json();
-
+      console.log(response);
       // Set the dish data
-      setDish(json);
+      setDish({ ...response.data });
     }
   };
 
@@ -72,8 +79,9 @@ export default function NewDishForm() {
             {dish._id && (
               <Alert variant="success">
                 Dish created successfully.
-                <Link to={`/dishes/${dish._id}`} target="_blank">
-                  Open dish in new window
+                <br />
+                <Link href={`/dishes/${dish._id}`}>
+                  <a target="_blank">Open dish in new window.</a>
                 </Link>
               </Alert>
             )}
