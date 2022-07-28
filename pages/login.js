@@ -4,6 +4,8 @@ import useAuth from '../hooks/useAuth';
 // Axios
 import axios from './api/axios';
 const LOGIN_URL = '/auth';
+// CSS
+import styles from '../styles/Login.module.css';
 
 const Login = () => {
   // Auth context
@@ -68,9 +70,9 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className={styles.wrapper}>
       {success ? (
-        <section>
+        <section className={styles.section}>
           <h1>You are logged in!</h1>
           <br />
           <p>
@@ -78,13 +80,13 @@ const Login = () => {
           </p>
         </section>
       ) : (
-        <section>
+        <section className={styles.section}>
           {/* Error message */}
-          <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">
+          <p ref={errRef} className={errMsg ? styles.errmsg : styles.offscreen} aria-live="assertive">
             {errMsg}
           </p>
           <h1>Sign In</h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={styles.loginForm}>
             {/* Username */}
             <label htmlFor="username">Username:</label>
             <input
@@ -95,24 +97,33 @@ const Login = () => {
               onChange={(e) => setUser(e.target.value)}
               value={user}
               required
+              className={styles.input}
             />
             {/* Password */}
+            <br />
             <label htmlFor="password">Password:</label>
-            <input type="password" id="password" onChange={(e) => setPwd(e.target.value)} value={pwd} required />
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPwd(e.target.value)}
+              value={pwd}
+              required
+              className={styles.input}
+            />
             {/* Submit Button */}
-            <button>Sign In</button>
+            <button className={styles.loginBtn}>Sign In</button>
           </form>
           <p>
             Need an Account?
             <br />
-            <span className="line">
+            <span className={styles.line}>
               {/* put router link here */}
               <a href="/register">Sign Up</a>
             </span>
           </p>
         </section>
       )}
-    </>
+    </div>
   );
 };
 
