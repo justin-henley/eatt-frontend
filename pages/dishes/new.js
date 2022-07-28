@@ -44,10 +44,15 @@ export default function NewDishForm() {
       body: JSON.stringify(inputs),
       // TODO this request doesn't pass credentials. Try axios or google it
     }); */
-    const response = await axios.post(DISH_URL, JSON.stringify({ ...inputs }), {
-      headers: { 'Content-Type': 'application/json' },
-      withCredentials: true,
-    });
+    const response = await axios.post(
+      DISH_URL,
+      { ...inputs },
+      {
+        withCredentials: true,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
+    // TODO trycatch
 
     // Check result
     if (response.status === 401) {

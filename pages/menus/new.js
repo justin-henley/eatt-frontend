@@ -62,10 +62,14 @@ function NewMenu() {
     if (!isSubmitted) return;
 
     // Submit the new menu and await a response
-    const response = await axios.post(MENU_URL, JSON.stringify({ ...menuData }), {
-      headers: { 'Content-Type': 'application/json' },
-      withCredentials: true,
-    });
+    const response = await axios.post(
+      MENU_URL,
+      { ...menuData },
+      {
+        withCredentials: true,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
 
     // Check result
 
