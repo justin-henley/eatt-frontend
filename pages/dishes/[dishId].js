@@ -39,15 +39,18 @@ function Dish() {
 
   // If a dish is not found, a 'message' is returned
   // If no data is available yet, show placeholders
-  return !data ? (
-    <p>Loading...{/* <Placeholder xs={6} bg="secondary" /> */}</p>
-  ) : data?.message ? (
-    <NotFound message={data.message} />
-  ) : (
-    <div>
-      <h1 className={styles.dishH1}>Dish</h1>
-      {console.log(data)}
-      <DishTile item={data} />
+  return (
+    <div className={styles.wrapper}>
+      {!data ? (
+        <p>Loading...</p>
+      ) : data?.message ? (
+        <NotFound message={data.message} />
+      ) : (
+        <div className={styles.dishWrapper}>
+          <h1 className={styles.dishH1}>Dish</h1>
+          <DishTile item={data} />
+        </div>
+      )}{' '}
     </div>
   );
 }

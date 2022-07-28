@@ -28,7 +28,7 @@
 } */
 
 .icons {
-  background-color: #ee5a02;
+  background-color: var(--navbar-color);
 
   width: 4em;
 
