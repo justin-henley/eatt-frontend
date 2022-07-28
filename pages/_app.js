@@ -31,7 +31,6 @@ export default function MyApp({ Component, pageProps }) {
         </Head>
 
         <GlobalNav />
-        {/* TODO Check if the page requires authorization. Only contacts /api/auth/session endpoint for pages requiring auth */}
         {/* TODO why doesn't login state persist? */}
         {Component.auth ? (
           <RequireAuth>
@@ -49,6 +48,7 @@ export default function MyApp({ Component, pageProps }) {
 
 const RequireAuth = ({ children }) => {
   const { auth } = useAuth();
+  console.log(auth);
   // const location = useLocation();  this uses react router, how to do it in next?
 
   return auth?.user ? children : <Login />;
