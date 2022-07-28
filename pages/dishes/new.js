@@ -190,5 +190,4 @@ export default function NewDishForm() {
 }
 
 // Requires auth to access
-// TODO roles
 NewDishForm.auth = true;

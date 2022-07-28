@@ -16,7 +16,6 @@ import styles from '../../styles/NewMenu.module.css';
 // Constants
 const MENU_URL = '/menus';
 
-// TODO protect with login
 function NewMenu() {
   // Auth
   const { auth } = useAuth();
@@ -243,5 +242,4 @@ function NewMenu() {
 export default NewMenu;
 
 // Requires auth to access
-// TODO roles
 NewMenu.auth = true;
