@@ -5,14 +5,17 @@ import Link from 'next/link';
 // Custom Components
 import DishTile from '../../components/Dish/DishTile';
 import axios from '../api/axios';
+import useAuth from '../../hooks/useAuth';
 // CSS
 import styles from '../../styles/NewDishForm.module.css';
 // Constants
 const DISH_URL = '/dishes';
 
 // TODO Hardcoding the category and meat types is bad. Find a way to retrieve them.
-// TODO login
 export default function NewDishForm() {
+  // Auth
+  const { auth } = useAuth();
+  // Dish data
   const [inputs, setInputs] = useState({ category: 'rice', meat: 'beef' });
   const [dish, setDish] = useState({
     // The placeholder values
@@ -34,39 +37,29 @@ export default function NewDishForm() {
     // TODO input validation
     e.preventDefault();
 
-    // Submit the new dish and await a response
-    /* const dish = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify(inputs),
-      // TODO this request doesn't pass credentials. Try axios or google it
-    }); */
-    const response = await axios.post(
-      DISH_URL,
-      { ...inputs },
-      {
-        withCredentials: true,
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
-    // TODO trycatch
+    // Make the request
+    let request;
+    try {
+      request = await axios.post(
+        DISH_URL,
+        { ...inputs },
+        {
+          withCredentials: true,
+          headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+        }
+      );
 
-    // Check result
-    if (response.status === 401) {
-      // User is not logged in
-      setDish({ message: 'Unauthorized. Please log in.' });
-    } else if (response.ok === false) {
-      // Catchall for other failures
-      setDish({ message: 'Creation failed for unknown reason.' });
-    } else {
       // Creation successful
-      // Await for the json version of the results
-      console.log(response);
       // Set the dish data
-      setDish({ ...response.data });
+      setDish({ ...request?.data });
+    } catch (error) {
+      if (error.response?.status === 401) {
+        // User is not logged in
+        setDish({ message: 'Unauthorized. Please log in.' });
+      } else {
+        // Catchall for other failures
+        setDish({ message: `Creation failed: ${error.message}.` });
+      }
     }
   };
 

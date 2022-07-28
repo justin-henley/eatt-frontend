@@ -10,6 +10,7 @@ import Link from 'next/link';
 import MenuNewCategory from '../../components/Menus/MenuNewCategory';
 import MenuNewRestaurant from '../../components/Menus/MenuNewRestaurant';
 import axios from '../api/axios';
+import useAuth from '../../hooks/useAuth';
 // CSS
 import styles from '../../styles/NewMenu.module.css';
 // Constants
@@ -17,6 +18,8 @@ const MENU_URL = '/menus';
 
 // TODO protect with login
 function NewMenu() {
+  // Auth
+  const { auth } = useAuth();
   // DATA
   const [menu, setMenu] = useState({});
   const emptyRestaurant = {
@@ -62,36 +65,38 @@ function NewMenu() {
     if (!isSubmitted) return;
 
     // Submit the new menu and await a response
-    const response = await axios.post(
-      MENU_URL,
-      { ...menuData },
-      {
-        withCredentials: true,
-        headers: { 'Content-Type': 'application/json' },
+    let request;
+    try {
+      request = await axios.post(
+        MENU_URL,
+        { ...menuData },
+        {
+          withCredentials: true,
+          /* credentials: include, */
+          headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+        }
+      );
+    } catch (error) {
+      if (error.response?.status === 401) {
+        // User is not logged in
+        console.log(request);
+        request = { data: { message: 'Unauthorized. Please log in.' } };
+      } else {
+        // Catchall for other failures
+        request = { data: { message: `Creation failed: ${error.message}.` } };
       }
-    );
-
-    // Check result
-
-    if (response.status === 401) {
-      // User is not logged in
-      response.data = { message: 'Unauthorized. Please log in.' };
-    } else if (response.ok === false) {
-      // Catchall for other failures
-      response.data = { message: 'Creation failed for unknown reason.' };
-    } else {
-      // Creation successful
     }
 
     // Check json for success
-    if (response?.data?.message) {
+    if (request?.data?.message) {
       // Failure
-      alert(`Menu submission failed.\n${response.data.message}`);
+      alert(`Menu submission failed.\n${request.data.message}`);
+      return;
     } else {
       // Success
       alert('Menu submission succeeded. ');
       // Save menu data
-      setMenu({ ...response.data });
+      setMenu({ ...request.data });
       // Clear data from form
       setRestaurant({ ...emptyRestaurant });
       setCategories([]);

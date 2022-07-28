@@ -32,6 +32,7 @@ export default function MyApp({ Component, pageProps }) {
 
         <GlobalNav />
         {/* TODO Check if the page requires authorization. Only contacts /api/auth/session endpoint for pages requiring auth */}
+        {/* TODO why doesn't login state persist? */}
         {Component.auth ? (
           <RequireAuth>
             <Component {...pageProps} />
