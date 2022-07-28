@@ -8,7 +8,7 @@ const DishDisplay = ({ dishes }) => {
   return (
     <div className={styles.display}>
       {dishes?.map((dish) => (
-        <DishTile key={dish._id} item={dish} />
+        <DishTile key={dish._id || dish.id} item={dish} />
       ))}
     </div>
   );
