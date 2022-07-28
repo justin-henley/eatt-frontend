@@ -9,11 +9,16 @@ import Link from 'next/link';
 // Custom Components
 import MenuNewCategory from '../../components/Menus/MenuNewCategory';
 import MenuNewRestaurant from '../../components/Menus/MenuNewRestaurant';
+import axios from '../api/axios';
+import useAuth from '../../hooks/useAuth';
 // CSS
 import styles from '../../styles/NewMenu.module.css';
+// Constants
+const MENU_URL = '/menus';
 
-// TODO protect with login
 function NewMenu() {
+  // Auth
+  const { auth } = useAuth();
   // DATA
   const [menu, setMenu] = useState({});
   const emptyRestaurant = {
@@ -59,37 +64,38 @@ function NewMenu() {
     if (!isSubmitted) return;
 
     // Submit the new menu and await a response
-    const menu = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(menuData),
-    });
-
-    // Check result
-    let json;
-    if (menu.status === 401) {
-      // User is not logged in
-      json = { message: 'Unauthorized. Please log in.' };
-    } else if (menu.ok === false) {
-      // Catchall for other failures
-      json = { message: 'Creation failed for unknown reason.' };
-    } else {
-      // Creation successful
-      // Await the json version of the results
-      json = await menu.json();
+    let request;
+    try {
+      request = await axios.post(
+        MENU_URL,
+        { ...menuData },
+        {
+          withCredentials: true,
+          /* credentials: include, */
+          headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+        }
+      );
+    } catch (error) {
+      if (error.response?.status === 401) {
+        // User is not logged in
+        console.log(request);
+        request = { data: { message: 'Unauthorized. Please log in.' } };
+      } else {
+        // Catchall for other failures
+        request = { data: { message: `Creation failed: ${error.message}.` } };
+      }
     }
 
     // Check json for success
-    if (json.message) {
+    if (request?.data?.message) {
       // Failure
-      alert(`Menu submission failed.\n${json.message}`);
+      alert(`Menu submission failed.\n${request.data.message}`);
+      return;
     } else {
       // Success
       alert('Menu submission succeeded. ');
       // Save menu data
-      setMenu(json);
+      setMenu({ ...request.data });
       // Clear data from form
       setRestaurant({ ...emptyRestaurant });
       setCategories([]);
@@ -193,10 +199,10 @@ function NewMenu() {
           <div>
             {menu._id && (
               <Alert variant="success">
-                Menu created successfully.
-                <a href={`/menus/${menu._id}`} target="_blank">
-                  &nbsp;Open menu in new window
-                </a>
+                Menu created successfully.&nbsp;
+                <Link href={`/menus/${menu._id}`}>
+                  <a target="_blank">Open menu in new window</a>
+                </Link>
               </Alert>
             )}
           </div>
@@ -234,3 +240,6 @@ function NewMenu() {
 }
 
 export default NewMenu;
+
+// Requires auth to access
+NewMenu.auth = true;

@@ -7,7 +7,7 @@ import DishSearchFormGroup from '../../components/Dish/DishSearchFormGroup';
 // CSS
 import styles from '../../styles/DishSearch.module.css';
 
-// TODO onChange generates a crazy number of db requests
+// onChange generates a crazy number of db requests
 // Also its a bit flaky
 // Maybe change to a submit button, OR cache all results locally and search the cache
 

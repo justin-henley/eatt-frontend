@@ -4,12 +4,18 @@ import { Alert, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
 import Link from 'next/link';
 // Custom Components
 import DishTile from '../../components/Dish/DishTile';
+import axios from '../api/axios';
+import useAuth from '../../hooks/useAuth';
 // CSS
 import styles from '../../styles/NewDishForm.module.css';
+// Constants
+const DISH_URL = '/dishes';
 
 // TODO Hardcoding the category and meat types is bad. Find a way to retrieve them.
-// TODO protect with login
 export default function NewDishForm() {
+  // Auth
+  const { auth } = useAuth();
+  // Dish data
   const [inputs, setInputs] = useState({ category: 'rice', meat: 'beef' });
   const [dish, setDish] = useState({
     // The placeholder values
@@ -31,29 +37,29 @@ export default function NewDishForm() {
     // TODO input validation
     e.preventDefault();
 
-    // Submit the new dish and await a response
-    const dish = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(inputs),
-    });
+    // Make the request
+    let request;
+    try {
+      request = await axios.post(
+        DISH_URL,
+        { ...inputs },
+        {
+          withCredentials: true,
+          headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+        }
+      );
 
-    // Check result
-    if (dish.status === 401) {
-      // User is not logged in
-      setDish({ message: 'Unauthorized. Please log in.' });
-    } else if (dish.ok === false) {
-      // Catchall for other failures
-      setDish({ message: 'Creation failed for unknown reason.' });
-    } else {
       // Creation successful
-      // Await for the json version of the results
-      const json = await dish.json();
-
       // Set the dish data
-      setDish(json);
+      setDish({ ...request?.data });
+    } catch (error) {
+      if (error.response?.status === 401) {
+        // User is not logged in
+        setDish({ message: 'Unauthorized. Please log in.' });
+      } else {
+        // Catchall for other failures
+        setDish({ message: `Creation failed: ${error.message}.` });
+      }
     }
   };
 
@@ -71,8 +77,9 @@ export default function NewDishForm() {
             {dish._id && (
               <Alert variant="success">
                 Dish created successfully.
-                <Link to={`/dishes/${dish._id}`} target="_blank">
-                  Open dish in new window
+                <br />
+                <Link href={`/dishes/${dish._id}`}>
+                  <a target="_blank">Open dish in new window.</a>
                 </Link>
               </Alert>
             )}
@@ -181,3 +188,6 @@ export default function NewDishForm() {
     </div>
   );
 }
+
+// Requires auth to access
+NewDishForm.auth = true;
