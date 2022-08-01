@@ -25,6 +25,7 @@ export default function Home() {
   };
 
   // The welcome page
+  // TODO Optimize image delivery for huge speed gains
   return (
     <div>
       <div className={styles.block}>
@@ -32,25 +33,34 @@ export default function Home() {
           <span className={styles.sloganFlash}>Eat</span> your heart out
         </h1>
         <div className={styles.imageWrapper}>
-          <Image alt="Gua Bao" src={bannerGuabao} className={styles.image} />
+          <Image
+            alt="Gua Bao"
+            src={bannerGuabao}
+            placeholder="blur"
+            width={625}
+            height={500}
+            layout="responsive"
+            className={styles.image}
+            priority="true"
+          />
         </div>
         <div className={styles.dish}>
           <DishTile item={eatTile} className={styles.food} />{' '}
         </div>
       </div>
-      {
+      {/* {
         <div className={styles.block}>
           <h1 className={styles.slogan}>
             <span className={styles.sloganFlash}>Drink</span> and be merry.
           </h1>
           <div className={styles.imageWrapper}>
-            <Image alt="Bubble Milk Tea" src={bannerMilkTea} className={styles.image} />
+            <Image alt="Bubble Milk Tea" src={bannerMilkTea} placeholder="blur" layout="responsive" priority className={styles.image} />
           </div>
           <div className={styles.dish}>
             <DishTile item={drinkTile} />{' '}
           </div>
         </div>
-      }
+      } */}
     </div>
   );
 }
