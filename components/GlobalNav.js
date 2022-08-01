@@ -10,9 +10,7 @@ function GlobalNav() {
     <Navbar expand="lg" sticky="top" collapseOnSelect className={styles.navbar}>
       <Container>
         <Navbar.Brand className={styles.navLogo}>
-          <Link href="/" className={styles.navLogo}>
-            eatt
-          </Link>
+          <Link href="/">eatt</Link>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
