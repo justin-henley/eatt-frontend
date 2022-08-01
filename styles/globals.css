@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Noto+Sans+TC:wght@100;300;400&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Permanent+Marker&display=swap');
 /* Theme */
 :root {
   --navbar-color: #ee5a02;
@@ -15,7 +15,7 @@
   --dish-border-color: gray;
   --link-color: #333;
   --link-hover: black;
-  --font-chinese: 'Noto Sans TC', sans-serif;
+  /* --font-chinese: 'Noto Sans TC', sans-serif; */
   --font-banner: 'Permanent Marker', cursive;
   --font-cursive: 'Kaushan Script', cursive;
   --font-english: sans-serif;
