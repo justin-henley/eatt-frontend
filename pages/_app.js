@@ -11,6 +11,7 @@ import GlobalFooter from '../components/GlobalFooter';
 import Login from './login';
 // CSS
 import '../styles/globals.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function MyApp({ Component, pageProps }) {
   return (
