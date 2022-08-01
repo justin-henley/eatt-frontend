@@ -5,7 +5,7 @@ import DishDisplay from '../../components/Dish/DishDisplay';
 // CSS
 import styles from '../../styles/AllDishes.module.css';
 
-function AllDishes() {
+export default function AllDishes() {
   // Dish data is set in state and updated upon fetching
   const [data, setData] = useState();
 
@@ -31,5 +31,3 @@ function AllDishes() {
     </div>
   );
 }
-
-export default AllDishes;

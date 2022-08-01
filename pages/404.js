@@ -3,7 +3,7 @@ import styles from '../styles/NotFound.module.css';
 // Icon
 import { MdNoFood } from 'react-icons/md';
 
-function NotFound({ message }) {
+export default function NotFound({ message }) {
   return (
     <div className={styles.container}>
       <MdNoFood size="250" className={styles.foodIcon} />
@@ -14,5 +14,3 @@ function NotFound({ message }) {
     </div>
   );
 }
-
-export default NotFound;

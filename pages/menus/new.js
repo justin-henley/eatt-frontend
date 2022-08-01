@@ -16,7 +16,7 @@ import styles from '../../styles/NewMenu.module.css';
 // Constants
 const MENU_URL = '/menus';
 
-function NewMenu() {
+export default function NewMenu() {
   // Auth
   const { auth } = useAuth();
   // DATA
@@ -238,8 +238,6 @@ function NewMenu() {
     </div>
   );
 }
-
-export default NewMenu;
 
 // Requires auth to access
 NewMenu.auth = true;

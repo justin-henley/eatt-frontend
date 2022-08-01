@@ -9,7 +9,7 @@ import NotFound from '../404';
 // CSS
 import styles from '../../styles/Menu.module.css';
 
-function Menu() {
+export default function Menu() {
   // Access the params to get the menu ID to display
   const router = useRouter();
   const { menuId } = router.query;
@@ -54,5 +54,3 @@ function Menu() {
     </div>
   );
 }
-
-export default Menu;

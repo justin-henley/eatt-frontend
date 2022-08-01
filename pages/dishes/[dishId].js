@@ -7,7 +7,7 @@ import NotFound from '../404';
 // CSS
 import styles from '../../styles/Dish.module.css';
 
-function Dish() {
+export default function Dish() {
   // Access the params to get the dish ID to display
   const router = useRouter();
   const { dishId } = router.query;
@@ -54,5 +54,3 @@ function Dish() {
     </div>
   );
 }
-
-export default Dish;
