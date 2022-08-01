@@ -18,37 +18,43 @@ function GlobalNav() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link>
-              {/* TODO restyle */}
-              <Link href="/">Home</Link>
-            </Nav.Link>
+            <Link href="/" passHref>
+              <Nav.Link>
+                {/* TODO restyle */}
+                Home
+              </Nav.Link>
+            </Link>
 
             {/* Contains the links to all dish-related pages */}
             <NavDropdown title="Dishes">
-              <NavDropdown.Item>
-                <Link href="/dishes">All Dishes</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link href="/dishes/search">Search Dishes</Link>
-              </NavDropdown.Item>
+              <Link href="/dishes" passHref>
+                <NavDropdown.Item>All Dishes</NavDropdown.Item>
+              </Link>
+
+              <Link href="/dishes/search" passHref>
+                <NavDropdown.Item>Search Dishes</NavDropdown.Item>
+              </Link>
               <NavDropdown.Divider />
-              <NavDropdown.Item>
-                <Link href="/dishes/new">Create New Dish</Link>
-              </NavDropdown.Item>
+
+              <Link href="/dishes/new" passHref>
+                <NavDropdown.Item>Create New Dish</NavDropdown.Item>
+              </Link>
             </NavDropdown>
 
             {/* Contains the links to all menu-related pages */}
             <NavDropdown title="Menus" id="nav-dropdown">
-              <NavDropdown.Item>
-                <Link href="/menus">All Menus</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link href="/menus/search">Search Menus</Link>
-              </NavDropdown.Item>
+              <Link href="/menus" passHref>
+                <NavDropdown.Item>All Menus</NavDropdown.Item>
+              </Link>
+
+              <Link href="/menus/search" passHref>
+                <NavDropdown.Item>Search Menus</NavDropdown.Item>
+              </Link>
               <NavDropdown.Divider />
-              <NavDropdown.Item>
-                <Link href="/menus/new">Create New Menu</Link>
-              </NavDropdown.Item>
+
+              <Link href="/menus/new" passHref>
+                <NavDropdown.Item>Create New Menu</NavDropdown.Item>
+              </Link>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
