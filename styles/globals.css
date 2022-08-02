@@ -49,7 +49,22 @@ li {
   list-style: none;
 }
 
-.bodyDiv {
-  /* border: 5px solid red; */
+nav {
+  height: 60px;
+  padding: 0;
+}
+
+main {
   min-height: calc(100vh - 160px);
+  padding: 0;
+}
+
+footer {
+  /* position: sticky;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10; */
+  height: 60px;
+  padding: 0;
 }
