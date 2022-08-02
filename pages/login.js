@@ -1,3 +1,5 @@
+// Libraries
+import Link from 'next/link';
 // Hooks
 import { useRef, useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
@@ -76,7 +78,7 @@ export default function Login() {
           <h1>You are logged in!</h1>
           <br />
           <p>
-            <a href="/">Go to Home</a>
+            <Link href="/">Go to Home</Link>
           </p>
         </section>
       ) : (
@@ -118,7 +120,7 @@ export default function Login() {
             <br />
             <span className={styles.line}>
               {/* put router link here */}
-              <a href="/register">Sign Up</a>
+              <Link href="/register">Sign Up</Link>
             </span>
           </p>
         </section>
