@@ -19,3 +19,9 @@
 .navDropdown {
   background-color: var(--navbar-color) !important;
 }
+
+.logBtn {
+  background-color: var(--navbar-color);
+  color: var(--text-navbar);
+  border: none;
+}
