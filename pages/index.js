@@ -5,7 +5,6 @@ import { Carousel } from 'react-bootstrap';
 import DishTile from '../components/Dish/DishTile';
 // CSS
 import styles from '../styles/Home.module.css';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 // Images
 import bannerGuabao from '../public/img/guabao.jpg';
 import bannerMilkTea from '../public/img/tea.jpg';
