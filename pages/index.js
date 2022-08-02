@@ -75,6 +75,26 @@ export default function Home() {
           </div>
         </Carousel.Item>
       </Carousel>
+      <h1>Wanna try something new?</h1>
+      <p>
+        We've all been there. You walk past a shop with a line out the door, and you take a peek at the menu on the
+        wall.
+      </p>
+      <h3>Bah. All text.</h3>
+      <p>
+        None of the dishes you've learned, and no pictures or translations in sight. Do you brave it, pointing and
+        gesturing towards other people's meals? Or do you eat at the convenience store again in defeat?
+      </p>
+      <h3>I wish I could read Chinese...</h3>
+      <p>
+        You should learn! But its a long road from here to fluency, and your stomach hasn't got that kind of time. Let
+        those further on that road give you a hand along the way with Eatt.
+      </p>
+      <h1>Already comfortable with Chinese?</h1>
+      <p>
+        Have a look around, find something new, and pass it forward! Contribute a missing dish or new menu, and
+        recommend Eatt to a hungry-looking friend.
+      </p>
     </div>
   );
 }
