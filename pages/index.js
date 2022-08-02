@@ -28,7 +28,7 @@ export default function Home() {
   // The welcome page
   // Keep an eye out for further image/delivery optimization for further speed gains
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Carousel>
         <Carousel.Item>
           <div className={styles.block}>
