@@ -1,6 +1,7 @@
 // Libraries
 import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
+import debounce from 'lodash.debounce';
 // Custom Components
 import DishDisplay from '../../components/Dish/DishDisplay';
 import DishSearchFormGroup from '../../components/Dish/DishSearchFormGroup';
@@ -8,8 +9,7 @@ import DishSearchFormGroup from '../../components/Dish/DishSearchFormGroup';
 import styles from '../../styles/DishSearch.module.css';
 
 // onChange generates a crazy number of db requests
-// Also its a bit flaky
-// Maybe change to a submit button, OR cache all results locally and search the cache
+// Set debounce timeout on getSearchResults appropriately to limit requests
 
 export default function DishSearch() {
   // Search text, type, and results saved in state with initial values
@@ -18,7 +18,8 @@ export default function DishSearch() {
   const [searchResults, setSearchResults] = useState([]);
 
   // Handles changes to the search field
-  const handleInput = async (event) => {
+  const handleInput = (event) => {
+    // Cannot trim value here as it wouldnt allow spaces in search terms
     setSearchTerm(event.target.value);
   };
 
@@ -32,22 +33,30 @@ export default function DishSearch() {
     getSearchResults(searchTerm);
   }, [searchTerm, searchType]);
 
-  const getSearchResults = async (searchTerm) => {
+  // Ensure that the results displayed still match the search term
+  // If the search field is now blank, clears any response belatedly returned from search request promise
+  useEffect(() => {
+    if (searchResults && !searchTerm.trim()) setSearchResults([]);
+  }, [searchResults]);
+
+  // Debounce limits repeated requests by setting a timeout between subsequent calls
+  const getSearchResults = debounce(async (searchTerm) => {
     // Ensure the search field has a value
-    if (!searchTerm.trim()) {
+    const trimmedTerm = searchTerm.trim();
+    if (!trimmedTerm) {
       setSearchResults([]);
       return;
     }
 
     // Search by search type and text
-    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes?${searchType}=${searchTerm.trim()}`, {
+    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes?${searchType}=${trimmedTerm}`, {
       method: 'GET',
     });
 
     const json = await result.json();
 
     setSearchResults(json);
-  };
+  }, 300);
 
   return (
     <div>
