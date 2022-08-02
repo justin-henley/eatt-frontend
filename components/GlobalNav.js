@@ -17,10 +17,7 @@ function GlobalNav() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             <Link href="/" passHref>
-              <Nav.Link>
-                {/* TODO restyle */}
-                Home
-              </Nav.Link>
+              <Nav.Link>Home</Nav.Link>
             </Link>
 
             {/* Contains the links to all dish-related pages */}
