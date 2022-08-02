@@ -21,9 +21,9 @@
   z-index: 2;
   color: white;
   text-align: center;
-  margin: 1em auto;
+  margin: 0.25em auto;
   font-family: var(--font-cursive);
-  text-shadow: 5px 5px 10px black;
+  text-shadow: -1px -1px 10px #000, 1px -1px 10px #000, -1px 1px 10px #000, 1px 1px 10px #000;
 }
 .sloganFlash {
   color: var(--text-flash);
@@ -33,8 +33,17 @@
 .sloganFlash {
   font-size: 10vw;
 }
+.dish > div {
+  margin: 0px;
+  border: 2px solid black;
+  border-radius: 0;
+  width: 100%;
+}
+.dish > div > div {
+  border-radius: 0;
+}
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   .block {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -51,9 +60,35 @@
   .dish {
     grid-area: 2 / 1 / 3 / 3;
     z-index: 2;
-    margin: auto 5vw 5vw auto;
+    margin: auto 1em 1em auto;
   }
-  .dish > div div {
-    font-size: min(2.5vw, 30px);
+  .dish > div {
+    font-size: min(2.5vw, 20px);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+
+  .dish > div > div {
+    border-radius: 10px 0 0 10px;
+  }
+}
+
+@media (min-width: 800px) {
+  .wrapper {
+    max-width: 800px;
+    margin: auto;
+    padding-top: 1em;
+    border: 5px solid orange;
+  }
+
+  .slogan,
+  .sloganFlash {
+    font-size: 80px;
+  }
+
+  .dish {
+    grid-area: 2 / 1 / 3 / 3;
+    z-index: 2;
+    margin: auto 1em 1em auto;
   }
 }
