@@ -18,7 +18,7 @@ function GlobalNav() {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
+          <Nav className={styles.justifyEnd}>
             <Link href="/" passHref>
               <Nav.Link className={styles.navText}>Home</Nav.Link>
             </Link>
