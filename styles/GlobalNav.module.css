@@ -4,7 +4,6 @@
 }
 .navText {
   color: var(--text-navbar) !important;
-  padding-left: 1em;
 }
 
 .navLogo,
@@ -25,7 +24,7 @@
   background-color: var(--navbar-color);
   color: var(--text-navbar);
   border: none;
-  padding: 0 1em;
+  text-align: start;
 }
 
 .justifyEnd {
