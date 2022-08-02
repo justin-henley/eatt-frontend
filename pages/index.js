@@ -6,7 +6,7 @@ import DishTile from '../components/Dish/DishTile';
 import styles from '../styles/Home.module.css';
 // Images
 import bannerGuabao from '../public/img/pexels-adrian-dorobantu-2089712.jpg';
-import bannerMilkTea from '../public/img/taiwan-pearl-milk-tea-with-bubble-ximending-taipei-taiwan.jpg';
+/* import bannerMilkTea from '../public/img/taiwan-pearl-milk-tea-with-bubble-ximending-taipei-taiwan.jpg'; */
 
 export default function Home() {
   // A demo dish to label the parts for new users
@@ -25,7 +25,7 @@ export default function Home() {
   };
 
   // The welcome page
-  // TODO Optimize image delivery for huge speed gains
+  // Keep an eye out for further image/delivery optimization for further speed gains
   return (
     <div>
       <div className={styles.block}>
