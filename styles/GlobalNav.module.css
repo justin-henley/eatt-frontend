@@ -19,13 +19,6 @@
   background-color: var(--navbar-color) !important;
 }
 
-.logBtn {
-  background-color: var(--navbar-color);
-  color: var(--text-navbar);
-  border: none;
-  text-align: start;
-}
-
 .justifyEnd {
   display: flex;
   width: 100%;
