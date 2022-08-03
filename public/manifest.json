@@ -1,6 +1,12 @@
 {
-  "short_name": "EATT",
   "name": "EATT - Menu Translations",
+  "short_name": "EATT",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,8 +14,5 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "splash_pages": null
 }
