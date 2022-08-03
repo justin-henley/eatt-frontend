@@ -1,7 +1,6 @@
 // Libraries
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 // Hooks
 import useAuth from '../hooks/useAuth';
 // CSS
@@ -62,22 +61,23 @@ function GlobalNav() {
 export default GlobalNav;
 
 const LogInOut = () => {
+  // Auth context
   const { auth, setAuth } = useAuth();
-  const router = useRouter();
 
   return auth?.user ? (
-    <button
-      className={styles.logBtn}
-      onClick={() => {
-        setAuth({});
-        router.push('/');
-      }}
-    >
-      Log Out
-    </button>
+    <Link href="/" passHref>
+      <Nav.Link
+        className={styles.navText}
+        onClick={() => {
+          setAuth({});
+        }}
+      >
+        Log Out
+      </Nav.Link>
+    </Link>
   ) : (
-    <button className={styles.logBtn} onClick={() => router.push('/login')}>
-      Log In
-    </button>
+    <Link href="/login" passHref>
+      <Nav.Link className={styles.navText}>Log In</Nav.Link>
+    </Link>
   );
 };
