@@ -43,6 +43,7 @@ export default function NewMenu() {
 
     // Create the request body using only the necessaary menu data
     const menuData = {
+      creator: auth.user,
       restaurant: restaurant,
       menu:
         // Each category is an object in this array

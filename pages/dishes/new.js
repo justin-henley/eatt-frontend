@@ -42,7 +42,7 @@ export default function NewDishForm() {
     try {
       request = await axios.post(
         DISH_URL,
-        { ...inputs },
+        { ...inputs, creator: auth.user },
         {
           withCredentials: true,
           headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
