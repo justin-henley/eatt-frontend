@@ -65,6 +65,7 @@ const LogInOut = () => {
   const { auth, setAuth } = useAuth();
 
   return auth?.user ? (
+    /* TODO there is a logout route to hit in the back end as well */
     <Link href="/" passHref>
       <Nav.Link
         className={styles.navText}

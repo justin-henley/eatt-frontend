@@ -9,6 +9,7 @@ const LOGIN_URL = '/auth';
 // CSS
 import styles from '../styles/Login.module.css';
 
+// TODO how to handle refresh?
 export default function Login() {
   // Auth context
   const { setAuth } = useAuth();
