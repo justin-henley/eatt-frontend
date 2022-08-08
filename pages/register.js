@@ -11,6 +11,8 @@ const REGISTER_URL = '/register';
 // CSS
 import styles from '../styles/Register.module.css';
 // REGEX
+// Email not registered by regex
+
 // username must start with a letter, and must be 4 to 24 characters
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 // password must have an uppercase letter, a lowercase letter, a digit, and a special character. 8 to 24 characters
@@ -20,8 +22,13 @@ const Register = () => {
   // Refs
   const userRef = useRef(); // User input
   const errRef = useRef(); // Allows focus on error for screen readers to announce
+  const emailRef = useRef(); // Email input field
 
   // STATE
+  // Email input field
+  const [email, setEmail] = useState(''); // Value of the email input field
+  const [emailFocus, setEmailFocus] = useState(false); // Whether we have focus on the email field
+
   // User input field
   const [user, setUser] = useState(''); // Value of the user input field
   const [validName, setValidName] = useState(false); // Whether the name validates or not
@@ -44,7 +51,7 @@ const Register = () => {
   // EFFECTS
   // Sets the focus when the component loads. Empty dependency array means it only happens on component load
   useEffect(() => {
-    userRef.current.focus(); // Follow the ref to the user input field
+    emailRef.current.focus(); // Follow the ref to the email input field
   }, []);
 
   // Validates the username when it changes
@@ -67,7 +74,7 @@ const Register = () => {
   useEffect(() => {
     // Error should be cleared once the user modifies any input fields
     setErrMsg('');
-  }, [user, pwd, matchPwd]);
+  }, [email, user, pwd, matchPwd]);
 
   // FUNCTIONS
   // Form submission
@@ -77,14 +84,14 @@ const Register = () => {
     // Input validation
     const validUser = USER_REGEX.test(user);
     const validPwd = PWD_REGEX.test(pwd);
-    if (!validUser || !validPwd) {
+    if (!validUser || !validPwd || !email) {
       setErrMsg('Invalid Entry');
       return;
     }
 
     // Send to backend
     try {
-      const response = await axios.post(REGISTER_URL, JSON.stringify({ user, pwd }), {
+      const response = await axios.post(REGISTER_URL, JSON.stringify({ email, user, pwd }), {
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Credentials': 'true' },
         withCredentials: true,
       });
@@ -95,6 +102,7 @@ const Register = () => {
 
       setSuccess(true);
       // clear input fields
+      setEmail('');
       setUser('');
       setPwd('');
       setMatchPwd('');
@@ -115,25 +123,49 @@ const Register = () => {
     <div className={styles.wrapper}>
       {success ? (
         <section className={styles.section}>
-          <h1>Success!</h1>
+          <h1>Registration successful!</h1>
+          <p>
+            Please check your email for your confirmation link. You will not be able to sign in until you have confirmed
+            your account.
+          </p>
           <p>
             <Link href="/login">Sign In</Link>
           </p>
         </section>
       ) : (
         <section className={styles.section}>
-          <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">
+          <p ref={errRef} className={errMsg ? styles.errmsg : styles.offscreen} aria-live="assertive">
             {errMsg}
           </p>
           <h1>Register</h1>
           <form onSubmit={handleSubmit} className={styles.registerForm}>
+            {/* Email field, with a p for aria describing the field */}
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              ref={emailRef}
+              autoComplete="off"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              required
+              aria-describedby="uidnote"
+              onFocus={() => setEmailFocus(true)}
+              onBlur={() => setEmailFocus(false)}
+              className={styles.input}
+            />
+            <p id="uidnote" className={emailFocus && !email ? styles.instructions : styles.offscreen}>
+              <AiOutlineInfoCircle />
+              Please enter a valid email address.
+            </p>
+
             {/* Username field, with a p for aria describing the field */}
             <label htmlFor="username">
               Username:
-              <span className={validName ? 'valid' : 'hide'}>
+              <span className={validName ? styles.valid : styles.hide}>
                 <AiOutlineCheckCircle />
               </span>
-              <span className={validName || !user ? 'hide' : 'invalid'}>
+              <span className={validName || !user ? styles.hide : styles.invalid}>
                 <FaRegTimesCircle />
               </span>
             </label>
@@ -151,7 +183,7 @@ const Register = () => {
               onBlur={() => setUserFocus(false)}
               className={styles.input}
             />
-            <p id="uidnote" className={userFocus && user && !validName ? 'instructions' : 'offscreen'}>
+            <p id="uidnote" className={userFocus && user && !validName ? styles.instructions : styles.offscreen}>
               <AiOutlineInfoCircle />
               4 to 24 characters.
               <br />
@@ -163,10 +195,10 @@ const Register = () => {
             {/* Password field, with a p for aria describing the field */}
             <label htmlFor="password">
               Password:
-              <span className={validPwd ? 'valid' : 'hide'}>
+              <span className={validPwd ? styles.valid : styles.hide}>
                 <AiOutlineCheckCircle />
               </span>
-              <span className={validPwd || !pwd ? 'hide' : 'invalid'}>
+              <span className={validPwd || !pwd ? styles.hide : styles.invalid}>
                 <FaRegTimesCircle />
               </span>
             </label>
@@ -182,7 +214,7 @@ const Register = () => {
               onBlur={() => setPwdFocus(false)}
               className={styles.input}
             />
-            <p id="pwdnote" className={pwdFocus && !validPwd ? 'instructions' : 'offscreen'}>
+            <p id="pwdnote" className={pwdFocus && !validPwd ? styles.instructions : styles.offscreen}>
               <AiOutlineInfoCircle />
               8 to 24 characters.
               <br />
@@ -196,10 +228,10 @@ const Register = () => {
             {/* Password match field, with a p for aria describing the field */}
             <label htmlFor="confirm_pwd">
               Confirm Password:
-              <span className={validMatch && matchPwd ? 'valid' : 'hide'}>
+              <span className={validMatch && matchPwd ? styles.valid : styles.hide}>
                 <AiOutlineCheckCircle />
               </span>
-              <span className={validMatch || !matchPwd ? 'hide' : 'invalid'}>
+              <span className={validMatch || !matchPwd ? styles.hide : styles.invalid}>
                 <FaRegTimesCircle />
               </span>
             </label>
@@ -215,13 +247,16 @@ const Register = () => {
               onBlur={() => setMatchFocus(false)}
               className={styles.input}
             />
-            <p id="confirmnote" className={pwdFocus && !validPwd ? 'instructions' : 'offscreen'}>
+            <p id="confirmnote" className={pwdFocus && !validPwd ? styles.instructions : styles.offscreen}>
               <AiOutlineInfoCircle />
               Passwords must match.
             </p>
 
             {/* Submit button */}
-            <button disabled={!validName || !validPwd || !validMatch ? true : false} className={styles.registerBtn}>
+            <button
+              disabled={!email || !validName || !validPwd || !validMatch ? true : false}
+              className={styles.registerBtn}
+            >
               Sign Up
             </button>
           </form>
