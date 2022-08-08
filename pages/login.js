@@ -62,7 +62,7 @@ export default function Login() {
       } else if (err.response?.status === 400) {
         setErrMsg('Missing Username or Password');
       } else if (err.response?.status === 401) {
-        setErrMsg('Unauthorized');
+        setErrMsg(err.response.data.message);
       } else {
         setErrMsg('Login Failed');
       }
