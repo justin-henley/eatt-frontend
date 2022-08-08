@@ -6,10 +6,10 @@ import { useRef, useState, useEffect } from 'react';
 import { AiOutlineInfoCircle, AiOutlineCheckCircle } from 'react-icons/ai';
 import { FaRegTimesCircle } from 'react-icons/fa';
 // Axios
-import axios from './api/axios';
+import axios from '../api/axios';
 const REGISTER_URL = '/register';
 // CSS
-import styles from '../styles/Register.module.css';
+import styles from '../../styles/Register.module.css';
 // REGEX
 // Email not registered by regex
 
