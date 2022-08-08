@@ -65,11 +65,16 @@ const LogInOut = () => {
   const { auth, setAuth } = useAuth();
 
   return auth?.user ? (
-    /* TODO there is a logout route to hit in the back end as well */
-    <Link href="/" passHref>
+    <Link href="" passHref>
       <Nav.Link
         className={styles.navText}
-        onClick={() => {
+        onClick={async () => {
+          // Logout from the API
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/logout`, {
+            method: 'GET',
+          });
+          console.log(response.status);
+          // Clear the access token
           setAuth({});
         }}
       >
