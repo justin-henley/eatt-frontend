@@ -9,11 +9,11 @@ const REGISTER_URL = '/register';
 /* import styles from '../../styles/ConfirmEmail.module.css'; */
 
 export default function ConfirmUserEmail() {
-  // Access the params from the url tp get the confirmation code, which was emailed as a link to the user by the back end
+  // Access the params from the url to get the confirmation code, which was emailed as a link to the user by the back end
   const router = useRouter();
   const { confirmationCode } = router.query;
 
-  // Use state to store the user returned
+  // Use state to store the message returned
   const [message, setMessage] = useState('Please wait...');
 
   // Send the confirmation code to the back end to verify the user
