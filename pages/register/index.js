@@ -149,12 +149,12 @@ const Register = () => {
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               required
-              aria-describedby="uidnote"
+              aria-describedby="emailnote"
               onFocus={() => setEmailFocus(true)}
               onBlur={() => setEmailFocus(false)}
               className={styles.input}
             />
-            <p id="uidnote" className={emailFocus && !email ? styles.instructions : styles.offscreen}>
+            <p id="emailnote" className={emailFocus && !email ? styles.instructions : styles.offscreen}>
               <AiOutlineInfoCircle />
               Please enter a valid email address.
             </p>
