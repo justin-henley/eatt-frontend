@@ -41,7 +41,7 @@ const Reset = () => {
       const response = await axios.post(RESET_URL, JSON.stringify({ email }), {
         headers: { 'Content-Type': 'application/json' },
       });
-      console.log(response);
+
       // Success
       setSuccess(true);
       // Clear input fields
