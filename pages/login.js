@@ -44,7 +44,6 @@ export default function Login() {
       // Attempt to login to backend
       const response = await axios.post(LOGIN_URL, JSON.stringify({ user, pwd }), {
         headers: { 'Content-Type': 'application/json' },
-        withCredentials: true,
       });
 
       // Store the access token returned from auth
