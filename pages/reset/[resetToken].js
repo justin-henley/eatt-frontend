@@ -70,7 +70,7 @@ export default function SetNewPassword() {
 
     // Send to backend
     try {
-      const response = await axios.post(`${RESET_URL}/${resetToken}`, JSON.stringify({ pwd }), {});
+      const response = await axios.post(`${RESET_URL}/${resetToken}`, { pwd: pwd }, {});
 
       setSuccess(true);
       setPwd('');
@@ -92,11 +92,8 @@ export default function SetNewPassword() {
     <div className={styles.wrapper}>
       {success ? (
         <section className={styles.section}>
-          <h1>Registration successful!</h1>
-          <p>
-            Please check your email for your confirmation link. You will not be able to sign in until you have confirmed
-            your account.
-          </p>
+          <h1>Password reset successful!</h1>
+          <p>You may now log in with your new password.</p>
           <p>
             <Link href="/login">Sign In</Link>
           </p>
