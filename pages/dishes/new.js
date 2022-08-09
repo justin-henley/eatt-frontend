@@ -52,6 +52,8 @@ export default function NewDishForm() {
       // Creation successful
       // Set the dish data
       setDish({ ...request?.data });
+      // Clear the form
+      setInputs({ category: 'rice', meat: 'beef' });
     } catch (error) {
       if (error.response?.status === 401) {
         // User is not logged in
@@ -176,6 +178,7 @@ export default function NewDishForm() {
                   <option value="veg">Vegetarian</option>
                   <option value="unknown">Unknown</option>
                   <option value="other">Other</option>
+                  <option value="none">None</option>
                 </Form.Select>
               </FloatingLabel>
             </Col>
