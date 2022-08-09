@@ -78,7 +78,7 @@ const Reset = () => {
             {errMsg}
           </p>
           <h1>Password Reset</h1>
-          <p className={styles.instructions}>Please enter your email address to reset your account</p>
+          <p className={styles.instructions}>Please enter your email address to reset your account.</p>
           <form onSubmit={handleSubmit} className={styles.resetForm}>
             <label htmlFor="email">Email:</label>
             <input
@@ -95,6 +95,7 @@ const Reset = () => {
               Reset Password
             </button>
           </form>
+
           <p className={styles.line}>
             Remembered your password? <Link href="/login">Sign In</Link>
           </p>

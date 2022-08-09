@@ -105,7 +105,7 @@ export default function SetNewPassword() {
           </p>
           <h1>Reset Password</h1>
           <p>Please enter your new account password.</p>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={styles.form}>
             {/* Password Field */}
             <label htmlFor="password">
               New Password:
