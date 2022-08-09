@@ -1,9 +1,10 @@
+// Libraries
 import Link from 'next/link';
-import { useEffect } from 'react';
-import { useRef } from 'react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+// Axios
 import axios from '../api/axios';
 const RESET_URL = '/reset';
+// CSS
 import styles from '../../styles/Reset.module.css';
 
 const Reset = () => {
