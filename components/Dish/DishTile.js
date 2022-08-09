@@ -48,6 +48,7 @@ const icons = {
     egg: <GiRawEgg />,
     other: <FaQuestionCircle />,
     unknown: <FaQuestionCircle />,
+    none: null,
   },
   category: {
     rice: <GiBowlOfRice />,
