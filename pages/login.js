@@ -117,11 +117,17 @@ export default function Login() {
             <button className={styles.loginBtn}>Sign In</button>
           </form>
           <p>
-            Need an Account?
-            <br />
+            Need an Account?&nbsp;
             <span className={styles.line}>
               {/* put router link here */}
               <Link href="/register">Sign Up</Link>
+            </span>
+          </p>
+          <p>
+            Forgot your password?&nbsp;
+            <span className={styles.line}>
+              {/* put router link here */}
+              <Link href="/reset">Reset Password</Link>
             </span>
           </p>
         </section>
