@@ -15,24 +15,25 @@ import useAuth from '../../hooks/useAuth';
 import styles from '../../styles/NewMenu.module.css';
 // Constants
 const MENU_URL = '/menus';
-
-export default function NewMenu({ editMenu, editRestaurant, edit }) {
+// TODO Adapt for edit. Move into component so you can call from multiple pages
+export default function NewMenu({ editMenu }) {
   // Auth
   const { auth } = useAuth();
   // DATA
   const [menu, setMenu] = useState(editMenu || {});
-  const emptyRestaurant = editRestaurant || {
+  const emptyRestaurant = {
     zhtw: '',
     pinyin: '',
     en: '',
   };
 
-  const [restaurant, setRestaurant] = useState({
-    // Restaurant placeholder values
-    ...emptyRestaurant,
-  });
-
-  const [categories, setCategories] = useState([]);
+  const [restaurant, setRestaurant] = useState(
+    // Restaurant placeholder values OR existing values to edit
+    editMenu ? { ...editMenu.restaurant } : { ...emptyRestaurant }
+  );
+  // TODO how to get the categories out of the menu data?
+  // TODO I don't think this will work? The category ids are not preserved!
+  const [categories, setCategories] = useState(editMenu ? [...editMenu.menu] : []);
 
   const [showRestaurantForm, setShowRestaurantForm] = useState(true);
 
@@ -57,7 +58,7 @@ export default function NewMenu({ editMenu, editRestaurant, edit }) {
         }),
     };
     // Creator name is conditionally attached. Edits should not change creator name.
-    if (!edit) menuData.creator = auth.user;
+    if (!editMenu) menuData.creator = auth.user;
 
     // Confirm submission
     const isSubmitted = window.confirm('Are you sure you are ready to submit this menu?');
@@ -69,7 +70,7 @@ export default function NewMenu({ editMenu, editRestaurant, edit }) {
     let request;
     try {
       // Edits use patch, new submissions use post
-      if (edit) {
+      if (editMenu) {
         request = await axios.patch(
           MENU_URL,
           { ...menuData },
