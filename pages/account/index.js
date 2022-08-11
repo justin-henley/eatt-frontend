@@ -37,10 +37,6 @@ export default function Account() {
 
   // Fetch all menus by user
   const getUserMenus = async () => {
-    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/account/menus`, {
-      method: 'GET', // TODO with credentials
-    });
-
     const results = await axios.get(`${ACCOUNT_URL}/menus`, {
       withCredentials: true,
       headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
@@ -75,14 +71,18 @@ export default function Account() {
     }
   }, [option]);
 
+  useEffect(() => {
+    console.log(auth, auth.user, auth.role);
+  }, []);
+
   // TODO add edit icon
   return (
     <div>
       <div>
         <h1>
           {auth.user}
-          {/* Decode role based on highest available role for user */}
-          {auth.role.Admin ? 'Admin' : auth.role.Editor ? 'Editor' : 'User'}
+
+          {auth.title}
         </h1>
       </div>
       <div>
