@@ -48,9 +48,10 @@ export default function Login() {
 
       // Store the access token returned from auth
       const accessToken = response?.data?.accessToken;
+      const title = response?.data?.title;
 
       const roles = response?.data?.roles;
-      setAuth({ user, /* pwd, */ roles, accessToken });
+      setAuth({ user, /* pwd, */ roles, title, accessToken });
 
       setUser('');
       setPwd('');
