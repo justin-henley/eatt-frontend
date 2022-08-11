@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import MenuItemTable from '../../components/Menus/MenuItemTable';
 // Hooks
 import useAuth from '../../hooks/useAuth';
+// Axios
+import axios from '../api/axios';
+const ACCOUNT_URL = '/account';
 
 // Custom components
 
@@ -19,14 +22,16 @@ export default function Account() {
   // FUNCTIONS
   // Fetch all dishes by user
   // Username is passed to backend encoded in JWT token. No need to pass it in the requests.
+  // TODO check these work!
   const getUserDishes = async () => {
-    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/account/dishes`, {
-      method: 'GET', // TODO include credentials
+    // Request the data
+    const results = await axios.get(`${ACCOUNT_URL}/dishes`, {
+      withCredentials: true,
+      headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
     });
 
-    const json = await result.json();
-
     // Store the returned data
+    const json = await results.json();
     setDishes(json);
   };
 
@@ -36,7 +41,11 @@ export default function Account() {
       method: 'GET', // TODO with credentials
     });
 
-    const json = await resultjson();
+    const results = await axios.get(`${ACCOUNT_URL}/menus`, {
+      withCredentials: true,
+      headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+    });
+    const json = await results.json();
 
     // Store the returned data
     setMenus(json);
