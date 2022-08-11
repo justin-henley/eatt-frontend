@@ -10,12 +10,13 @@ import useAuth from '../../hooks/useAuth';
 import styles from '../../styles/NewDishForm.module.css';
 // Constants
 const DISH_URL = '/dishes';
-
+// TODO Adapt for edit. Move into component so you can call from multiple pages
 // TODO Hardcoding the category and meat types is bad. Find a way to retrieve them.
-export default function NewDishForm() {
+export default function NewDishForm({ editInputs, edit }) {
   // Auth
   const { auth } = useAuth();
   // Dish data
+  // TODO I think you can fold inputs into the dish object without worries
   const [inputs, setInputs] = useState({ category: 'rice', meat: 'beef' });
   const [dish, setDish] = useState({
     // The placeholder values
