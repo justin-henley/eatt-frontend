@@ -45,7 +45,7 @@ export default function Home() {
                   height={529}
                   layout="responsive"
                   className={styles.image}
-                  priority="true"
+                  priority
                 />
               </div>
               <div className={styles.dish}>
@@ -66,7 +66,6 @@ export default function Home() {
                   layout="responsive"
                   width={800}
                   height={529}
-                  priority
                   className={styles.image}
                 />
               </div>
