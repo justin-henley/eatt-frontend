@@ -3,7 +3,7 @@
 // CSS
 import styles from '../../styles/MenuItemTable.module.css';
 
-function MenuItemTable({ items, categoryId, buttonText = '?', buttonHandler, title }) {
+function MenuItemTable({ items, categoryId = 1, buttonText = '?', buttonHandler, title }) {
   return (
     <table className={styles.table}>
       {
