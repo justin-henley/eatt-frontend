@@ -2,50 +2,40 @@
 
 import { useEffect, useState } from 'react';
 import MenuItemTable from '../../components/Menus/MenuItemTable';
+// Hooks
+import useAuth from '../../hooks/useAuth';
 
 // Custom components
 
 // CSS
 
 export default function Account() {
-  // fetch user account data
-  // TODO session tracks this?? Delete static values
-  const user = {
-    username: 'username',
-    role: 'Admin',
-    dishes: 20,
-    menus: 5,
-  };
+  // Username needed for display, check auth context
+  const { auth } = useAuth();
 
   // Fetch all dishes by user
-  // TODO modify in back end to accept a username arg to restrict returns to only those owned by user. That path requires auth
-  // TODO way innefficient like this don't push to prod
+  // Username is passed to backend encoded in JWT token. No need to pass it in the requests.
   const getUserDishes = async () => {
-    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes`, {
-      method: 'GET',
+    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/account/dishes`, {
+      method: 'GET', // TODO include credentials
     });
 
     const json = await result.json();
 
-    // Filters and keeps only those dishes created by the user
-    // TODO this is horrid
-    // Does json return an object or array as the outer wrapper?
-    setDishes(json.filter((dish) => dish.history?.creator === user.username));
+    // Store the returned data
+    setDishes(json);
   };
 
   // Fetch all menus by user
-  // TODO modify in back end to accept a username arg to restrict returns to only those owned by user. That path requires auth
-  // TODO way innefficient like this don't push to prod
   const getUserMenus = async () => {
-    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus`, {
-      method: 'GET',
+    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/account/menus`, {
+      method: 'GET', // TODO with credentials
     });
 
     const json = await resultjson();
 
-    // Filters and keeps only those dishes created by the user
-    // TODO this is horrid
-    setMenus(json.filter((menu) => menu.history?.creator === user.username));
+    // Store the returned data
+    setMenus(json);
   };
 
   // EFFECTS
@@ -71,17 +61,14 @@ export default function Account() {
   const [dishes, setDishes] = useState([]);
   const [menus, setMenus] = useState([]);
 
+  // TODO I don't remember what data is stored in the auth context. Are roles in there?
   return (
     <div>
       <div>
         <h1>
-          {user.username}
-          {user.role !== 'User' && ` (${user.role})`}
+          {auth.user}
+          {/* {user.role !== 'User' && ` (${user.role})`} */}
         </h1>
-        <div>
-          <span>{user.dishes} dishes</span>
-          <span>{user.menus} menus</span>
-        </div>
       </div>
       <div>{option === 'Dishes' ? <MenuItemTable /> : <p>havent handled menus yet</p>}</div>
     </div>
