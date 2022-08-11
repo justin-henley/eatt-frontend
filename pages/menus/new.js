@@ -16,12 +16,12 @@ import styles from '../../styles/NewMenu.module.css';
 // Constants
 const MENU_URL = '/menus';
 
-export default function NewMenu() {
+export default function NewMenu({ editMenu, editRestaurant, edit }) {
   // Auth
   const { auth } = useAuth();
   // DATA
-  const [menu, setMenu] = useState({});
-  const emptyRestaurant = {
+  const [menu, setMenu] = useState(editMenu || {});
+  const emptyRestaurant = editRestaurant || {
     zhtw: '',
     pinyin: '',
     en: '',
@@ -43,7 +43,6 @@ export default function NewMenu() {
 
     // Create the request body using only the necessaary menu data
     const menuData = {
-      creator: auth.user,
       restaurant: restaurant,
       menu:
         // Each category is an object in this array
@@ -57,6 +56,8 @@ export default function NewMenu() {
           };
         }),
     };
+    // Creator name is conditionally attached. Edits should not change creator name.
+    if (!edit) menuData.creator = auth.user;
 
     // Confirm submission
     const isSubmitted = window.confirm('Are you sure you are ready to submit this menu?');
@@ -67,15 +68,26 @@ export default function NewMenu() {
     // Submit the new menu and await a response
     let request;
     try {
-      request = await axios.post(
-        MENU_URL,
-        { ...menuData },
-        {
-          withCredentials: true,
-          /* credentials: include, */
-          headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
-        }
-      );
+      // Edits use patch, new submissions use post
+      if (edit) {
+        request = await axios.patch(
+          MENU_URL,
+          { ...menuData },
+          {
+            withCredentials: true,
+            headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+          }
+        );
+      } else {
+        request = await axios.post(
+          MENU_URL,
+          { ...menuData },
+          {
+            withCredentials: true,
+            headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+          }
+        );
+      }
     } catch (error) {
       if (error.response?.status === 401) {
         // User is not logged in
@@ -83,7 +95,7 @@ export default function NewMenu() {
         request = { data: { message: 'Unauthorized. Please log in.' } };
       } else {
         // Catchall for other failures
-        request = { data: { message: `Creation failed: ${error.message}.` } };
+        request = { data: { message: `Submission failed: ${error.message}.` } };
       }
     }
 
