@@ -14,9 +14,9 @@ const ACCOUNT_URL = '/account';
 
 export default function Account() {
   // STATE
-  const [option, setOption] = useState('Dishes'); // Track which menu is selected
-  const [dishes, setDishes] = useState([]);
-  const [menus, setMenus] = useState([]);
+  const [option, setOption] = useState(''); // Track which menu is selected
+  const [dishes, setDishes] = useState(false);
+  const [menus, setMenus] = useState(false);
   const { auth } = useAuth(); // Username needed for display, check auth context
 
   // FUNCTIONS
@@ -24,6 +24,7 @@ export default function Account() {
   // Username is passed to backend encoded in JWT token. No need to pass it in the requests.
   // TODO check these work!
   const getUserDishes = async () => {
+    console.log('gonna request');
     // Request the data
     const results = await axios.get(`${ACCOUNT_URL}/dishes`, {
       withCredentials: true,
@@ -31,8 +32,9 @@ export default function Account() {
     });
 
     // Store the returned data
-    const json = await results.json();
-    setDishes(json);
+
+    console.log('dishes', results.data);
+    setDishes(results.data);
   };
 
   // Fetch all menus by user
@@ -57,8 +59,10 @@ export default function Account() {
   // Get items only once per page load, and only if that menu option is selected
   useEffect(() => {
     if (option === 'Dishes') {
+      console.log('gonna load dishes');
+
       // Return if dishes have already been fetched
-      if (dishes) return;
+      if (dishes !== false) return;
 
       // Get the data
       getUserDishes();
@@ -72,7 +76,8 @@ export default function Account() {
   }, [option]);
 
   useEffect(() => {
-    console.log(auth, auth.user, auth.role);
+    setOption('Dishes');
+    console.log(auth, auth.user, auth.title);
   }, []);
 
   // TODO add edit icon
@@ -86,10 +91,17 @@ export default function Account() {
         </h1>
       </div>
       <div>
-        {option === 'Dishes' ? (
-          <MenuItemTable items={dishes} buttonText="Edit" buttonHandler={handleEditDish} title="Your Dishes" />
-        ) : (
+        {option === 'Dishes' && dishes ? (
+          <MenuItemTable
+            items={dishes}
+            buttonText="Edit"
+            buttonHandler={handleEditDish}
+            title={`Your ${dishes.length} Dish${dishes.length === 1 ? '' : 'es'}`}
+          />
+        ) : option === 'Menus' && menus ? (
           <p>havent handled menus yet</p>
+        ) : (
+          <p>nothing is ready</p>
         )}
       </div>
     </div>
