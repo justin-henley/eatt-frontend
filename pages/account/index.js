@@ -10,9 +10,13 @@ import useAuth from '../../hooks/useAuth';
 // CSS
 
 export default function Account() {
-  // Username needed for display, check auth context
-  const { auth } = useAuth();
+  // STATE
+  const [option, setOption] = useState('Dishes'); // Track which menu is selected
+  const [dishes, setDishes] = useState([]);
+  const [menus, setMenus] = useState([]);
+  const { auth } = useAuth(); // Username needed for display, check auth context
 
+  // FUNCTIONS
   // Fetch all dishes by user
   // Username is passed to backend encoded in JWT token. No need to pass it in the requests.
   const getUserDishes = async () => {
@@ -38,6 +42,12 @@ export default function Account() {
     setMenus(json);
   };
 
+  // Dish edit button handler
+  const handleEditDish = (e) => {};
+
+  // Menu edit button handler
+  const handleEditMenu = (e) => {};
+
   // EFFECTS
   // Get items only once per page load, and only if that menu option is selected
   useEffect(() => {
@@ -56,21 +66,26 @@ export default function Account() {
     }
   }, [option]);
 
-  // STATE
-  const [option, setOption] = useState('Dishes'); // Track which menu is selected
-  const [dishes, setDishes] = useState([]);
-  const [menus, setMenus] = useState([]);
-
-  // TODO I don't remember what data is stored in the auth context. Are roles in there?
+  // TODO add edit icon
   return (
     <div>
       <div>
         <h1>
           {auth.user}
-          {/* {user.role !== 'User' && ` (${user.role})`} */}
+          {/* Decode role based on highest available role for user */}
+          {auth.role.Admin ? 'Admin' : auth.role.Editor ? 'Editor' : 'User'}
         </h1>
       </div>
-      <div>{option === 'Dishes' ? <MenuItemTable /> : <p>havent handled menus yet</p>}</div>
+      <div>
+        {option === 'Dishes' ? (
+          <MenuItemTable items={dishes} buttonText="Edit" buttonHandler={handleEditDish} title="Your Dishes" />
+        ) : (
+          <p>havent handled menus yet</p>
+        )}
+      </div>
     </div>
   );
 }
+
+// Requires auth to access
+Account.auth = true;
