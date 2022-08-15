@@ -215,6 +215,3 @@ export default function NewDishForm({ data = { category: 'rice', meat: 'beef' },
     </div>
   );
 }
-
-// Requires auth to access
-NewDishForm.auth = true;
