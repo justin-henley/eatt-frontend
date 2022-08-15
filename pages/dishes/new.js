@@ -6,7 +6,7 @@ import styles from '../../styles/NewDish.module.css';
 export default function NewDish() {
   return (
     <div className={styles.wrapper}>
-      <NewDishForm request={request} />
+      <NewDishForm />
     </div>
   );
 }
