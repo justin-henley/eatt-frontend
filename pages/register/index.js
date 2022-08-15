@@ -57,14 +57,12 @@ const Register = () => {
   // Validates the username when it changes
   useEffect(() => {
     const result = USER_REGEX.test(user);
-    /* console.log(result, user); */
     setValidName(result);
   }, [user]);
 
   // Validates the password AND match fields
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
-    /* console.log(result, pwd); */
     setValidPwd(result);
     const match = pwd === matchPwd;
     setValidMatch(match);
@@ -94,10 +92,6 @@ const Register = () => {
       const response = await axios.post(REGISTER_URL, JSON.stringify({ email, user, pwd }), {
         headers: { 'Content-Type': 'application/json' },
       });
-
-      /* console.log(response?.data);
-      console.log(response?.accessToken);
-      console.log(JSON.stringify(response)); */
 
       setSuccess(true);
       // clear input fields

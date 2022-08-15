@@ -100,7 +100,6 @@ export default function NewMenu({ data = {}, edit }) {
     } catch (error) {
       if (error.response?.status === 401) {
         // User is not logged in
-        console.log(request);
         request = { data: { message: 'Unauthorized. Please log in.' } };
       } else {
         // Catchall for other failures

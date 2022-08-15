@@ -24,7 +24,6 @@ export default function Account() {
   // Username is passed to backend encoded in JWT token. No need to pass it in the requests.
   // TODO check these work!
   const getUserDishes = async () => {
-    console.log('gonna request');
     // Request the data
     const results = await axios.get(`${ACCOUNT_URL}/dishes`, {
       withCredentials: true,
@@ -32,8 +31,6 @@ export default function Account() {
     });
 
     // Store the returned data
-
-    console.log('dishes', results.data);
     setDishes(results.data);
   };
 
@@ -59,8 +56,6 @@ export default function Account() {
   // Get items only once per page load, and only if that menu option is selected
   useEffect(() => {
     if (option === 'Dishes') {
-      console.log('gonna load dishes');
-
       // Return if dishes have already been fetched
       if (dishes !== false) return;
 
@@ -77,7 +72,6 @@ export default function Account() {
 
   useEffect(() => {
     setOption('Dishes');
-    console.log(auth, auth.user, auth.title);
   }, []);
 
   // TODO add edit icon
