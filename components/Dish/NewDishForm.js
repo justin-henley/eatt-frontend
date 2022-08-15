@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Alert, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
 import Link from 'next/link';
 // Custom Components
-import DishTile from '../../components/Dish/DishTile';
+import DishTile from './DishTile';
 import useAuth from '../../hooks/useAuth';
 import axios from '../../pages/api/axios';
 // CSS
