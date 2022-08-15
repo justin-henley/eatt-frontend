@@ -66,7 +66,7 @@ export default function NewMenu({ data = {}, edit }) {
         }),
     };
     // Creator name is conditionally attached. Edits should not change creator name.
-    if (!editMenu) menuData.creator = auth.user;
+    if (!edit) menuData.creator = auth.user;
 
     // Confirm submission
     const isSubmitted = window.confirm('Are you sure you are ready to submit this menu?');
@@ -78,7 +78,7 @@ export default function NewMenu({ data = {}, edit }) {
     let request;
     try {
       // Edits use patch, new submissions use post
-      if (editMenu) {
+      if (edit) {
         request = await axios.patch(
           MENU_URL,
           { ...menuData },
