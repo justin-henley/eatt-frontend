@@ -9,7 +9,7 @@ import Link from 'next/link';
 // Custom Components
 import MenuNewCategory from './MenuNewCategory';
 import MenuNewRestaurant from './MenuNewRestaurant';
-import axios from '../../api/axios';
+import axios from '../../pages/api/axios';
 import useAuth from '../../hooks/useAuth';
 // CSS
 import styles from '../../styles/NewMenuForm.module.css';
@@ -59,7 +59,7 @@ export default function NewMenu({ data = {}, edit }) {
             zhtw: category.zhtw,
             pinyin: category.pinyin,
             en: category.en,
-            categoryId: category.id,
+            categoryId: category.categoryId,
             // Each item is a dishId in the items array of the category
             items: category.items.map((item) => item.id),
           };
@@ -247,7 +247,7 @@ export default function NewMenu({ data = {}, edit }) {
             category={category}
             handleAddItem={handleAddItem}
             handleRemoveItem={handleRemoveItem}
-            key={category.id}
+            key={category.categoryId}
             handleChange={handleCategoryChange}
             handleRemoveCategory={handleRemoveCategory}
           />
