@@ -8,7 +8,7 @@ function MenuCategoryForm({ index, category, handleChange, handleAddItem, handle
   return (
     <FormGroup
       as="fieldset"
-      data-category-id={category.id}
+      data-category-id={category.categoryId}
       aria-label="Enter the name of the new menu category in Traditional Chinese, Hanyu Pinyin, and English."
     >
       <FormLabel as="legend">Category {index + 1}</FormLabel>
@@ -40,7 +40,7 @@ function MenuCategoryForm({ index, category, handleChange, handleAddItem, handle
         items={category.items}
         handleAddItem={handleAddItem}
         handleRemoveItem={handleRemoveItem}
-        categoryId={category.id}
+        categoryId={category.categoryId}
       />
     </FormGroup>
   );
