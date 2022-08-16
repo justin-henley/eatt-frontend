@@ -80,6 +80,8 @@ export default function NewMenuForm({ data = {}, edit = false }) {
     // Return early if canceled
     if (!isSubmitted) return;
 
+    console.log(menuData);
+
     // Submit the new menu and await a response
     let request;
     try {
@@ -123,7 +125,7 @@ export default function NewMenuForm({ data = {}, edit = false }) {
       // Success
       alert('Menu submission succeeded. ');
       // Save menu data
-      setMenu({ ...request.data });
+      setMenu({ ...request.data, success: true });
       // Clear data from form
       setRestaurant({
         zhtw: '',
@@ -228,14 +230,14 @@ export default function NewMenuForm({ data = {}, edit = false }) {
       <div className={styles.result}>
         {menu.hasOwnProperty('message') ? (
           <Alert variant="danger" className={styles.alert}>
-            <Alert.Heading>Menu Creation Failed</Alert.Heading> <p>Error: {menu.message}</p>
+            <Alert.Heading>Menu {edit ? 'Edit' : 'Creation'} Failed</Alert.Heading> <p>Error: {menu.message}</p>
             <p>Please check your inputs and try again.</p>
           </Alert>
         ) : (
           <div>
-            {menu._id && (
+            {menu.success && (
               <Alert variant="success">
-                Menu created successfully.&nbsp;
+                Menu {edit ? 'edited' : 'created'} successfully.&nbsp;
                 <Link href={`/menus/${menu._id}`}>
                   <a target="_blank">Open menu in new window</a>
                 </Link>
@@ -244,33 +246,36 @@ export default function NewMenuForm({ data = {}, edit = false }) {
           </div>
         )}
       </div>
-      <Form className={styles.newMenu} onSubmit={handleSubmit}>
-        <MenuNewRestaurant
-          showRestaurantForm={showRestaurantForm}
-          setShowRestaurantForm={setShowRestaurantForm}
-          restaurant={restaurant}
-          handleChange={handleRestaurantChange}
-        />
-        {categories.map((category, index) => (
-          <MenuNewCategory
-            index={index}
-            category={category}
-            handleAddItem={handleAddItem}
-            handleRemoveItem={handleRemoveItem}
-            key={category.categoryId}
-            handleChange={handleCategoryChange}
-            handleRemoveCategory={handleRemoveCategory}
+      {/* If editing a menu, form disappears after successful submission */}
+      {edit && !menu.success && (
+        <Form className={styles.newMenu} onSubmit={handleSubmit}>
+          <MenuNewRestaurant
+            showRestaurantForm={showRestaurantForm}
+            setShowRestaurantForm={setShowRestaurantForm}
+            restaurant={restaurant}
+            handleChange={handleRestaurantChange}
           />
-        ))}
-        <div className={styles.formButtons}>
-          <button type="button" className={styles.addCatButton} onClick={handleAddCategory}>
-            Add Category
-          </button>
-          <button type="submit" className={styles.submitButton} onClick={handleSubmit}>
-            Submit Menu
-          </button>
-        </div>
-      </Form>
+          {categories.map((category, index) => (
+            <MenuNewCategory
+              index={index}
+              category={category}
+              handleAddItem={handleAddItem}
+              handleRemoveItem={handleRemoveItem}
+              key={category.categoryId}
+              handleChange={handleCategoryChange}
+              handleRemoveCategory={handleRemoveCategory}
+            />
+          ))}
+          <div className={styles.formButtons}>
+            <button type="button" className={styles.addCatButton} onClick={handleAddCategory}>
+              Add Category
+            </button>
+            <button type="submit" className={styles.submitButton} onClick={handleSubmit}>
+              Submit Menu
+            </button>
+          </div>
+        </Form>
+      )}
     </div>
   );
 }
