@@ -78,23 +78,17 @@ export default function UserMenus() {
   // TODO add edit icon if you can solve the selection issue
   return (
     <div>
-      {/* <div>
-        <h1>{auth.user}</h1>
-        <p>{auth.title}</p>
-      </div> */}
       <div>
-        {menus.length > 0 ? (
-          <div>
-            <MenuItemTable
-              items={menus}
-              buttonHandler={handleEditMenu}
-              buttonText="Edit"
-              title={`Your ${menus.length} Menu${menus.length > 1 && 's'}`}
-            />
-          </div>
-        ) : (
-          <p>You have not created any menus yet.</p>
-        )}
+        <div>
+          <MenuItemTable
+            items={menus}
+            buttonHandler={handleEditMenu}
+            buttonText="Edit"
+            title={`${auth.user[0].toUpperCase() + auth.user.slice(1)}, you have created ${menus.length} menu${
+              menus.length === 1 ? '' : 's'
+            }.`}
+          />
+        </div>
       </div>
       <div>
         <Modal show={show} onHide={handleClose} backdrop="static">

@@ -67,21 +67,15 @@ export default function UserDishes() {
   // TODO Using an icon in edit means you click on the icon with no data, instead of the button itself
   return (
     <div>
-      {/* <div>
-        <h1>{auth.user}</h1>
-        <p>{auth.title}</p>
-      </div> */}
       <div>
-        {dishes ? (
-          <MenuItemTable
-            items={dishes}
-            buttonText={'Edit'}
-            buttonHandler={handleEditDish}
-            title={`Your ${dishes.length} Dish${dishes.length > 1 && 'es'}`}
-          />
-        ) : (
-          <p>You have not created any dishes yet.</p>
-        )}
+        <MenuItemTable
+          items={dishes}
+          buttonText={'Edit'}
+          buttonHandler={handleEditDish}
+          title={`${auth.user[0].toUpperCase() + auth.user.slice(1)}, you have created ${dishes.length} dish${
+            dishes.length === 1 ? '' : 'es'
+          }.`}
+        />
       </div>
       <div>
         <Modal show={show} onHide={handleClose} backdrop="static">
