@@ -118,7 +118,11 @@ export default function NewMenu({ data = {}, edit }) {
       // Save menu data
       setMenu({ ...request.data });
       // Clear data from form
-      setRestaurant({ ...emptyRestaurant });
+      setRestaurant({
+        zhtw: '',
+        pinyin: '',
+        en: '',
+      });
       setCategories([]);
       setShowRestaurantForm(true);
     }
