@@ -53,19 +53,20 @@ export default function NewDishForm({ data = { category: 'rice', meat: 'beef' },
     let response;
     try {
       if (edit) {
+        // Patch request requires data and id to generate changelog
         response = await axios.patch(
-          // TODO The way the data was extracted above may make a mess here. Also presave on backend Dish schema may change create date??
           DISH_URL,
-          { ...inputs, history: data.history, data: inputs, id: inputs.dishId },
+          { ...inputs, data: inputs, id: inputs.dishId },
           {
             withCredentials: true,
             headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
           }
         );
       } else {
+        // Create a new dish
         response = await axios.post(
           DISH_URL,
-          { ...inputs, creator: auth.user },
+          { ...inputs },
           {
             withCredentials: true,
             headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
