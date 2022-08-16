@@ -61,6 +61,8 @@ export default function UserDishes() {
   useEffect(() => {
     getUserDishes();
   }, []);
+  // Reload when dishes are updated
+  useEffect(() => {}, [dishes]);
 
   // TODO Using an icon in edit means you click on the icon with no data, instead of the button itself
   return (
