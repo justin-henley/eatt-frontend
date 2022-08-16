@@ -6,22 +6,20 @@ import styles from '../../styles/MenuItemTable.module.css';
 function MenuItemTable({ items, categoryId = 1, buttonText = '?', buttonHandler, title }) {
   return (
     <table className={styles.table}>
-      {
-        // Only displays the table headers if it is the added section OR there are search results to display
-        (items.length !== 0 || title === 'Added Dishes') && (
-          <thead className={styles.tHead}>
-            <tr>
-              <th colSpan="4">{title}</th>
-            </tr>
-            <tr>
-              <th>Mandarin</th>
-              <th>Pinyin</th>
-              <th>English</th>
-              <th>{buttonText === '+' ? 'Add' : buttonText === '-' ? 'Remove' : 'Edit'}</th>
-            </tr>
-          </thead>
-        )
-      }
+      {/* Only displays the table headers if it is the added section OR there are search results to display */}
+      <thead className={styles.tHead}>
+        <tr>
+          <th colSpan="4">{title}</th>
+        </tr>
+        {(items.length !== 0 || title === 'Added Dishes') && (
+          <tr>
+            <th>Mandarin</th>
+            <th>Pinyin</th>
+            <th>English</th>
+            <th>{buttonText === '+' ? 'Add' : buttonText === '-' ? 'Remove' : 'Edit'}</th>
+          </tr>
+        )}
+      </thead>
       <tbody className={styles.tBody}>
         {title === 'Added Dishes' && items.length === 0 ? (
           <tr>
