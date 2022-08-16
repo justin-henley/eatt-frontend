@@ -42,7 +42,6 @@ export default function UserDishes() {
   // Edit the target dish
   const handleEditDish = (e) => {
     const dish = { ...e.target.dataset };
-    console.log(dish);
     setData(dish);
     handleShow();
   };
@@ -63,7 +62,7 @@ export default function UserDishes() {
     getUserDishes();
   }, []);
 
-  // TODO add edit icon
+  // TODO Using an icon in edit means you click on the icon with no data, instead of the button itself
   return (
     <div>
       {/* <div>
@@ -74,7 +73,7 @@ export default function UserDishes() {
         {dishes ? (
           <MenuItemTable
             items={dishes}
-            buttonText={<MdEdit />}
+            buttonText={'Edit'}
             buttonHandler={handleEditDish}
             title={`Your ${dishes.length} Dish${dishes.length === 1 ? '' : 'es'}`}
           />
