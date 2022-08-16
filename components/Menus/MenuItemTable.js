@@ -28,6 +28,7 @@ function MenuItemTable({ items, categoryId = 1, buttonText = '?', buttonHandler,
             </td>
           </tr>
         ) : (
+          items.length > 0 &&
           items.map((item) => (
             // The add handler uses _id from the db, the remove handler uses id without the underscore, so both are handled here
             <tr key={`${categoryId}${item.id || item._id}`} className={styles.tRow}>
