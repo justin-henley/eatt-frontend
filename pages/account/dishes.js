@@ -77,7 +77,7 @@ export default function UserDishes() {
             items={dishes}
             buttonText={'Edit'}
             buttonHandler={handleEditDish}
-            title={`Your ${dishes.length} Dish${dishes.length === 1 ? '' : 'es'}`}
+            title={`Your ${dishes.length} Dish${dishes.length > 1 && 'es'}`}
           />
         ) : (
           <p>You have not created any dishes yet.</p>

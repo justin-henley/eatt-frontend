@@ -86,7 +86,12 @@ export default function UserMenus() {
       <div>
         {menus.length > 0 ? (
           <div>
-            <MenuItemTable items={menus} buttonHandler={handleEditMenu} buttonText="Edit" />
+            <MenuItemTable
+              items={menus}
+              buttonHandler={handleEditMenu}
+              buttonText="Edit"
+              title={`Your ${menus.length} Menu${menus.length > 1 && 's'}`}
+            />
           </div>
         ) : (
           <p>You have not created any menus yet.</p>
