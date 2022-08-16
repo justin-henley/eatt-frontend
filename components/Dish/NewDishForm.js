@@ -56,7 +56,7 @@ export default function NewDishForm({ data = { category: 'rice', meat: 'beef' },
         response = await axios.patch(
           // TODO The way the data was extracted above may make a mess here. Also presave on backend Dish schema may change create date??
           DISH_URL,
-          { ...inputs, history: data.history },
+          { ...inputs, history: data.history, data: inputs, id: inputs.dishId },
           {
             withCredentials: true,
             headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
@@ -94,7 +94,7 @@ export default function NewDishForm({ data = { category: 'rice', meat: 'beef' },
       <div className={styles.result}>
         {dish.hasOwnProperty('message') ? (
           <Alert variant="danger" className={styles.alert}>
-            <Alert.Heading>Dish Creation Failed</Alert.Heading>
+            <Alert.Heading>Dish {edit ? 'Edit' : 'Creation'} Failed</Alert.Heading>
             <p>Error: {dish.message}</p>
             <p>Please correct the error and try again.</p>
           </Alert>
@@ -102,7 +102,7 @@ export default function NewDishForm({ data = { category: 'rice', meat: 'beef' },
           <div>
             {dish._id && (
               <Alert variant="success">
-                Dish created successfully.
+                Dish {edit ? 'edited' : 'created'} successfully.
                 <br />
                 <Link href={`/dishes/${dish._id}`}>
                   <a target="_blank">Open dish in new window.</a>
@@ -113,105 +113,107 @@ export default function NewDishForm({ data = { category: 'rice', meat: 'beef' },
           </div>
         )}
       </div>
+      {/* If editing a dish, form disappears after successful submission */}
+      {edit && inputs.zhtw && (
+        <Form action="post" onSubmit={handleSubmit} className={styles.form}>
+          <h1>{edit ? 'Edit this' : 'Create a new'} dish:</h1>
 
-      <Form action="post" onSubmit={handleSubmit} className={styles.form}>
-        <h1>Create a new dish:</h1>
+          <Form.Group
+            as="fieldset"
+            className={styles.nameGroup}
+            aria-label="Please enter the Chinese, Pinyin, and English names of the new dish."
+          >
+            <Form.Label as="legend" aria-hidden>
+              Dish Name
+            </Form.Label>
+            <FloatingLabel controlId="floatingChinese" label="Chinese Name">
+              <Form.Control
+                type="text"
+                placeholder="牛肉麵"
+                required
+                name="zhtw"
+                value={inputs.zhtw || ''}
+                onChange={handleChange}
+              />
+            </FloatingLabel>
 
-        <Form.Group
-          as="fieldset"
-          className={styles.nameGroup}
-          aria-label="Please enter the Chinese, Pinyin, and English names of the new dish."
-        >
-          <Form.Label as="legend" aria-hidden>
-            Dish Name
-          </Form.Label>
-          <FloatingLabel controlId="floatingChinese" label="Chinese Name">
-            <Form.Control
-              type="text"
-              placeholder="牛肉麵"
-              required
-              name="zhtw"
-              value={inputs.zhtw || ''}
-              onChange={handleChange}
-            />
-          </FloatingLabel>
+            <FloatingLabel controlId="floatingPinyin" label="Hanyu Pinyin Name">
+              <Form.Control
+                type="text"
+                placeholder="niú ròu miàn"
+                required
+                name="pinyin"
+                value={inputs.pinyin || ''}
+                onChange={handleChange}
+              />
+            </FloatingLabel>
+            <FloatingLabel controlId="floatingEnglish" label="English Name">
+              <Form.Control
+                type="text"
+                placeholder="Beef Noodles"
+                required
+                name="en"
+                value={inputs.en || ''}
+                onChange={handleChange}
+              />
+            </FloatingLabel>
+          </Form.Group>
 
-          <FloatingLabel controlId="floatingPinyin" label="Hanyu Pinyin Name">
-            <Form.Control
-              type="text"
-              placeholder="niú ròu miàn"
-              required
-              name="pinyin"
-              value={inputs.pinyin || ''}
-              onChange={handleChange}
-            />
-          </FloatingLabel>
-          <FloatingLabel controlId="floatingEnglish" label="English Name">
-            <Form.Control
-              type="text"
-              placeholder="Beef Noodles"
-              required
-              name="en"
-              value={inputs.en || ''}
-              onChange={handleChange}
-            />
-          </FloatingLabel>
-        </Form.Group>
-
-        <Form.Group
-          as="fieldset"
-          className={styles.detailsGroup}
-          aria-label="Please choose the relevant category and protein type for the dish"
-        >
-          <Form.Label as="legend">Dish Details</Form.Label>
-          <Row className={styles.row}>
-            <Col xs="auto" className={styles.column}>
-              <FloatingLabel controlId="floatingCategory" label="Dish Category">
-                <Form.Select
-                  aria-label="Category of the dish"
-                  name="category"
-                  required
-                  value={inputs.category || ''}
-                  onChange={handleChange}
-                  placeholder="wat"
-                >
-                  <option value="rice">Rice</option>
-                  <option value="noodle">Noodle</option>
-                  <option value="bread">Bread, Crepe, Sandwich, etc.</option>
-                  <option value="soup">Soup, Stew, or Curry</option>
-                  <option value="drink">Beverage</option>
-                  <option value="unknown">Unknown</option>
-                  <option value="other">Other</option>
-                </Form.Select>
-              </FloatingLabel>
-            </Col>
-            <Col xs="auto" className={styles.column}>
-              <FloatingLabel controlId="floatingMeat" label="Protein Type">
-                <Form.Select
-                  aria-label="Protein type of the dish"
-                  name="meat"
-                  required
-                  value={inputs.meat || ''}
-                  onChange={handleChange}
-                >
-                  <option value="beef">Beef </option>
-                  <option value="pork">Pork</option>
-                  <option value="bird">Poultry</option>
-                  <option value="fish">Seafood</option>
-                  <option value="egg">Egg</option>
-                  <option value="veg">Vegetarian</option>
-                  <option value="unknown">Unknown</option>
-                  <option value="other">Other</option>
-                  <option value="none">None</option>
-                </Form.Select>
-              </FloatingLabel>
-            </Col>
-          </Row>
-        </Form.Group>
-        <button type="submit" className={styles.submit} aria-label="Create this dish">
-          Create
-        </button>
-      </Form>
+          <Form.Group
+            as="fieldset"
+            className={styles.detailsGroup}
+            aria-label="Please choose the relevant category and protein type for the dish"
+          >
+            <Form.Label as="legend">Dish Details</Form.Label>
+            <Row className={styles.row}>
+              <Col xs="auto" className={styles.column}>
+                <FloatingLabel controlId="floatingCategory" label="Dish Category">
+                  <Form.Select
+                    aria-label="Category of the dish"
+                    name="category"
+                    required
+                    value={inputs.category || ''}
+                    onChange={handleChange}
+                    placeholder="wat"
+                  >
+                    <option value="rice">Rice</option>
+                    <option value="noodle">Noodle</option>
+                    <option value="bread">Bread, Crepe, Sandwich, etc.</option>
+                    <option value="soup">Soup, Stew, or Curry</option>
+                    <option value="drink">Beverage</option>
+                    <option value="unknown">Unknown</option>
+                    <option value="other">Other</option>
+                  </Form.Select>
+                </FloatingLabel>
+              </Col>
+              <Col xs="auto" className={styles.column}>
+                <FloatingLabel controlId="floatingMeat" label="Protein Type">
+                  <Form.Select
+                    aria-label="Protein type of the dish"
+                    name="meat"
+                    required
+                    value={inputs.meat || ''}
+                    onChange={handleChange}
+                  >
+                    <option value="beef">Beef </option>
+                    <option value="pork">Pork</option>
+                    <option value="bird">Poultry</option>
+                    <option value="fish">Seafood</option>
+                    <option value="egg">Egg</option>
+                    <option value="veg">Vegetarian</option>
+                    <option value="unknown">Unknown</option>
+                    <option value="other">Other</option>
+                    <option value="none">None</option>
+                  </Form.Select>
+                </FloatingLabel>
+              </Col>
+            </Row>
+          </Form.Group>
+          <button type="submit" className={styles.submit} aria-label="Create this dish">
+            {edit ? 'Save' : 'Create'}
+          </button>
+        </Form>
+      )}
     </div>
   );
 }
