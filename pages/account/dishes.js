@@ -1,6 +1,6 @@
 // Libraries
 import { useEffect, useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 // Hooks
 import useAuth from '../../hooks/useAuth';
 // Axios
@@ -16,8 +16,10 @@ import NewDishForm from '../../components/Dish/NewDishForm';
 import { MdEdit } from 'react-icons/md';
 
 export default function UserDishes() {
-  // STATE
+  // AUTH
   const { auth } = useAuth();
+
+  // STATE
   const [dishes, setDishes] = useState(false);
   const [show, setShow] = useState(false);
   const [data, setData] = useState({});
@@ -45,9 +47,10 @@ export default function UserDishes() {
     handleShow();
   };
 
-  // Close the modal and refresh dishes
+  // Close the modal, clear the edit data, and refresh dishes
   const handleClose = () => {
     setShow(false);
+    setData({});
     getUserDishes();
   };
 
