@@ -1,24 +1,13 @@
 // Libraries
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import MenuItemTable from '../../components/Menus/MenuItemTable';
 // Hooks
 import useAuth from '../../hooks/useAuth';
-// Axios
-import axios from '../api/axios';
-const ACCOUNT_URL = '/account';
-
-// Custom components
-
-// CSS
+// TODO CSS
 
 export default function Account() {
-  // STATE
-  const [option, setOption] = useState(''); // Track which menu is selected
+  // Username and user title stored in auth
+  const { auth } = useAuth();
 
-  const { auth } = useAuth(); // Username needed for display, check auth context
-
-  // TODO add edit icon
   return (
     <div>
       <div>
