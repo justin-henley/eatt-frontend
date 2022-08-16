@@ -17,7 +17,7 @@ function MenuItemTable({ items, categoryId = 1, buttonText = '?', buttonHandler,
               <th>Mandarin</th>
               <th>Pinyin</th>
               <th>English</th>
-              <th>{buttonText === '+' ? 'Add' : buttonText === '-' ? 'Remove' : 'Action'}</th>
+              <th>{buttonText === '+' ? 'Add' : buttonText === '-' ? 'Remove' : 'Edit'}</th>
             </tr>
           </thead>
         )
