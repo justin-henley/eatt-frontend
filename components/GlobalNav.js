@@ -5,6 +5,8 @@ import Link from 'next/link';
 import useAuth from '../hooks/useAuth';
 // CSS
 import styles from '../styles/GlobalNav.module.css';
+// Icons
+import { FaUserCircle } from 'react-icons/fa';
 
 // TODO add login/out link
 function GlobalNav() {
@@ -64,23 +66,41 @@ const LogInOut = () => {
   // Auth context
   const { auth, setAuth } = useAuth();
 
+  // Logout from the back end and clear auth
+  const handleLogout = async () => {
+    // Logout from the API
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/logout`, {
+      method: 'GET',
+    });
+    console.log(response.status);
+    // Clear the access token
+    setAuth({});
+  };
+  // TODO add user icon
   return auth?.user ? (
-    <Link href="" passHref>
-      <Nav.Link
-        className={styles.navText}
-        onClick={async () => {
-          // Logout from the API
-          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/logout`, {
-            method: 'GET',
-          });
-          console.log(response.status);
-          // Clear the access token
-          setAuth({});
-        }}
+    <>
+      <NavDropdown
+        title={
+          <span className={styles.navText}>
+            <FaUserCircle />
+            &nbsp;
+            {auth.user}
+          </span>
+        }
       >
-        Log Out
-      </Nav.Link>
-    </Link>
+        <Link href="/account/dishes" passHref>
+          <NavDropdown.Item>My Dishes</NavDropdown.Item>
+        </Link>
+
+        <Link href="/account/menus" passHref>
+          <NavDropdown.Item>My Menus</NavDropdown.Item>
+        </Link>
+        <NavDropdown.Divider />
+        <Link href="" passHref>
+          <NavDropdown.Item onClick={handleLogout}>Log Out</NavDropdown.Item>
+        </Link>
+      </NavDropdown>
+    </>
   ) : (
     <Link href="/login" passHref>
       <Nav.Link className={styles.navText}>Log In</Nav.Link>
