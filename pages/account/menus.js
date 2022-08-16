@@ -28,7 +28,6 @@ export default function UserMenus() {
 
   // Fetch all menus by user
   const getUserMenus = async () => {
-    // TODO fix request
     try {
       const results = await axios.get(`${ACCOUNT_URL}/menus`, {
         withCredentials: true,
@@ -46,7 +45,7 @@ export default function UserMenus() {
     }
   };
 
-  // TODO Edit the target menu
+  // Edit the target menu
   const handleEditMenu = async (e) => {
     // Get the restaurant data from the target element
     const menu = { ...e.target.dataset };

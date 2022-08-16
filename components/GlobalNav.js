@@ -8,7 +8,6 @@ import styles from '../styles/GlobalNav.module.css';
 // Icons
 import { FaUserCircle } from 'react-icons/fa';
 
-// TODO add login/out link
 function GlobalNav() {
   return (
     <Navbar expand="lg" sticky="top" collapseOnSelect className={styles.navbar}>
@@ -76,7 +75,7 @@ const LogInOut = () => {
     // Clear the access token
     setAuth({});
   };
-  // TODO add user icon
+
   return auth?.user ? (
     <>
       <NavDropdown

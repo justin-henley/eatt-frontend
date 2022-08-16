@@ -22,11 +22,10 @@ const MENU_URL = '/menus';
  * @param {Boolean} edit - Flag that specifies this form is editing an existing menu.
  */
 export default function NewMenuForm({ data = {}, edit = false }) {
-  // Auth
+  // AUTH
   const { auth } = useAuth();
 
   // STATE
-  // TODO check that you are selecting data correctly for edits
 
   // Menu data
   const [menu, setMenu] = useState({ ...data });
@@ -42,8 +41,7 @@ export default function NewMenuForm({ data = {}, edit = false }) {
           en: '',
         }
   );
-  // TODO how to get the categories out of the menu data?
-  // TODO I don't think this will work?
+
   const [categories, setCategories] = useState(edit ? [...data?.menu] : []);
 
   const [showRestaurantForm, setShowRestaurantForm] = useState(true);
@@ -70,9 +68,6 @@ export default function NewMenuForm({ data = {}, edit = false }) {
           };
         }),
     };
-    // Creator name is conditionally attached. Edits should not change creator name.
-    // TODO I dont think its needed
-    if (!edit) menuData.creator = auth.user;
 
     // Confirm submission
     const isSubmitted = window.confirm('Are you sure you are ready to submit this menu?');
@@ -89,8 +84,7 @@ export default function NewMenuForm({ data = {}, edit = false }) {
       if (edit) {
         request = await axios.patch(
           MENU_URL,
-          // TODO Why am I sending this twice?? check the backend middleware and optimize
-          { ...menuData, data: menuData, id: data._id },
+          { ...menuData, id: data._id },
           {
             withCredentials: true,
             headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
