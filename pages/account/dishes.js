@@ -65,10 +65,10 @@ export default function UserDishes() {
   // TODO add edit icon
   return (
     <div>
-      <div>
+      {/* <div>
         <h1>{auth.user}</h1>
         <p>{auth.title}</p>
-      </div>
+      </div> */}
       {/* <button onClick={handleRefresh}>Refresh</button> */}
       <div>
         {dishes ? (
