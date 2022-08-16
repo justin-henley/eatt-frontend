@@ -25,17 +25,10 @@ function GlobalNav() {
 
             {/* Contains the links to all dish-related pages */}
             <NavDropdown title={<span className={styles.navText}>Search</span>}>
-              {/* <Link href="/dishes" passHref>
-                <NavDropdown.Item>All Dishes</NavDropdown.Item>
-              </Link>
-              <Link href="/menus" passHref>
-                <NavDropdown.Item>All Menus</NavDropdown.Item>
-              </Link> 
-              <NavDropdown.Divider /> */}
-              <Link href="/dishes/search" passHref>
+              <Link href="/dishes" passHref>
                 <NavDropdown.Item>Search Dishes</NavDropdown.Item>
               </Link>
-              <Link href="/menus/search" passHref>
+              <Link href="/menus" passHref>
                 <NavDropdown.Item>Search Menus</NavDropdown.Item>
               </Link>
             </NavDropdown>
