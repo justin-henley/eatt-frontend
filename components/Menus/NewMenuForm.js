@@ -241,7 +241,7 @@ export default function NewMenuForm({ data = {}, edit = false }) {
         )}
       </div>
       {/* If editing a menu, form disappears after successful submission */}
-      {edit && !menu.success && (
+      {((edit && !menu.success) || !edit) && (
         <Form className={styles.newMenu} onSubmit={handleSubmit}>
           <MenuNewRestaurant
             showRestaurantForm={showRestaurantForm}
