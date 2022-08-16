@@ -21,13 +21,17 @@ const MENU_URL = '/menus';
  * @param {Object} data -
  * @param {Boolean} edit - Flag that specifies this form is editing an existing menu.
  */
-// TODO Adapt for edit. Move into component so you can call from multiple pages
-export default function NewMenu({ data = {}, edit }) {
+export default function NewMenuForm({ data = {}, edit = false }) {
   // Auth
   const { auth } = useAuth();
-  // DATA
+
+  // STATE
   // TODO check that you are selecting data correctly for edits
-  const [menu, setMenu] = useState(data);
+
+  // Menu data
+  const [menu, setMenu] = useState({ ...data });
+
+  // If data was passed in to edit, populate the restaurant name
   const [restaurant, setRestaurant] = useState(
     // Restaurant placeholder values OR existing values to edit
     edit
@@ -40,7 +44,7 @@ export default function NewMenu({ data = {}, edit }) {
   );
   // TODO how to get the categories out of the menu data?
   // TODO I don't think this will work?
-  const [categories, setCategories] = useState(edit ? [...data.menu] : []);
+  const [categories, setCategories] = useState(edit ? [...data?.menu] : []);
 
   const [showRestaurantForm, setShowRestaurantForm] = useState(true);
 
@@ -48,6 +52,7 @@ export default function NewMenu({ data = {}, edit }) {
   const handleSubmit = async (e) => {
     // TODO input validation. Make sure all fields have values
     e.preventDefault();
+    console.log(data);
 
     // Create the request body using only the necessaary menu data
     const menuData = {
@@ -66,6 +71,7 @@ export default function NewMenu({ data = {}, edit }) {
         }),
     };
     // Creator name is conditionally attached. Edits should not change creator name.
+    // TODO I dont think its needed
     if (!edit) menuData.creator = auth.user;
 
     // Confirm submission
@@ -81,7 +87,8 @@ export default function NewMenu({ data = {}, edit }) {
       if (edit) {
         request = await axios.patch(
           MENU_URL,
-          { ...menuData },
+          // TODO Why am I sending this twice?? check the backend middleware and optimize
+          { ...menuData, data: menuData, id: data._id },
           {
             withCredentials: true,
             headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
@@ -269,4 +276,4 @@ export default function NewMenu({ data = {}, edit }) {
 }
 
 // Requires auth to access
-NewMenu.auth = true;
+NewMenuForm.auth = true;
