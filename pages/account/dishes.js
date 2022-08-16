@@ -1,7 +1,6 @@
 // Libraries
-
 import { useEffect, useState } from 'react';
-import MenuItemTable from '../../components/Menus/MenuItemTable';
+import { Button, Modal } from 'react-bootstrap';
 // Hooks
 import useAuth from '../../hooks/useAuth';
 // Axios
@@ -9,15 +8,19 @@ import axios from '../api/axios';
 const ACCOUNT_URL = '/account';
 
 // Custom components
-
+import MenuItemTable from '../../components/Menus/MenuItemTable';
+import NewDishForm from '../../components/Dish/NewDishForm';
 // CSS
 
+// TODO refresh button
 export default function UserDishes() {
+  // STATE
   const { auth } = useAuth();
   const [dishes, setDishes] = useState(false);
+  const [show, setShow] = useState(false);
+  const [data, setData] = useState({});
 
   // FUNCTIONS
-
   // Fetch all dishes by user
   // Username is passed to backend encoded in JWT token. No need to pass it in the requests.
   // TODO check these work!
@@ -33,7 +36,25 @@ export default function UserDishes() {
   };
 
   // Dish edit button handler
-  const handleEditDish = (e) => {};
+  const handleEditDish = (e) => {
+    const dish = { ...e.target.dataset };
+    console.log(dish);
+    setData(dish);
+    handleShow();
+  };
+
+  // Handlers for displaying and closing the Modal
+  const handleClose = () => {
+    setShow(false);
+    getUserDishes();
+  };
+  const handleShow = () => setShow(true);
+
+  // Handler for resfresh button to refresh dishes
+  const handleRefresh = (e) => {
+    e.preventDefault();
+    getUserDishes();
+  };
 
   // EFFECTS
   // Get dish data once on component load
@@ -45,12 +66,10 @@ export default function UserDishes() {
   return (
     <div>
       <div>
-        <h1>
-          {auth.user}
-
-          {auth.title}
-        </h1>
+        <h1>{auth.user}</h1>
+        <p>{auth.title}</p>
       </div>
+      {/* <button onClick={handleRefresh}>Refresh</button> */}
       <div>
         {dishes ? (
           <MenuItemTable
@@ -62,6 +81,16 @@ export default function UserDishes() {
         ) : (
           <p>You have not created any dishes yet.</p>
         )}
+      </div>
+      <div>
+        <Modal show={show} onHide={handleClose} backdrop="static">
+          <Modal.Header closeButton>
+            <Modal.Title>Edit this dish</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <NewDishForm data={data} edit={true} />
+          </Modal.Body>
+        </Modal>
       </div>
     </div>
   );
