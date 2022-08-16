@@ -10,9 +10,11 @@ const ACCOUNT_URL = '/account';
 // Custom components
 import MenuItemTable from '../../components/Menus/MenuItemTable';
 import NewDishForm from '../../components/Dish/NewDishForm';
-// CSS
+// TODO CSS
 
-// TODO refresh button
+// Icons
+import { MdEdit } from 'react-icons/md';
+
 export default function UserDishes() {
   // STATE
   const { auth } = useAuth();
@@ -21,9 +23,9 @@ export default function UserDishes() {
   const [data, setData] = useState({});
 
   // FUNCTIONS
+
   // Fetch all dishes by user
   // Username is passed to backend encoded in JWT token. No need to pass it in the requests.
-  // TODO check these work!
   const getUserDishes = async () => {
     // Request the data
     const results = await axios.get(`${ACCOUNT_URL}/dishes`, {
@@ -35,7 +37,7 @@ export default function UserDishes() {
     setDishes(results.data);
   };
 
-  // Dish edit button handler
+  // Edit the target dish
   const handleEditDish = (e) => {
     const dish = { ...e.target.dataset };
     console.log(dish);
@@ -43,18 +45,14 @@ export default function UserDishes() {
     handleShow();
   };
 
-  // Handlers for displaying and closing the Modal
+  // Close the modal and refresh dishes
   const handleClose = () => {
     setShow(false);
     getUserDishes();
   };
-  const handleShow = () => setShow(true);
 
-  // Handler for resfresh button to refresh dishes
-  const handleRefresh = (e) => {
-    e.preventDefault();
-    getUserDishes();
-  };
+  // Open the modal
+  const handleShow = () => setShow(true);
 
   // EFFECTS
   // Get dish data once on component load
@@ -69,12 +67,11 @@ export default function UserDishes() {
         <h1>{auth.user}</h1>
         <p>{auth.title}</p>
       </div> */}
-      {/* <button onClick={handleRefresh}>Refresh</button> */}
       <div>
         {dishes ? (
           <MenuItemTable
             items={dishes}
-            buttonText="Edit"
+            buttonText={<MdEdit />}
             buttonHandler={handleEditDish}
             title={`Your ${dishes.length} Dish${dishes.length === 1 ? '' : 'es'}`}
           />
