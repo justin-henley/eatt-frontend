@@ -115,7 +115,7 @@ export default function NewDishForm({ data = { category: 'rice', meat: 'beef' },
         )}
       </div>
       {/* If editing a dish, form disappears after successful submission */}
-      {edit && inputs.zhtw && (
+      {((edit && inputs.zhtw) || !edit) && (
         <Form action="post" onSubmit={handleSubmit} className={styles.form}>
           <h1>{edit ? 'Edit this' : 'Create a new'} dish:</h1>
 
