@@ -48,10 +48,24 @@ export default function NewMenuForm({ data = {}, edit = false }) {
 
   // HANDLERS
   const handleSubmit = async (e) => {
-    // TODO input validation. Make sure all fields have values
     e.preventDefault();
-    console.log(data);
 
+    // TODO Input validation. Make sure all fields have values
+    const valid =
+      restaurant.zhtw &&
+      restaurant.en &&
+      restaurant.pinyin &&
+      categories.every(
+        (category) =>
+          category.zhtw && category.pinyin && category.en && category.categoryId && category.items.length > 0
+      );
+    // Inform user if the menu fails validation
+    if (!valid) {
+      alert(
+        'All restaurant fields are required.\nEvery added category must have a Chinese, Pinyin, and English name.\nEvery category must have at least one dish.'
+      );
+      return;
+    }
     // Create the request body using only the necessaary menu data
     const menuData = {
       restaurant: restaurant,
