@@ -17,7 +17,6 @@ const DISH_URL = '/dishes';
  * @param {Boolean} edit - Flag that specifies this form is editing an existing dish.
  */
 
-// TODO Hardcoding the category and meat types is bad. Find a way to retrieve them.
 export default function NewDishForm({ data = { category: 'rice', meat: 'beef' }, edit = false }) {
   // Auth
   const { auth } = useAuth();
@@ -46,7 +45,6 @@ export default function NewDishForm({ data = { category: 'rice', meat: 'beef' },
   };
 
   const handleSubmit = async (e) => {
-    // TODO input validation
     e.preventDefault();
 
     // Make the request
