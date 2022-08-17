@@ -11,12 +11,10 @@ export default function Account() {
   return (
     <div>
       <div>
-        <h1>
-          {auth.user}
-
-          {auth.title}
-        </h1>
+        <h1>{auth.user}</h1>
+        <h2>{auth.title}</h2>
         <Link href="/account/dishes">My Dishes</Link>
+        <br />
         <Link href="/account/menus">My Menus</Link>
       </div>
     </div>
