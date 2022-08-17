@@ -2,19 +2,24 @@
 import { useState, useEffect } from 'react';
 // Custom components
 import MenuDisplay from '../../components/Menus/MenuDisplay';
+import useAuth from '../../hooks/useAuth';
+import axios from '../api/axios';
 
 export default function AllMenus() {
+  const { auth } = useAuth();
   // Menu data is set in state and updated upon fetching
   const [data, setData] = useState();
-
   const getData = async () => {
-    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus/all`, {
-      method: 'GET',
-    });
+    try {
+      const result = await axios.get(`/menus/all`, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+      });
 
-    const json = await result.json();
-
-    setData(json);
+      setData(result.data);
+    } catch (error) {
+      setData({ message: 'You do not have permission to view this page.' });
+    }
   };
 
   useEffect(() => {
@@ -23,8 +28,14 @@ export default function AllMenus() {
 
   return (
     <div>
-      <h1>All Menus</h1>
-      <MenuDisplay menus={data} />
+      {data?.message ? (
+        <h1>{data.message}</h1>
+      ) : (
+        <>
+          <h1>All Menus</h1>
+          <MenuDisplay menus={data} />
+        </>
+      )}
     </div>
   );
 }
