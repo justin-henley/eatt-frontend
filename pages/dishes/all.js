@@ -10,7 +10,7 @@ export default function AllDishes() {
   const [data, setData] = useState();
 
   const getData = async () => {
-    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes`, {
+    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes/all`, {
       method: 'GET',
     });
 
