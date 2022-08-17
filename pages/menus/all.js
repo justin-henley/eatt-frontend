@@ -28,3 +28,6 @@ export default function AllMenus() {
     </div>
   );
 }
+
+// Requires auth to access
+AllMenus.auth = true;

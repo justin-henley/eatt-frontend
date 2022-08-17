@@ -31,3 +31,6 @@ export default function AllDishes() {
     </div>
   );
 }
+
+// Requires auth to access
+AllDishes.auth = true;
