@@ -20,7 +20,7 @@ export default function UserDishes() {
   const { auth } = useAuth();
 
   // STATE
-  const [dishes, setDishes] = useState(false);
+  const [dishes, setDishes] = useState([]);
   const [show, setShow] = useState(false);
   const [data, setData] = useState({});
 
