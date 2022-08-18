@@ -32,8 +32,8 @@ export default function MyApp({ Component, pageProps }) {
         </Head>
 
         <GlobalNav />
-        {/* TODO why doesn't login state persist? Possibly because secure doesn't work with local dev? Or because the refresh cookie is not being used? */}
-        <main>
+        <main id="main">
+          {/* TODO why doesn't login state persist? Possibly because secure doesn't work with local dev? Or because the refresh cookie is not being used? */}
           {Component.auth ? (
             <RequireAuth>
               <Component {...pageProps} />
