@@ -78,7 +78,7 @@ export default function Home() {
       </figure>
       <section className={styles.text}>
         <article className={styles.intro}>
-          <h1>Wanna try something new?</h1>
+          <h1 className={styles.headline}>Wanna try something new?</h1>
           <p>
             We've all been there. You walk past a shop with a line out the door, and you take a peek at the menu on the
             wall.
@@ -96,7 +96,7 @@ export default function Home() {
         </article>
         <hr />
         <article className={styles.action}>
-          <h1>Already comfortable with Chinese?</h1>
+          <h1 className={styles.headline}>Already comfortable with Chinese?</h1>
           <p>
             Have a look around, find something new, and pass it forward! Contribute a missing dish or new menu, and
             recommend Eatt to a hungry-looking friend.
