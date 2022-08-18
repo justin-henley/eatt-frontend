@@ -47,13 +47,16 @@
   padding: 0 1em 2em 1em;
 }
 .carousel {
-  border: 10px solid var(--text-flash);
+  /* border: 10px solid var(--text-flash); */
 }
 .thought {
   font-size: 1.5em;
 }
 
 @media (min-width: 600px) {
+  .carousel {
+    border: 10px solid var(--text-flash);
+  }
   .block {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -84,10 +87,13 @@
 }
 
 @media (min-width: 800px) {
+  .carousel {
+    margin-top: 1em;
+  }
   .wrapper {
-    max-width: 800px;
+    /* max-width: 800px; */
     margin: auto;
-    padding-top: 1em;
+    /* padding-top: 1em; */
   }
 
   .slogan,
