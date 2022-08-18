@@ -10,13 +10,16 @@ import { FaUserCircle } from 'react-icons/fa';
 
 function GlobalNav() {
   return (
-    <Navbar expand="lg" sticky="top" collapseOnSelect className={styles.navbar}>
+    <Navbar expand="sm" variant="dark" sticky="top" collapseOnSelect className={styles.navbar}>
       <Container>
         <Navbar.Brand className={styles.navLogo}>
           <Link href="/">eatt</Link>
         </Navbar.Brand>
-
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          className={styles.toggle}
+          style={{ border: '1px solid white' }}
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={styles.justifyEnd}>
             <Link href="/" passHref>
