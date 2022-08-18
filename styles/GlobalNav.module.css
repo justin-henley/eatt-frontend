@@ -24,3 +24,9 @@
   width: 100%;
   justify-content: flex-end;
 }
+
+@media (min-width: 600px) {
+  .navbar {
+    border-bottom: 1px solid white;
+  }
+}
