@@ -29,14 +29,18 @@ export default function UserDishes() {
   // Fetch all dishes by user
   // Username is passed to backend encoded in JWT token. No need to pass it in the requests.
   const getUserDishes = async () => {
-    // Request the data
-    const results = await axios.get(`${ACCOUNT_URL}/dishes`, {
-      withCredentials: true,
-      headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
-    });
+    try {
+      // Request the data
+      const results = await axios.get(`${ACCOUNT_URL}/dishes`, {
+        withCredentials: true,
+        headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+      });
 
-    // Store the returned data
-    setDishes(results.data);
+      // Store the returned data
+      setDishes(results.data);
+    } catch (error) {
+      setDishes([]);
+    }
   };
 
   // Edit the target dish

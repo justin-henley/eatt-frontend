@@ -89,8 +89,6 @@ export default function NewMenuForm({ data = {}, edit = false }) {
     // Return early if canceled
     if (!isSubmitted) return;
 
-    console.log(menuData);
-
     // Submit the new menu and await a response
     let request;
     try {

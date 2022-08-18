@@ -41,7 +41,7 @@ export default function UserMenus() {
         })
       );
     } catch (error) {
-      console.log(error);
+      setMenus([]);
     }
   };
 
@@ -49,7 +49,6 @@ export default function UserMenus() {
   const handleEditMenu = async (e) => {
     // Get the restaurant data from the target element
     const menu = { ...e.target.dataset };
-    console.log(menu);
 
     // Request the full menu data from the backend
     const response = await axios.get(`/menus/${menu.dishId}`, { headers: { 'Content-Type': 'application/json' } });

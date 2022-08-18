@@ -64,7 +64,7 @@ const LogInOut = () => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/logout`, {
       method: 'GET',
     });
-    console.log(response.status);
+
     // Clear the access token
     setAuth({});
   };
