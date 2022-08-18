@@ -1,6 +1,6 @@
 // Libraries
 import { useEffect, useState } from 'react';
-import { Modal } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 // Hooks
 import useAuth from '../../hooks/useAuth';
 // Axios
@@ -82,13 +82,16 @@ export default function UserDishes() {
         />
       </div>
       <div>
-        <Modal show={show} onHide={handleClose} backdrop="static">
+        <Modal size="lg" fullscreen="lg-down" show={show} onHide={handleClose} backdrop="static">
           <Modal.Header closeButton>
             <Modal.Title>Edit this dish</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <NewDishForm data={data} edit={true} />
           </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={handleClose}>Cancel</Button>
+          </Modal.Footer>
         </Modal>
       </div>
     </div>

@@ -33,8 +33,7 @@
   font-weight: 600;
 }
 .form select {
-  min-width: 250px;
-  width: 80vw;
+  width: 250px;
 }
 .submit {
   background-color: white;
@@ -52,10 +51,4 @@
 .submit:focus {
   background-color: var(--navbar-color);
   color: white;
-}
-
-@media (min-width: 600px) {
-  .form select {
-    width: 250px;
-  }
 }
