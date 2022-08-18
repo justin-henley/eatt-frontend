@@ -25,16 +25,16 @@
 }
 .row {
   width: 100%;
+  margin: auto;
   justify-content: space-around;
 }
-.column {
-  padding: 0;
-}
+
 .form label:focus-within {
   font-weight: 600;
 }
 .form select {
-  width: 250px;
+  min-width: 250px;
+  width: 80vw;
 }
 .submit {
   background-color: white;
@@ -54,9 +54,8 @@
   color: white;
 }
 
-@media (max-width: 600px) {
-  .form label {
-    flex-direction: column;
-    align-items: flex-start;
+@media (min-width: 600px) {
+  .form select {
+    width: 250px;
   }
 }
