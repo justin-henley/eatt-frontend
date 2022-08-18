@@ -90,13 +90,16 @@ export default function UserMenus() {
         </div>
       </div>
       <div>
-        <Modal show={show} onHide={handleClose} backdrop="static">
+        <Modal size="lg" fullscreen="lg-down" show={show} onHide={handleClose} backdrop="static">
           <Modal.Header closeButton>
             <Modal.Title>Edit this menu</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <NewMenuForm data={data} edit={true} />
           </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={handleClose}>Cancel</Button>
+          </Modal.Footer>
         </Modal>
       </div>
     </div>
