@@ -45,15 +45,18 @@ export default function SearchMenus() {
       setSearchResults([]);
       return;
     }
+    try {
+      // Search by search type and text
+      const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus?${query.type}=${trimmedTerm}`, {
+        method: 'GET',
+      });
 
-    // Search by search type and text
-    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus?${query.type}=${trimmedTerm}`, {
-      method: 'GET',
-    });
+      const json = await result.json();
 
-    const json = await result.json();
-
-    setSearchResults(json);
+      setSearchResults(json);
+    } catch (error) {
+      setSearchResults([{ restaurant: { zhtw: 'Error', pinyin: 'Search could not be completed.' } }]);
+    }
   }, 300);
 
   return (

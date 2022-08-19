@@ -46,14 +46,17 @@ export default function DishSearch() {
       setSearchResults([]);
       return;
     }
+    try {
+      // Search by search type and text
+      const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes?${query.type}=${trimmedTerm}`, {
+        method: 'GET',
+      });
 
-    // Search by search type and text
-    const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes?${query.type}=${trimmedTerm}`, {
-      method: 'GET',
-    });
-
-    const json = await result.json();
-    setSearchResults(json);
+      const json = await result.json();
+      setSearchResults(json);
+    } catch (error) {
+      setSearchResults([{ zhtw: 'Error', en: 'Search could not be completed.', meat: 'unknown' }]);
+    }
   }, 300);
 
   return (
