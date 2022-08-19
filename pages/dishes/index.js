@@ -62,10 +62,11 @@ export default function DishSearch() {
     }
   }, 300);
 
+  // TODO add error ref to point screen readers to the error message
   return (
     <div>
       {!!error.heading && (
-        <Alert variant="danger" style={{ marginTop: '2em' }}>
+        <Alert variant="danger" className={styles.error}>
           <Alert.Heading>{error.heading}</Alert.Heading>
           <p>{error.body}</p>
         </Alert>
