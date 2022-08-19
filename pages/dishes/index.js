@@ -1,6 +1,6 @@
 // Libraries
 import { useState, useEffect } from 'react';
-import Form from 'react-bootstrap/Form';
+import { Form, Alert } from 'react-bootstrap';
 import debounce from 'lodash.debounce';
 // Custom Components
 import DishDisplay from '../../components/Dish/DishDisplay';
@@ -15,6 +15,7 @@ export default function DishSearch() {
   // Search text, type, and results saved in state with initial values
   const [query, setQuery] = useState({ text: '', type: 'en' });
   const [searchResults, setSearchResults] = useState([]);
+  const [error, setError] = useState({});
 
   // Handles changes to the search field
   const handleInput = (event) => {
@@ -54,13 +55,22 @@ export default function DishSearch() {
 
       const json = await result.json();
       setSearchResults(json);
+      setError({});
     } catch (error) {
-      setSearchResults([{ zhtw: 'Error', en: 'Search could not be completed.', meat: 'unknown' }]);
+      console.log('whoops');
+      setError({ heading: 'Error', body: 'Search could not be completed.', meat: 'unknown' });
     }
   }, 300);
 
   return (
     <div>
+      {!!error.heading && (
+        <Alert variant="danger" style={{ marginTop: '2em' }}>
+          <Alert.Heading>{error.heading}</Alert.Heading>
+          <p>{error.body}</p>
+        </Alert>
+      )}
+
       <h1 className={styles.title}>Search Dishes</h1>
       <Form onSubmit={(e) => e.preventDefault()}>
         <DishSearchFormGroup

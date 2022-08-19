@@ -1,6 +1,6 @@
 // Libraries
 import { useState, useEffect } from 'react';
-import Form from 'react-bootstrap/Form';
+import { Form, Alert } from 'react-bootstrap';
 import debounce from 'lodash.debounce';
 // Custom Components
 import MenuDisplay from '../../components/Menus/MenuDisplay';
@@ -10,10 +10,9 @@ import styles from '../../styles/SearchMenus.module.css';
 
 export default function SearchMenus() {
   // Search text, type, and results saved in state with initial values
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchType, setSearchType] = useState('en');
   const [query, setQuery] = useState({ text: '', type: 'en' });
   const [searchResults, setSearchResults] = useState([]);
+  const [error, setError] = useState({});
 
   // Handles changes to the search field
   const handleInput = async (event) => {
@@ -54,13 +53,20 @@ export default function SearchMenus() {
       const json = await result.json();
 
       setSearchResults(json);
+      setError({});
     } catch (error) {
-      setSearchResults([{ restaurant: { zhtw: 'Error', pinyin: 'Search could not be completed.' } }]);
+      setError({ heading: 'Error', body: 'Search could not be completed.' });
     }
   }, 300);
 
   return (
     <div>
+      {!!error.heading && (
+        <Alert variant="danger" style={{ marginTop: '2em' }}>
+          <Alert.Heading>{error.heading}</Alert.Heading>
+          <p>{error.body}</p>
+        </Alert>
+      )}
       <h1 className={styles.title}>Search Menus</h1>
       <Form onSubmit={(e) => e.preventDefault()}>
         <DishSearchFormGroup
