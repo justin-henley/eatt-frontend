@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useRef, useEffect } from 'react';
 // Custom Components
 
 // CSS
@@ -28,6 +29,7 @@ function DishSearchForm({ searchTerm, searchType, handleInput, handleChange }) {
             value={searchTerm}
             onInput={handleInput}
             className={styles.searchText}
+            autoFocus
           />
         </Col>
       </Row>
