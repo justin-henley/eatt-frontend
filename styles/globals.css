@@ -57,7 +57,7 @@ nav {
 main {
   min-height: calc(100vh - 140px);
   padding: 0;
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
 }
 
