@@ -58,7 +58,7 @@ export default function DishSearch() {
       setError({});
     } catch (error) {
       console.log('whoops');
-      setError({ heading: 'Error', body: 'Search could not be completed.', meat: 'unknown' });
+      setError({ heading: 'Error', body: 'Search could not be completed.' });
     }
   }, 300);
 
