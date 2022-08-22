@@ -86,7 +86,9 @@ export default function NewMenuForm({ data = {}, edit = false }) {
             categoryId: category.categoryId,
             // Each item is a dishId in the items array of the category
             // TODO The object ids don't show up in the changelogs
-            items: category.items.map((item) => item.id),
+            items: category.items.map((item) => {
+              return item.id || item._id;
+            }),
           };
         }),
     };
@@ -190,7 +192,7 @@ export default function NewMenuForm({ data = {}, edit = false }) {
     // Index of relevant category
     const index = categories.findIndex((category) => category.categoryId === vals.categoryId);
     // Existance of this item in that category
-    const isAdded = categories[index]?.items?.find((item) => item.id === vals.dishId);
+    const isAdded = categories[index]?.items?.find((item) => item._id === vals.dishId);
 
     // Add the item if it does not already exist in that category (no duplicates)
     if (!isAdded) {
@@ -203,7 +205,7 @@ export default function NewMenuForm({ data = {}, edit = false }) {
                 items: [
                   ...category.items,
                   {
-                    id: vals.dishId,
+                    _id: vals.dishId,
                     zhtw: vals.zhtw,
                     pinyin: vals.pinyin,
                     en: vals.en,
@@ -228,7 +230,7 @@ export default function NewMenuForm({ data = {}, edit = false }) {
 
     setCategories(
       categories.map((category, i) =>
-        i !== index ? category : { ...category, items: category.items.filter((item) => item.id !== dishId) }
+        i !== index ? category : { ...category, items: category.items.filter((item) => item._id !== dishId) }
       )
     );
   };
