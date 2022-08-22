@@ -54,7 +54,7 @@ export default function NewDishForm({ data = { category: 'rice', meat: 'beef' },
         // Patch request requires data and id to generate changelog
         response = await axios.patch(
           DISH_URL,
-          { ...inputs, data: inputs, id: inputs.dishId },
+          { ...inputs, previousState: data, id: inputs.dishId },
           {
             withCredentials: true,
             headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
