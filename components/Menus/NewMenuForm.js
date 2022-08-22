@@ -85,7 +85,6 @@ export default function NewMenuForm({ data = {}, edit = false }) {
             en: category.en,
             categoryId: category.categoryId,
             // Each item is a dishId in the items array of the category
-            // TODO The object ids don't show up in the changelogs
             items: category.items.map((item) => {
               return item.id || item._id;
             }),
