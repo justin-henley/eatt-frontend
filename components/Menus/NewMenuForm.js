@@ -66,6 +66,13 @@ export default function NewMenuForm({ data = {}, edit = false }) {
       );
       return;
     }
+
+    // Confirm submission
+    const isSubmitted = window.confirm('Are you sure you are ready to submit this menu?');
+
+    // Return early if canceled
+    if (!isSubmitted) return;
+
     // Create the request body using only the necessaary menu data
     const menuData = {
       restaurant: restaurant,
@@ -78,16 +85,11 @@ export default function NewMenuForm({ data = {}, edit = false }) {
             en: category.en,
             categoryId: category.categoryId,
             // Each item is a dishId in the items array of the category
+            // TODO The object ids don't show up in the changelogs
             items: category.items.map((item) => item.id),
           };
         }),
     };
-
-    // Confirm submission
-    const isSubmitted = window.confirm('Are you sure you are ready to submit this menu?');
-
-    // Return early if canceled
-    if (!isSubmitted) return;
 
     // Submit the new menu and await a response
     let request;
