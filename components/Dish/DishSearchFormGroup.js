@@ -9,6 +9,7 @@ import styles from '../../styles/DishSearchFormGroup.module.css';
 /**
  * Displays the form for searching for dishes OR menus
  * Must be wrapped in a react-bootstrap Form component in the parent
+ * @requires react-bootstrap
  * @param {String} searchTerm - The search text entered by the user
  * @param {String} searchType - The language the user is searching in, i.e. English
  * @param {Function} handleInput - Handles changes to the searchTerm

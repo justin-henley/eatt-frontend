@@ -13,10 +13,10 @@ const DISH_URL = '/dishes';
 
 /**
  * NewDishForm handles the form for creating or editing dishes and submitting the data to the backend.
+ * @requires DishTile
  * @param {Object} data - The data of an existing dish, or the default empty dish
  * @param {Boolean} edit - Flag that specifies this form is editing an existing dish.
  */
-
 export default function NewDishForm({ data = { category: 'rice', meat: 'beef' }, edit = false }) {
   // Auth
   const { auth } = useAuth();
