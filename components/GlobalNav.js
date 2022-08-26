@@ -8,6 +8,9 @@ import styles from '../styles/GlobalNav.module.css';
 // Icons
 import { FaUserCircle } from 'react-icons/fa';
 
+/**
+ * Navbar for the entire website
+ */
 export default function GlobalNav() {
   return (
     <Navbar expand="sm" variant="dark" sticky="top" collapseOnSelect className={styles.navbar}>

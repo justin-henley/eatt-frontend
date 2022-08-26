@@ -1,6 +1,9 @@
 // CSS
 import styles from '../styles/GlobalFooter.module.css';
 
+/**
+ * The footer for the entire website
+ */
 export default function GlobalFooter() {
   return (
     <footer className={styles.foot}>
