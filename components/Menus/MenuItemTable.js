@@ -1,8 +1,13 @@
-// Libraries
-// import Placeholder from 'react-bootstrap/Placeholder';
 // CSS
 import styles from '../../styles/MenuItemTable.module.css';
 
+/**
+ * Displays a simple table listing of the items passed in, and allows a single action on that item
+ * @param {[Object]} items - The array list of items to be displayed
+ * @param {Number} categoryId - The id of the parent category, if this is part of a new menu form
+ * @param {String} buttonText - The text of the action button displayed with each item
+ * @param {String} title - The title to display in the table
+ */
 export default function MenuItemTable({ items, categoryId = 1, buttonText = '?', buttonHandler, title }) {
   return (
     <table className={styles.table}>

@@ -6,6 +6,15 @@ import MenuItemTable from './MenuItemTable';
 // CSS
 // import styles from './MenuItemSearch.module.css';
 
+/**
+ * Form that allows searching for items to add or remove from a menu category
+ * @requires DishSearchFormGroup
+ * @requires MenuItemTable
+ * @param {[Object]} items - An array of dish objects already added to the parent category
+ * @param {Function} handleAddItem - Handler for adding an item to the parent category
+ * @param {Function} handleRemoveItem - Handler for removing an item from the parent category
+ * @param {Number} categoryId - The id of the parent category
+ */
 export default function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) {
   // Search text, type, and results saved in state with initial values
   const [searchTerm, setSearchTerm] = useState('');

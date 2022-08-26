@@ -16,9 +16,15 @@ import styles from '../../styles/NewMenuForm.module.css';
 // Constants
 const MENU_URL = '/menus';
 
-/** NewMenuForm handles the form for creating and editing menus and submits the data to the backend.
- *
- * @param {Object} data -
+/**
+ * Parent form that handles creating and editing menus and submits the data to the backend.
+ * @requires react-bootstrap
+ * @requires nanoid
+ * @requires MenuNewCategory
+ * @requires MenuNewRestaurant
+ * @requires axios
+ * @requires useAuth
+ * @param {Object} data - If present, the stored data of a menu to be edited
  * @param {Boolean} edit - Flag that specifies this form is editing an existing menu.
  */
 export default function NewMenuForm({ data = {}, edit = false }) {

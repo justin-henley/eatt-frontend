@@ -1,6 +1,12 @@
 // Libraries
 import { FloatingLabel, Form, FormControl, FormGroup } from 'react-bootstrap';
 
+/**
+ * Form section for modifying the restaurant names for a parent menu
+ * @requires react-bootstrap
+ * @param {Object} restaurant - Object containing the restaurant name values of the parent menu
+ * @param {Function} handleChange - Handler for changes to any of the restaurant's name values
+ */
 export default function MenuNewRestaurantForm({ restaurant, handleChange }) {
   // TODO test with screen reader and add aria labels where needed
   return (

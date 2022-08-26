@@ -1,6 +1,10 @@
 // CSS
 import styles from '../../styles/MenuName.module.css';
 
+/**
+ * Displays the names of the given menu
+ * @param {Object} restaurant - The names of the given menu
+ */
 export default function MenuName({ restaurant }) {
   return (
     <div className={styles.tile}>
