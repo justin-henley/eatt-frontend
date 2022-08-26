@@ -50,7 +50,7 @@ export default function NewMenuForm({ data = {}, edit = false }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // TODO Input validation. Make sure all fields have values
+    // Input validation. Make sure all fields have values, and all categories have at least one item.
     const valid =
       restaurant.zhtw &&
       restaurant.en &&

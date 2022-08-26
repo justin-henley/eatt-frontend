@@ -4,7 +4,7 @@ import { useState } from 'react';
 import MenuCategory from './MenuCategory';
 import MenuCategoryForm from './MenuCategoryForm';
 
-// TODO Required fields are only checked if form is showing. Add error checking to the 'save' button
+// Required fields are only checked if form is showing. Extra error handling is in the submit function for the full form
 // https://stackoverflow.com/questions/41296668/how-do-i-add-validation-to-the-form-in-my-react-component
 
 function MenuNewCategory({ index, category, handleChange, handleAddItem, handleRemoveItem, handleRemoveCategory }) {
