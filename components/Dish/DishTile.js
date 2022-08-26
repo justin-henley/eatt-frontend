@@ -1,6 +1,5 @@
 // CSS
 import styles from '../../styles/DishTile.module.css';
-
 // Icons
 import { SiHappycow } from 'react-icons/si';
 import {
@@ -15,6 +14,11 @@ import {
 } from 'react-icons/gi';
 import { FaFish, FaBreadSlice, FaQuestionCircle } from 'react-icons/fa';
 
+/**
+ * Displays a single dish in a formatted tile view
+ * @requires react-icons
+ * @param {Object} item - The data of the dish to be displayed
+ */
 const DishTile = ({ item }) => {
   // Select the meat and category icons for this dish
   const meatIcon = icons.meat[item.meat];

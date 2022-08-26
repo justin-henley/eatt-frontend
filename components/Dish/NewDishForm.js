@@ -11,8 +11,8 @@ import styles from '../../styles/NewDishForm.module.css';
 // Constants
 const DISH_URL = '/dishes';
 
-/**  NewDishForm handles the form for creating or editing dishes and submitting the data to the backend.
- *
+/**
+ * NewDishForm handles the form for creating or editing dishes and submitting the data to the backend.
  * @param {Object} data - The data of an existing dish, or the default empty dish
  * @param {Boolean} edit - Flag that specifies this form is editing an existing dish.
  */

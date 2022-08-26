@@ -3,13 +3,18 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useRef, useEffect } from 'react';
-// Custom Components
-
 // CSS
 import styles from '../../styles/DishSearchFormGroup.module.css';
 
-// Must be wrapped in a react-bootstrap Form component in the parent
+/**
+ * Displays the form for searching for dishes OR menus
+ * Must be wrapped in a react-bootstrap Form component in the parent
+ * @param {String} searchTerm - The search text entered by the user
+ * @param {String} searchType - The language the user is searching in, i.e. English
+ * @param {Function} handleInput - Handles changes to the searchTerm
+ * @param {Function} handleChange - Handles changes to the searchType
+ */
+//
 function DishSearchForm({ searchTerm, searchType, handleInput, handleChange }) {
   return (
     <Form.Group className="" controlId="formSearch">
