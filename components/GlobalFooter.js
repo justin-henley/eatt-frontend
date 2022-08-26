@@ -1,7 +1,7 @@
 // CSS
 import styles from '../styles/GlobalFooter.module.css';
 
-function GlobalFooter() {
+export default function GlobalFooter() {
   return (
     <footer className={styles.foot}>
       <div className={styles.credits}>
@@ -27,5 +27,3 @@ function GlobalFooter() {
     </footer>
   );
 }
-
-export default GlobalFooter;

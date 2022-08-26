@@ -3,7 +3,12 @@ import DishDisplay from '../Dish/DishDisplay';
 // CSS
 import styles from '../../styles/MenuCategory.module.css';
 
-function MenuCategory({ category }) {
+/**
+ * Displays a single category from a menu, with all of its dishes
+ * @requires DishDisplay
+ * @param {Object} category - The category to be displayed
+ */
+export default function MenuCategory({ category }) {
   return (
     <div className={styles.category}>
       <div className={styles.categoryName}>
@@ -15,5 +20,3 @@ function MenuCategory({ category }) {
     </div>
   );
 }
-
-export default MenuCategory;

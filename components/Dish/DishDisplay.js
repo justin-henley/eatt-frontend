@@ -8,7 +8,7 @@ import styles from '../../styles/DishDisplay.module.css';
  * @requires DishTile
  * @param { [Object] } dishes - An array of dishes to display
  */
-const DishDisplay = ({ dishes }) => {
+export default function DishDisplay({ dishes }) {
   // Map iterates over all dishes and creates a tile for each
   return (
     <div className={styles.display}>
@@ -17,6 +17,4 @@ const DishDisplay = ({ dishes }) => {
       ))}
     </div>
   );
-};
-
-export default DishDisplay;
+}

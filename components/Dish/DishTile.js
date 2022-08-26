@@ -19,7 +19,7 @@ import { FaFish, FaBreadSlice, FaQuestionCircle } from 'react-icons/fa';
  * @requires react-icons
  * @param {Object} item - The data of the dish to be displayed
  */
-const DishTile = ({ item }) => {
+export default function DishTile({ item }) {
   // Select the meat and category icons for this dish
   const meatIcon = icons.meat[item.meat];
   const categoryIcon = icons.category[item.category];
@@ -39,7 +39,7 @@ const DishTile = ({ item }) => {
       </div>
     </div>
   );
-};
+}
 
 // Lists of meat and category icons
 const icons = {
@@ -64,5 +64,3 @@ const icons = {
     unknown: <FaQuestionCircle />,
   },
 };
-
-export default DishTile;

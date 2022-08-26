@@ -15,7 +15,7 @@ import styles from '../../styles/DishSearchFormGroup.module.css';
  * @param {Function} handleChange - Handles changes to the searchType
  */
 //
-function DishSearchForm({ searchTerm, searchType, handleInput, handleChange }) {
+export default function DishSearchForm({ searchTerm, searchType, handleInput, handleChange }) {
   return (
     <Form.Group className="" controlId="formSearch">
       <Row className={styles.row1}>
@@ -41,5 +41,3 @@ function DishSearchForm({ searchTerm, searchType, handleInput, handleChange }) {
     </Form.Group>
   );
 }
-
-export default DishSearchForm;

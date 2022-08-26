@@ -6,7 +6,7 @@ import MenuItemTable from './MenuItemTable';
 // CSS
 // import styles from './MenuItemSearch.module.css';
 
-function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) {
+export default function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) {
   // Search text, type, and results saved in state with initial values
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('en');
@@ -70,5 +70,3 @@ function MenuItemSearch({ items, handleAddItem, handleRemoveItem, categoryId }) 
     </div>
   );
 }
-
-export default MenuItemSearch;

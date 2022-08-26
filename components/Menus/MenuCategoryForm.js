@@ -3,7 +3,17 @@ import { FloatingLabel, FormControl, FormGroup, FormLabel } from 'react-bootstra
 // Custom Components
 import MenuItemSearch from './MenuItemSearch';
 
-function MenuCategoryForm({ index, category, handleChange, handleAddItem, handleRemoveItem }) {
+/**
+ * The form for creating a new menu category
+ * @requires react-bootstrap
+ * @requires MenuItemSearch
+ * @param {Number} index - The index of the category in the menu's array of categories
+ * @param {Object} category - The category managed by the form. If this has a value, the form is populated with the existing data
+ * @param {Function} handleChange - Handler for changes to the category name properties
+ * @param {Function} handleAddItem - Handler for adding items to the category
+ * @param {Function} handleRemoveItem - Handler for removing an item from the category
+ */
+export default function MenuCategoryForm({ index, category, handleChange, handleAddItem, handleRemoveItem }) {
   // TODO test with screen reader and add aria labels where needed
   return (
     <FormGroup
@@ -45,5 +55,3 @@ function MenuCategoryForm({ index, category, handleChange, handleAddItem, handle
     </FormGroup>
   );
 }
-
-export default MenuCategoryForm;

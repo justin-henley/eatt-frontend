@@ -1,7 +1,7 @@
 // CSS
 import styles from '../../styles/MenuName.module.css';
 
-const MenuName = ({ restaurant }) => {
+export default function MenuName({ restaurant }) {
   return (
     <div className={styles.tile}>
       <h2 className={styles.restaurantZHTW}>{restaurant?.zhtw}</h2>
@@ -9,5 +9,4 @@ const MenuName = ({ restaurant }) => {
       <h3 className={styles.restaurantEN}>{restaurant?.en}</h3>
     </div>
   );
-};
-export default MenuName;
+}

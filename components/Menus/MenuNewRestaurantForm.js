@@ -1,7 +1,7 @@
 // Libraries
 import { FloatingLabel, Form, FormControl, FormGroup } from 'react-bootstrap';
 
-function MenuNewRestaurantForm({ restaurant, handleChange }) {
+export default function MenuNewRestaurantForm({ restaurant, handleChange }) {
   // TODO test with screen reader and add aria labels where needed
   return (
     <FormGroup
@@ -45,5 +45,3 @@ function MenuNewRestaurantForm({ restaurant, handleChange }) {
     </FormGroup>
   );
 }
-
-export default MenuNewRestaurantForm;

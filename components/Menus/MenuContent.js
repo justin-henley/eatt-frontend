@@ -3,7 +3,7 @@ import MenuCategory from './MenuCategory';
 // CSS
 import styles from '../../styles/MenuContent.module.css';
 
-function MenuContent({ menu }) {
+export default function MenuContent({ menu }) {
   return (
     <div>
       <h1 className={styles.menu}>Menu</h1>
@@ -13,5 +13,3 @@ function MenuContent({ menu }) {
     </div>
   );
 }
-
-export default MenuContent;

@@ -5,7 +5,7 @@ import MenuName from './MenuName';
 // CSS
 import styles from '../../styles/MenuDisplay.module.css';
 
-const MenuDisplay = ({ menus }) => {
+export default function MenuDisplay({ menus }) {
   return (
     <div>
       {menus?.map((menu) => (
@@ -17,6 +17,4 @@ const MenuDisplay = ({ menus }) => {
       ))}
     </div>
   );
-};
-
-export default MenuDisplay;
+}

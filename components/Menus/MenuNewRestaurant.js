@@ -2,7 +2,7 @@
 import MenuNewRestaurantForm from './MenuNewRestaurantForm';
 import MenuName from './MenuName';
 
-function MenuNewRestaurant({ showRestaurantForm, setShowRestaurantForm, restaurant, handleChange }) {
+export default function MenuNewRestaurant({ showRestaurantForm, setShowRestaurantForm, restaurant, handleChange }) {
   const handleClick = (e) => {
     e.preventDefault();
     setShowRestaurantForm(!showRestaurantForm);
@@ -22,5 +22,3 @@ function MenuNewRestaurant({ showRestaurantForm, setShowRestaurantForm, restaura
     </div>
   );
 }
-
-export default MenuNewRestaurant;

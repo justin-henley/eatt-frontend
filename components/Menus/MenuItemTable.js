@@ -3,7 +3,7 @@
 // CSS
 import styles from '../../styles/MenuItemTable.module.css';
 
-function MenuItemTable({ items, categoryId = 1, buttonText = '?', buttonHandler, title }) {
+export default function MenuItemTable({ items, categoryId = 1, buttonText = '?', buttonHandler, title }) {
   return (
     <table className={styles.table}>
       {/* Only displays the table headers if it is the added section OR there are search results to display */}
@@ -59,5 +59,3 @@ function MenuItemTable({ items, categoryId = 1, buttonText = '?', buttonHandler,
     </table>
   );
 }
-
-export default MenuItemTable;

@@ -7,7 +7,14 @@ import MenuCategoryForm from './MenuCategoryForm';
 // Required fields are only checked if form is showing. Extra error handling is in the submit function for the full form
 // https://stackoverflow.com/questions/41296668/how-do-i-add-validation-to-the-form-in-my-react-component
 
-function MenuNewCategory({ index, category, handleChange, handleAddItem, handleRemoveItem, handleRemoveCategory }) {
+export default function MenuNewCategory({
+  index,
+  category,
+  handleChange,
+  handleAddItem,
+  handleRemoveItem,
+  handleRemoveCategory,
+}) {
   const [showForm, setShowForm] = useState(true);
 
   const handleClick = (e) => {
@@ -37,5 +44,3 @@ function MenuNewCategory({ index, category, handleChange, handleAddItem, handleR
     </div>
   );
 }
-
-export default MenuNewCategory;

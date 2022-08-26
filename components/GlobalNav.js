@@ -8,7 +8,7 @@ import styles from '../styles/GlobalNav.module.css';
 // Icons
 import { FaUserCircle } from 'react-icons/fa';
 
-function GlobalNav() {
+export default function GlobalNav() {
   return (
     <Navbar expand="sm" variant="dark" sticky="top" collapseOnSelect className={styles.navbar}>
       <Container>
@@ -54,8 +54,6 @@ function GlobalNav() {
     </Navbar>
   );
 }
-
-export default GlobalNav;
 
 const LogInOut = () => {
   // Auth context
