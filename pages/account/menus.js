@@ -13,7 +13,7 @@ import NewMenuForm from '../../components/Menus/NewMenuForm';
 // TODO CSS
 
 // Icons
-import { MdEdit } from 'react-icons/md';
+import { VscEdit } from 'react-icons/vsc';
 
 export default function UserMenus() {
   // AUTH
@@ -82,7 +82,7 @@ export default function UserMenus() {
           <MenuItemTable
             items={menus}
             buttonHandler={handleEditMenu}
-            buttonText="Edit"
+            buttonText={<VscEdit />}
             title={`${auth.user[0].toUpperCase() + auth.user.slice(1)}, you have created ${menus.length} menu${
               menus.length === 1 ? '' : 's'
             }.`}
