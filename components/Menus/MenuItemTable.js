@@ -14,10 +14,12 @@ export default function MenuItemTable({ items, categoryId = 1, buttonText = '?',
       {/* Only displays the table headers if it is the added section OR there are search results to display */}
       <thead className={styles.tHead}>
         <tr>
-          <th colSpan="4">{title}</th>
+          <th colSpan="4" className={styles.title}>
+            {title}
+          </th>
         </tr>
         {(items.length !== 0 || title === 'Added Dishes') && (
-          <tr>
+          <tr className={styles.colNames}>
             <th>Mandarin</th>
             <th>Pinyin</th>
             <th>English</th>
