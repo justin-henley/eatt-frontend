@@ -34,7 +34,7 @@ export default function UserDishes() {
       // Request the data
       const results = await axios.get(`${ACCOUNT_URL}/dishes`, {
         withCredentials: true,
-        headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+        headers: { Accept: 'application/json', authorization: `Bearer ${auth.accessToken}` },
       });
 
       // Store the returned data

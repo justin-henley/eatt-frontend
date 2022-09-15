@@ -48,6 +48,9 @@ export default function SearchMenus() {
       // Search by search type and text
       const result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus?${query.type}=${trimmedTerm}`, {
         method: 'GET',
+        headers: {
+          Accept: 'application/json',
+        },
       });
 
       const json = await result.json();

@@ -24,6 +24,9 @@ export default function Menu() {
       if (menuId) {
         result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus/${menuId}`, {
           method: 'GET',
+          headers: {
+            Accept: 'application/json',
+          },
         });
 
         const json = await result.json();
