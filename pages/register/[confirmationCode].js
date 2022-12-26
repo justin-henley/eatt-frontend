@@ -23,6 +23,9 @@ export default function ConfirmUserEmail() {
       if (confirmationCode !== undefined) {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register/${confirmationCode}`, {
           method: 'GET',
+          headers: {
+            Accept: 'application/json',
+          },
         });
 
         const json = await response.json();

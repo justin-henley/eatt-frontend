@@ -13,7 +13,8 @@ import NewDishForm from '../../components/Dish/NewDishForm';
 // TODO CSS
 
 // Icons
-import { MdEdit } from 'react-icons/md';
+/* import { MdEdit } from 'react-icons/md'; */
+import { VscEdit } from 'react-icons/vsc';
 
 export default function UserDishes() {
   // AUTH
@@ -33,7 +34,7 @@ export default function UserDishes() {
       // Request the data
       const results = await axios.get(`${ACCOUNT_URL}/dishes`, {
         withCredentials: true,
-        headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+        headers: { Accept: 'application/json', authorization: `Bearer ${auth.accessToken}` },
       });
 
       // Store the returned data
@@ -74,7 +75,8 @@ export default function UserDishes() {
       <div>
         <MenuItemTable
           items={dishes}
-          buttonText={'Edit'}
+          /* buttonText={<MdEdit />} */
+          buttonText={<VscEdit />}
           buttonHandler={handleEditDish}
           title={`${auth.user[0].toUpperCase() + auth.user.slice(1)}, you have created ${dishes.length} dish${
             dishes.length === 1 ? '' : 'es'

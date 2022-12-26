@@ -22,6 +22,9 @@ export default function Dish() {
       if (dishId) {
         result = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/dishes/${dishId}`, {
           method: 'GET',
+          headers: {
+            Accept: 'application/json',
+          },
         });
 
         const json = await result.json();

@@ -16,7 +16,7 @@ export default function AllDishes() {
     try {
       const result = await axios.get(`/dishes/all`, {
         withCredentials: true,
-        headers: { 'Content-Type': 'application/json', authorization: `Bearer ${auth.accessToken}` },
+        headers: { Accept: 'application/json', authorization: `Bearer ${auth.accessToken}` },
       });
 
       setData(result.data);
