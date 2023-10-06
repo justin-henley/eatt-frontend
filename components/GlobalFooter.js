@@ -22,7 +22,7 @@ export default function GlobalFooter() {
         </p>
       </div>
       <span className={styles.copyright}>
-        Eatt &copy;2022{' '}
+        Eatt &copy;2023{' '}
         <a target="_blank" href="https://www.justin-henley.com">
           Justin Henley
         </a>
